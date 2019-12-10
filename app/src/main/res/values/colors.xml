@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#06B700</color>
+    <color name="colorPrimaryDark">#06B700</color>
+    <color name="colorAccent">#06B700</color>
+
+    <color name="color_white">#FFFFFF</color>
+    <color name="color_black">#000000</color>
+    <color name="transparent">#00000000</color>
+
+    <color name="main_color">#09AC10</color>
+    <color name="color_ash">#D9D8DA</color>
+    <color name="color_orange">#F64630</color>
+
+    <color name="border_color">#AA333639</color>
+    <color name="color_yellow">#FF9800</color>
+
+    <color name="gradient_start">#009688</color>
+    <color name="gradient_middle">#4CAF50</color>
+    <color name="gradient_end">#8BC34A</color>
+
+    <color name="color_notify">#FF2C76</color>
+    <color name="color_effect">#E6F3DAD3</color>
+
+</resources>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_white"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:weightSum="10">
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:layout_weight="2"
+        android:padding="7dp"
+        android:src="@drawable/user"
+        android:tint="@color/color_ash" />
+
+    <LinearLayout
+        android:paddingLeft="5dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="8"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txt_comment_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textColor="#353333"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/txt_comment_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            android:textColor="#353333"
+            android:textSize="14sp" />
+
+        <RatingBar
+            android:id="@+id/rating_bar"
+            style="?attr/ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5" />
+
+
+
+        <TextView
+            android:id="@+id/txt_comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="this is a comment for this product"
+            android:textStyle="italic"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>

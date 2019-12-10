@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="#ECEBEB"
+    android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_cart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/group_Place_holder"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/txt_empty_cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:textColor="@color/color_white"
+        android:fontFamily="sans-serif-medium"
+        android:text="Your cart is empty"
+        android:textSize="1dp" />
+
+    <ImageView
+        android:id="@+id/empty_img_cart"
+        android:src="@drawable/empty_cart"
+        android:layout_margin="50dp"
+        android:layout_width="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content"/>
+
+    <androidx.cardview.widget.CardView
+        android:background="#DCF5E9E9"
+        android:id="@+id/group_Place_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif-thin"
+                android:textStyle="bold"
+                android:text="Total amount"/>
+
+            <TextView
+                android:id="@+id/txt_total_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="8dp"
+                android:textColor="@color/color_black"
+                android:fontFamily="sans-serif-thin"
+                android:text="Rs 100"
+                android:textStyle="bold"
+                android:textSize="24sp" />
+
+            <Button
+                android:background="@drawable/button_design3"
+                android:id="@+id/btn_place_order"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="8dp"
+                android:fontFamily="sans-serif"
+                android:layout_marginRight="8dp"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="normal"
+                android:text="Confirm Order" />
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

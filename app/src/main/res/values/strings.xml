@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">My Keells</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">UserName</string>
+    <string name="nav_header_subtitle">thimiratc@gmail.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_category">Store</string>
+    <string name="menu_food_detail">Food Details</string>
+    <string name="menu_cart">My Cart</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_food_list">Food List</string>
+    <string name="grocery_categories">Product Category</string>
+    <string name="categories1">Hot Categories</string>
+    <string name="best_deals">Most Viewed</string>
+    <string name="homenav">Home</string>
+    <string name="cartnav">Cart</string>
+    <string name="favnav">Fav</string>
+    <string name="accountnav">Account</string>
+    <string name="settingsnav">Settings</string>
+    <string name="food_name1">Food Name</string>
+    <string name="see_reviews">Comments</string>
+    <string name="size">Size</string>
+    <string name="description">this text view include all the information of this prodcut</string>
+    <string name="description1">Description</string>
+    <string name="_1000">1000</string>
+    <string name="todo3">TODO</string>
+    <string name="addon">Add Extra Meals</string>
+    <string name="clearcart">Clear All</string>
+    <string name="signout">Sign out</string>
+    <string name="imgCart">TODO</string>
+    <string name="carpricevalue">100.00</string>
+    <string name="food_namecart">Food name</string>
+    <string name="name_reg">Name</string>
+    <string name="emailreg">Email</string>
+    <string name="phone_numberreg">Phone number</string>
+    <string name="nicreg">NIC</string>
+    <string name="addressreg">Address</string>
+    <string name="hometownreg">Hometown</string>
+    <string name="colomboreg">Colombo</string>
+    <string name="note_this_service_only_available_in_colombo_area">Note: This Service only available in Colombo area.</string>
+    <string name="food_name3">Food name</string>
+    <string name="todo5">TODO</string>
+    <string name="menu_view_orders">Order history</string>
+    <string name="comment3">Comment</string>
+    <string name="status1">Order Placed</string>
+    <string name="_2017001">2017001</string>
+    <string name="_2019_10_21">2019-10-21</string>
+
+
+</resources>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_white"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/edt_address"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="Adddress"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:inputType="textPostalAddress"
+            android:padding="10dp" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/txt_address_deetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="Address"
+        android:visibility="gone"
+        android:textColor="@color/color_black"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/edt_txt_comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Write a Note"
+            android:textStyle="bold"
+            android:textSize="17sp"
+            android:inputType="textPostalAddress"
+            android:padding="10dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif-thin"
+        android:text="Select delivery method"
+        android:textColor="@color/gradient_middle"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/rdi_home_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Home Address"
+            android:textSize="16dp" />
+
+        <RadioButton
+            android:id="@+id/rdi_other_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Other Address"
+            android:textSize="16dp" />
+
+        <RadioButton
+            android:id="@+id/rdi_ship_this_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Current Location"
+            android:textSize="16dp" />
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif-thin"
+        android:text="Select payment method"
+        android:textColor="@color/gradient_middle"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/rdi_cod"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Cash On Delivery"
+            android:textSize="16dp" />
+
+        <RadioButton
+            android:id="@+id/rdi_braintree"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Visa / Debit Card / PayPal"
+            android:textSize="16dp" />
+
+    </RadioGroup>
+
+
+
+</LinearLayout>
