@@ -219,7 +219,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:drawableLeft="@drawable/comments"
+
                 android:id="@+id/btnShowComment"
                 android:layout_width="150dp"
                 android:layout_height="40dp"
@@ -232,7 +232,7 @@
                 android:textColor="#656665" />
 
             <TextView
-                android:drawableLeft="@drawable/rateme"
+
                 android:id="@+id/btnRate"
                 android:layout_width="150dp"
                 android:layout_height="40dp"
@@ -240,7 +240,7 @@
                 android:backgroundTint="#FFFFFF"
                 android:gravity="center"
                 android:textStyle="bold"
-                android:text="Rate me"
+                android:text="write a Comment"
                 android:textColor="#656665" />
 
         </LinearLayout>
