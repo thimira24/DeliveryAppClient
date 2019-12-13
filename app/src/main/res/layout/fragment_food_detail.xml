@@ -240,7 +240,7 @@
                 android:backgroundTint="#FFFFFF"
                 android:gravity="center"
                 android:textStyle="bold"
-                android:text="write a Comment"
+                android:text="Write a comment"
                 android:textColor="#656665" />
 
         </LinearLayout>

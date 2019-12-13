@@ -7,13 +7,13 @@
     android:paddingLeft="2dp"
     android:paddingRight="2dp"
     android:paddingTop="2dp"
-    android:layout_height="130dp">
+    android:layout_height="172dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="125dp"
+        android:layout_height="165dp"
         android:background="#E9DDDD"
-        app:cardCornerRadius="6dp"
+        app:cardCornerRadius="3dp"
         app:cardElevation="@dimen/cardview_default_elevation">
 
         <RelativeLayout
@@ -21,32 +21,46 @@
             android:layout_height="wrap_content"
             android:background="#00000000">
 
+
+
             <ImageView
                 android:id="@+id/category_image"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="130dp"
                 android:scaleType="fitXY"
                 tools:ignore="UnusedAttribute" />
 
             <View
+                android:visibility="gone"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="130dp"
                 android:background="@drawable/bottom_shadow" />
 
             <View
+                android:visibility="gone"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="130dp"
                 android:background="#4F2C2B2B" />
 
+            <ImageView
+                android:tint="@color/colorPrimary"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/ic_favorite_border_black_24dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
             <TextView
+                android:textAllCaps="true"
                 android:id="@+id/category_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:layout_gravity="center"
-                android:layout_marginTop="101dp"
+                android:paddingBottom="7dp"
                 android:fontFamily="sans-serif"
-                android:text="Popular Category"
+                android:text="Categories"
                 android:textAlignment="center"
                 android:textColor="#2E2D2D"
                 android:textSize="16sp"
