@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -47,6 +48,7 @@ class MyCartAdapter (
         holder.txt_food_name.text = StringBuilder(cartItems[position].foodName!!)
         holder.txt_food_price.text = StringBuilder("").append(cartItems[position].foodPrice + cartItems[position].foodExtraPrice)
         holder.number_button.number = cartItems[position].foodQuantity.toString()
+       // holder.rating_bar!!.rating = cartItems.get(position).ratingValue
         //EventBus
         holder.number_button.setOnValueChangeListener { view, oldValue, newValue ->
             cartItems[position].foodQuantity = newValue
@@ -61,16 +63,18 @@ class MyCartAdapter (
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
     {
-        lateinit var img_cart: ImageView
-        lateinit var txt_food_name: TextView
-        lateinit var txt_food_price: TextView
-        lateinit var number_button: ElegantNumberButton
+        var img_cart: ImageView
+        var txt_food_name: TextView
+        var txt_food_price: TextView
+        var number_button: ElegantNumberButton
+       // var rating_bar: RatingBar? = null
 
         init {
             img_cart = itemView.findViewById(R.id.img_cart) as ImageView
             txt_food_name = itemView.findViewById(R.id.txt_food_name) as TextView
             txt_food_price = itemView.findViewById(R.id.txt_food_price) as TextView
             number_button = itemView.findViewById(R.id.number_button) as ElegantNumberButton
+           // rating_bar = itemView.findViewById(R.id.rating_bar_cart) as RatingBar
         }
     }
 }
