@@ -46,7 +46,7 @@ class FoodListFragment : Fragment() {
         foodListViewModel.mutableFoodModelListData().observe(this, Observer {
             adapter = MyFoodListAdapter(context!!, it)
             recyclerView_food_list!!.adapter = adapter
-            recyclerView_food_list!!.layoutAnimation = layoutAnimationController
+           // recyclerView_food_list!!.layoutAnimation = layoutAnimationController
         })
         return root
     }

@@ -2,11 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
     android:layout_height="match_parent">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="#FFFFFF">
 
         <LinearLayout
@@ -43,9 +45,9 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_marginTop="0dp"
                 android:layout_width="match_parent"
                 android:layout_height="170dp"
+                android:layout_marginTop="0dp"
                 android:orientation="vertical"
                 android:paddingTop="8dp">
 
@@ -65,9 +67,21 @@
 
             </LinearLayout>
 
-
-
         </LinearLayout>
-
     </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:layout_marginTop="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/bg_gradient"/>
+
+    </LinearLayout>
+
 </LinearLayout>

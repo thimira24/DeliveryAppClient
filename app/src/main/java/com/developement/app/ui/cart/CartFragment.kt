@@ -401,6 +401,7 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
                         .subscribe(object:  SingleObserver<Int>{
                             override fun onSuccess(t: Int) {
                                 Toast.makeText(context!!, "Order placed sucessfully! ", Toast.LENGTH_SHORT).show()
+                                clearcart()
                             }
 
                             override fun onSubscribe(d: Disposable) {
@@ -685,5 +686,27 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
     override fun onDestroy() {
         EventBus.getDefault().postSticky(MenuItemBack())
         super.onDestroy()
+    }
+
+    private fun clearcart(){
+
+            cartDataSource!!.cleanCart(Common.currentUser!!.uid!!)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(object: SingleObserver<Int>{
+                    override fun onSuccess(t: Int) {
+                        Toast.makeText(context, "Sucessfully clear cart", Toast.LENGTH_SHORT).show()
+                        EventBus.getDefault().postSticky(CounterCartEvent(true))
+                    }
+
+                    override fun onSubscribe(d: Disposable) {
+
+                    }
+
+                    override fun onError(e: Throwable) {
+                        Toast.makeText(context, ""+e.message, Toast.LENGTH_SHORT).show()
+                    }
+
+                })
     }
 }

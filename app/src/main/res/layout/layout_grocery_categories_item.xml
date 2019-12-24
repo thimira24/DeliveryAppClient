@@ -15,16 +15,15 @@
         android:id="@+id/category_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:fontFamily="sans-serif"
         android:gravity="center_horizontal"
         android:text="@string/grocery_categories"
-        android:textAllCaps="true"
-        android:layout_marginTop="10dp"
         android:textAlignment="center"
+        android:textAllCaps="true"
         android:textColor="#363535"
         android:textSize="13sp"
-        android:textStyle="bold"
-         />
+        android:textStyle="bold" />
 
 
 </LinearLayout>

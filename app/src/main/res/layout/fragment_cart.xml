@@ -2,8 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:background="#ECEBEB"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#ECEBEB">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_cart"
@@ -14,31 +14,47 @@
 
     <TextView
         android:id="@+id/txt_empty_cart"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="100dp"
         android:layout_centerInParent="true"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:textColor="@color/color_white"
         android:fontFamily="sans-serif-medium"
-        android:text="Your cart is empty"
-        android:textSize="1dp" />
+        android:text="Looks like you haven't added anything to your cart yet"
+        android:textAlignment="center"
+        android:textColor="#858484"
+        android:textSize="14dp" />
 
     <ImageView
         android:id="@+id/empty_img_cart"
-        android:src="@drawable/empty_cart"
-        android:layout_margin="50dp"
+
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_height="wrap_content"/>
+        android:layout_margin="50dp"
+        android:src="@drawable/empty_cart" />
+
+    <Button
+        android:id="@+id/btn_shopping"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="#FFFFFF"
+        android:text="Continue Shopping"
+        android:textAllCaps="true"
+        android:textColor="@color/color_black"
+        android:textSize="18dp" />
 
     <androidx.cardview.widget.CardView
-        android:background="#DCF5E9E9"
         android:id="@+id/group_Place_holder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:background="#DCF5E9E9">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -52,8 +68,8 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:fontFamily="sans-serif-thin"
-                android:textStyle="bold"
-                android:text="Total amount"/>
+                android:text="Total amount"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txt_total_price"
@@ -63,25 +79,25 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="8dp"
-                android:textColor="@color/color_black"
                 android:fontFamily="sans-serif-thin"
-                android:text="Rs 100"
-                android:textStyle="bold"
-                android:textSize="24sp" />
+                android:text="000.00"
+                android:textColor="@color/color_black"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <Button
-                android:background="@drawable/button_design3"
                 android:id="@+id/btn_place_order"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
                 android:layout_marginLeft="8dp"
-                android:fontFamily="sans-serif"
+                android:layout_marginTop="5dp"
                 android:layout_marginRight="8dp"
+                android:background="@drawable/button_design3"
+                android:fontFamily="sans-serif"
+                android:text="Confirm Order"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"
-                android:textStyle="normal"
-                android:text="Confirm Order" />
+                android:textStyle="normal" />
 
 
         </LinearLayout>
