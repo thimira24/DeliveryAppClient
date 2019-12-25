@@ -71,17 +71,40 @@
     </androidx.core.widget.NestedScrollView>
 
     <LinearLayout
-        android:layout_marginTop="0dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
 
-        <ImageView
-            android:layout_marginTop="15dp"
+        android:layout_marginTop="12dp"
+        android:layout_width="match_parent"
+        android:background="@drawable/bg_gradient"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/bg_gradient"/>
+            android:orientation="horizontal">
 
+            <ImageView
+                android:layout_gravity="center"
+                android:src="@drawable/applogo"
+                android:layout_width="100dp"
+                android:layout_height="60dp"/>
+
+            <ImageView
+                android:layout_gravity="center"
+                android:src="@drawable/applogo"
+                android:layout_width="100dp"
+                android:layout_height="60dp"/>
+
+            <ImageView
+                android:layout_gravity="center"
+                android:src="@drawable/applogo"
+                android:layout_width="100dp"
+                android:layout_height="60dp"/>
+
+
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

@@ -37,6 +37,7 @@ import com.developement.app.EventBus.CounterCartEvent
 import com.developement.app.EventBus.HideFABCart
 import com.developement.app.EventBus.MenuItemBack
 import com.developement.app.EventBus.UpdateItemInCart
+import com.developement.app.HomeActivity
 import com.developement.app.Model.Order
 import com.developement.app.R
 import com.developement.app.Remote.ICloudFunctions
@@ -76,6 +77,7 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
     var group_place_holder: CardView? = null
     var recycler_cart: RecyclerView? = null
     var empty_img_cart: ImageView? = null
+    var btn_shopping: Button? = null
     var adapter: MyCartAdapter? = null
 
     private lateinit var locationRequest: LocationRequest
@@ -223,6 +225,14 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
         txt_total_price = root.findViewById(R.id.txt_total_price) as TextView
         group_place_holder = root.findViewById(R.id.group_Place_holder) as CardView
         empty_img_cart = root.findViewById(R.id.empty_img_cart) as ImageView
+        btn_shopping = root.findViewById(R.id.btn_shopping) as Button
+
+        // continue shopping button action
+
+        btn_shopping!!.setOnClickListener {
+            startActivity(Intent(context, HomeActivity::class.java))
+
+        }
 
         btn_place_order = root.findViewById(R.id.btn_place_order) as Button
         // event
