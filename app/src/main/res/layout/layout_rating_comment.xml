@@ -23,7 +23,7 @@
             android:layout_height="100dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:hint="Please Write a comment"
+            android:hint="Tell others what you think"
             android:maxLines="100"
             android:inputType="textLongMessage" />
 

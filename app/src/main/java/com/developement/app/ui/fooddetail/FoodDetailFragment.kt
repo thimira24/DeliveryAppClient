@@ -436,7 +436,7 @@ class FoodDetailFragment : Fragment(), TextWatcher {
 
     private fun showDialogRating() {
         var builder = AlertDialog.Builder(context!!)
-        builder.setTitle("Rating Product")
+        builder.setTitle("Rate this product")
         builder.setMessage("Wee need your feedback!")
 
         val itemView = LayoutInflater.from(context).inflate(R.layout.layout_rating_comment, null)
