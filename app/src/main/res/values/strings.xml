@@ -31,7 +31,7 @@
     <string name="todo3">TODO</string>
     <string name="addon">Add Extra Meals</string>
     <string name="clearcart">Clear All</string>
-    <string name="signout">Sign out</string>
+    <string name="signout">Sign Out</string>
     <string name="imgCart">TODO</string>
     <string name="carpricevalue">100.00</string>
     <string name="food_namecart">Food name</string>
@@ -45,8 +45,9 @@
     <string name="note_this_service_only_available_in_colombo_area">Note: This Service only available in Colombo area.</string>
     <string name="food_name3">Food name</string>
     <string name="todo5">TODO</string>
-    <string name="menu_view_orders">Order history</string>
-    <string name="comment3">Comment</string>
+    <string name="menu_view_orders">Order History</string>
+    <string name="Settings">Settings</string>
+    <string name="comment3">Comments</string>
     <string name="status1">Order Placed</string>
     <string name="status2">Paid</string>
     <string name="_2017001">2017001</string>
