@@ -18,6 +18,7 @@ import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
 abstract class MySwipeHelper(
+
     context: Context,
     private val recyclerView: RecyclerView,
     internal var buttonWidth: Int
@@ -92,7 +93,6 @@ abstract class MySwipeHelper(
         }
     }
 
-
     private fun attachSwipe() {
         val itemTouchHelper = ItemTouchHelper(this)
         itemTouchHelper.attachToRecyclerView(recyclerView)
@@ -162,11 +162,7 @@ abstract class MySwipeHelper(
         return bitmap
     }
 
-    override fun onMove(
-        recyclerView: RecyclerView,
-        viewHolder: RecyclerView.ViewHolder,
-        target: RecyclerView.ViewHolder
-    ): Boolean {
+    override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
         return false
     }
 
@@ -197,15 +193,7 @@ abstract class MySwipeHelper(
         return 5.0f * defaultValue
     }
 
-    override fun onChildDraw(
-        c: Canvas,
-        recyclerView: RecyclerView,
-        viewHolder: RecyclerView.ViewHolder,
-        dX: Float,
-        dY: Float,
-        actionState: Int,
-        isCurrentlyActive: Boolean
-    ) {
+    override fun onChildDraw(c: Canvas, recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, dX: Float, dY: Float, actionState: Int, isCurrentlyActive: Boolean) {
         val pos = viewHolder.adapterPosition
         var translationX = dX
         var itemView = viewHolder.itemView
@@ -229,13 +217,7 @@ abstract class MySwipeHelper(
         super.onChildDraw(c, recyclerView, viewHolder, translationX, dY, actionState, isCurrentlyActive)
     }
 
-    private fun drawButton(
-        c: Canvas,
-        itemView: View,
-        buffer: MutableList<MyButton>,
-        pos: Int,
-        translationX: Float
-    ) {
+    private fun drawButton(c: Canvas, itemView: View, buffer: MutableList<MyButton>, pos: Int, translationX: Float) {
         var right = itemView.right.toFloat()
         val dButtonWidth = -1 * translationX / buffer.size
         for (button in buffer) {

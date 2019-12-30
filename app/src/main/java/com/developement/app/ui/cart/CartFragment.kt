@@ -43,6 +43,7 @@ import com.developement.app.R
 import com.developement.app.Remote.ICloudFunctions
 import com.developement.app.Remote.RetrofitCloudClient
 import com.google.android.gms.location.*
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -178,8 +179,7 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
         recycler_cart!!.layoutManager = layoutManager
         //recycler_cart!!.addItemDecoration(DividerItemDecoration(context, layoutManager.orientation))
 
-        val swipe = object: MySwipeHelper(context!!, recycler_cart!!, 200)
-        {
+        val swipe = object: MySwipeHelper(context!!, recycler_cart!!, 200) {
             override fun instantiateMyButton(
                 viewHolder: RecyclerView.ViewHolder,
                 buffer: MutableList<MyButton>
@@ -201,7 +201,8 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
                                         adapter!!.notifyItemRemoved(pos)
                                         sumCart()
                                         EventBus.getDefault().postSticky(CounterCartEvent(true))
-                                        Toast.makeText(context, "Deleted from cart", Toast.LENGTH_SHORT).show()
+                                        //Toast.makeText(context, "Deleted from cart", Toast.LENGTH_SHORT).show()
+                                        Snackbar.make(view!!, "Deleted from the Cart", Snackbar.LENGTH_LONG).show()
                                     }
 
                                     override fun onSubscribe(d: Disposable) {
@@ -410,7 +411,8 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(object:  SingleObserver<Int>{
                             override fun onSuccess(t: Int) {
-                                Toast.makeText(context!!, "Order placed sucessfully! ", Toast.LENGTH_SHORT).show()
+                                //Toast.makeText(context!!, "Order placed sucessfully! ", Toast.LENGTH_SHORT).show()
+                                Snackbar.make(view!!, "Order placed Sucessfully!", Snackbar.LENGTH_LONG).show()
                                 clearcart()
                             }
 
@@ -556,7 +558,8 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object: SingleObserver<Int>{
                     override fun onSuccess(t: Int) {
-                        Toast.makeText(context, "Sucessfully clear cart", Toast.LENGTH_SHORT).show()
+                       // Toast.makeText(context, "Sucessfully clear cart", Toast.LENGTH_SHORT).show()
+                        Snackbar.make(view!!, "Deleted all items in the Cart", Snackbar.LENGTH_LONG).show()
                         EventBus.getDefault().postSticky(CounterCartEvent(true))
                     }
 
@@ -705,7 +708,8 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object: SingleObserver<Int>{
                     override fun onSuccess(t: Int) {
-                        Toast.makeText(context, "Sucessfully clear cart", Toast.LENGTH_SHORT).show()
+                        //Toast.makeText(context, "Sucessfully clear cart", Toast.LENGTH_SHORT).show()
+                        Snackbar.make(view!!, "Order Placed Successfully.", Snackbar.LENGTH_LONG).show()
                         EventBus.getDefault().postSticky(CounterCartEvent(true))
                     }
 

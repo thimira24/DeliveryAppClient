@@ -17,11 +17,11 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="100dp"
         android:layout_centerInParent="true"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="100dp"
         android:fontFamily="sans-serif"
         android:text="Looks like you haven't added anything to your cart yet"
         android:textAlignment="center"
@@ -30,7 +30,6 @@
 
     <ImageView
         android:id="@+id/empty_img_cart"
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -40,7 +39,7 @@
     <Button
         android:id="@+id/btn_shopping"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="45dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="#FFFFFF"

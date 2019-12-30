@@ -19,6 +19,7 @@ import com.developement.app.EventBus.CounterCartEvent
 import com.developement.app.EventBus.FoodItemClick
 import com.developement.app.Model.FoodModel
 import com.developement.app.R
+import com.google.android.material.snackbar.Snackbar
 import io.reactivex.SingleObserver
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -89,7 +90,8 @@ class MyFoodListAdapter(
                                .observeOn(AndroidSchedulers.mainThread())
                                .subscribe(object: SingleObserver<Int>{
                                    override fun onSuccess(t: Int) {
-                                       Toast.makeText(context, "Cart updated", Toast.LENGTH_SHORT).show()
+                                       //Toast.makeText(context, "Cart updated", Toast.LENGTH_SHORT).show()
+                                       Snackbar.make(it, "Cart updated", Snackbar.LENGTH_LONG).show()
                                        EventBus.getDefault().postSticky(CounterCartEvent(true))
                                    }
 
@@ -110,7 +112,8 @@ class MyFoodListAdapter(
                                .subscribeOn(Schedulers.io())
                                .observeOn(AndroidSchedulers.mainThread())
                                .subscribe({
-                                   Toast.makeText(context, "Added to cart", Toast.LENGTH_SHORT).show()
+                                  // Toast.makeText(context, "Added to cart", Toast.LENGTH_SHORT).show()
+                                   Snackbar.make(it, "Added to the cart", Snackbar.LENGTH_LONG).show()
                                    //send notification
                                    EventBus.getDefault().postSticky(CounterCartEvent(true))
                                },{
@@ -130,7 +133,8 @@ class MyFoodListAdapter(
                                 .subscribeOn(Schedulers.io())
                                 .observeOn(AndroidSchedulers.mainThread())
                                 .subscribe({
-                                    Toast.makeText(context, "Added to cart", Toast.LENGTH_SHORT).show()
+                                    //Toast.makeText(context, "Added to cart", Toast.LENGTH_SHORT).show()
+                                    Snackbar.make(it, "Added to the cart", Snackbar.LENGTH_LONG).show()
                                     //send notification
                                     EventBus.getDefault().postSticky(CounterCartEvent(true))
                                 },{

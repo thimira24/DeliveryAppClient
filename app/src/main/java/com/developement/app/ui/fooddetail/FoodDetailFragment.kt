@@ -29,6 +29,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.database.*
 import com.google.gson.Gson
 import dmax.dialog.SpotsDialog
@@ -173,8 +174,8 @@ class FoodDetailFragment : Fragment(), TextWatcher {
                                 if (task.isSuccessful) {
                                     Common.foodSelected = foodModel
                                     foodDetailViewModel!!.setFoodModel(foodModel)
-                                    Toast.makeText(context!!, "Thank you for your feedback!", Toast.LENGTH_SHORT)
-                                        .show()
+                                    //Toast.makeText(context!!, "Thank you for your feedback!", Toast.LENGTH_SHORT)
+                                    Snackbar.make(view!!, "Thank you for your feedback!", Snackbar.LENGTH_LONG).show()
 
                                 }
                             }
@@ -331,7 +332,8 @@ class FoodDetailFragment : Fragment(), TextWatcher {
                                 .observeOn(AndroidSchedulers.mainThread())
                                 .subscribe(object: SingleObserver<Int> {
                                     override fun onSuccess(t: Int) {
-                                        Toast.makeText(context, "Cart updated", Toast.LENGTH_SHORT).show()
+                                        //Toast.makeText(context, "Cart updated", Toast.LENGTH_SHORT).show()
+                                        Snackbar.make(view!!, "Cart updated", Snackbar.LENGTH_LONG).show()
                                         EventBus.getDefault().postSticky(CounterCartEvent(true))
                                     }
 
@@ -352,7 +354,8 @@ class FoodDetailFragment : Fragment(), TextWatcher {
                                 .subscribeOn(Schedulers.io())
                                 .observeOn(AndroidSchedulers.mainThread())
                                 .subscribe({
-                                    Toast.makeText(context, "Added to cart", Toast.LENGTH_SHORT).show()
+                                    //Toast.makeText(context, "Added to cart", Toast.LENGTH_SHORT).show()
+                                    Snackbar.make(view!!, "Added to the cart", Snackbar.LENGTH_LONG).show()
                                     //send notification
                                     EventBus.getDefault().postSticky(CounterCartEvent(true))
                                 },{
@@ -372,7 +375,8 @@ class FoodDetailFragment : Fragment(), TextWatcher {
                                 .subscribeOn(Schedulers.io())
                                 .observeOn(AndroidSchedulers.mainThread())
                                 .subscribe({
-                                    Toast.makeText(context, "Added to cart", Toast.LENGTH_SHORT).show()
+                                    //Toast.makeText(context, "Added to cart", Toast.LENGTH_SHORT).show()
+                                    Snackbar.make(view!!, "Added to the cart", Snackbar.LENGTH_LONG).show()
                                     //send notification
                                     EventBus.getDefault().postSticky(CounterCartEvent(true))
                                 },{
