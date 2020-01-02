@@ -2,25 +2,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:background="#FFFFFF"
+    android:background="@color/dark_background"
     android:orientation="vertical"
     android:layout_height="match_parent">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#FFFFFF">
+        android:background="@color/dark_background">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/color_white"
+            android:background="@color/dark_background"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:background="#FFFFFF"
+                android:background="@color/dark_background"
                 android:orientation="vertical">
 
                 <TextView
@@ -31,7 +31,7 @@
                     android:fontFamily="sans-serif"
                     android:text="@string/best_deals"
                     android:textStyle="bold"
-                    android:textColor="#141414"
+                    android:textColor="@color/dark_sub_primary"
                     android:textSize="20sp" />
 
                 <com.asksira.loopingviewpager.LoopingViewPager
@@ -59,7 +59,7 @@
                     android:paddingLeft="8dp"
                     android:text="@string/categories1"
                     android:textStyle="bold"
-                    android:textColor="#202020"
+                    android:textColor="@color/dark_sub_primary"
                     android:textSize="20sp" />
 
                 <androidx.recyclerview.widget.RecyclerView

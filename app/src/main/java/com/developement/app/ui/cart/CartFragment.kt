@@ -75,7 +75,8 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
 
     var txt_empty_cart: TextView? = null
     var txt_total_price: TextView? = null
-    var group_place_holder: CardView? = null
+    var group_place_holder: RelativeLayout? = null
+    var continue_shopping: TextView? = null
     var recycler_cart: RecyclerView? = null
     var empty_img_cart: ImageView? = null
     var btn_shopping: Button? = null
@@ -123,6 +124,7 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
                 group_place_holder!!.visibility = View.GONE
                 txt_empty_cart!!.visibility = View.VISIBLE
                 empty_img_cart!!.visibility = View.VISIBLE
+                continue_shopping!!.visibility = View.VISIBLE
             }
             else
             {
@@ -130,6 +132,7 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
                 group_place_holder!!.visibility = View.VISIBLE
                 txt_empty_cart!!.visibility = View.GONE
                 empty_img_cart!!.visibility = View.GONE
+                continue_shopping!!.visibility = View.GONE
 
                 adapter = MyCartAdapter(context!!, it)
                 recycler_cart!!.adapter = adapter
@@ -224,7 +227,8 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
 
         txt_empty_cart = root.findViewById(R.id.txt_empty_cart) as TextView
         txt_total_price = root.findViewById(R.id.txt_total_price) as TextView
-        group_place_holder = root.findViewById(R.id.group_Place_holder) as CardView
+        group_place_holder = root.findViewById(R.id.group_Place_holder) as RelativeLayout
+        continue_shopping = root.findViewById(R.id.btn_shopping) as TextView
         empty_img_cart = root.findViewById(R.id.empty_img_cart) as ImageView
         btn_shopping = root.findViewById(R.id.btn_shopping) as Button
 
@@ -411,9 +415,12 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(object:  SingleObserver<Int>{
                             override fun onSuccess(t: Int) {
-                                //Toast.makeText(context!!, "Order placed sucessfully! ", Toast.LENGTH_SHORT).show()
+                                //Toast.makeText(context!!, "Order placed sucessfully! ", Toast.LENGTH_SHORT).show
                                 Snackbar.make(view!!, "Order placed Sucessfully!", Snackbar.LENGTH_LONG).show()
+
                                 clearcart()
+                                txt_empty_cart!!.setText("Thank you for Shopping with us!")
+                                txt_empty_cart!!.setTextColor(getResources().getColor(R.color.colorAccent1))
                             }
 
                             override fun onSubscribe(d: Disposable) {

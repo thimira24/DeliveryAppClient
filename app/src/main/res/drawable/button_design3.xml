@@ -8,7 +8,7 @@
 
         />
     <solid
-        android:color="@color/colorPrimary"
+        android:color="#06B700"
         />
     <padding
         android:left="0dp"

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_white"
+    android:background="@color/dark_background"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -54,13 +54,13 @@
                     android:id="@+id/food_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="3dp"
+                    android:layout_marginRight="10dp"
                     android:fontFamily="sans-serif-medium"
                     android:text="@string/food_name1"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
                     android:textAlignment="center"
-                    android:textColor="@color/color_black"
+                    android:textColor="@color/dark_sub_primary"
                     android:textSize="22sp"
                     android:textStyle="normal" />
 
@@ -87,7 +87,8 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@color/dark_effect"
                     android:orientation="vertical">
 
                     <TextView
@@ -98,7 +99,7 @@
                         android:fontFamily="sans-serif-medium"
                         android:lineSpacingMultiplier="1.5"
                         android:text="@string/description1"
-                        android:textColor="#222121"
+                        android:textColor="@color/dark_sub_primary"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -111,7 +112,7 @@
                         android:layout_marginBottom="12dp"
                         android:lineSpacingMultiplier="1.5"
                         android:text="@string/description"
-                        android:textColor="#222121"
+                        android:textColor="@color/dark_sub_primary"
                         android:textSize="12sp"
                         android:textStyle="bold" />
 
@@ -175,7 +176,6 @@
 
             </androidx.cardview.widget.CardView>
 
-
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -215,6 +215,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="130dp"
+            android:background="@color/dark_background"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -227,9 +228,9 @@
                 android:layout_marginRight="5dp"
                 android:backgroundTint="#FFFFFF"
                 android:gravity="center"
-                android:textStyle="bold"
                 android:text="@string/see_reviews"
-                android:textColor="#656665" />
+                android:textColor="@color/dark_sub_primary"
+                android:textStyle="bold" />
 
             <TextView
 
@@ -239,9 +240,9 @@
                 android:layout_gravity="center"
                 android:backgroundTint="#FFFFFF"
                 android:gravity="center"
-                android:textStyle="bold"
                 android:text="Write a comment"
-                android:textColor="#656665" />
+                android:textColor="@color/dark_sub_primary"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -262,7 +263,7 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="20dp"
                 android:text="Rs"
@@ -296,27 +297,31 @@
                 app:textColor="@color/color_white"
                 app:textSize="7dp" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_alignParentBottom="true"
-                android:background="@drawable/rounded_shape_for_food_detail3">
-
-                <TextView
-                    android:id="@+id/add_to_cart"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_centerHorizontal="true"
-                    android:gravity="center"
-                    android:text="Add To Cart"
-                    android:textColor="#000000"
-                    android:textSize="17dp"
-                    android:textStyle="bold" />
-
-
-            </RelativeLayout>
 
         </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="5dp"
+        android:background="@drawable/button_design4">
+
+        <TextView
+            android:id="@+id/add_to_cart"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:text="Add To Cart"
+            android:textColor="@color/color_white"
+            android:textSize="17dp"
+            android:textStyle="bold" />
+
 
     </RelativeLayout>
 

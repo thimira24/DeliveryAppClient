@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:background="#C1000000"
+            android:background="@color/color_white"
             android:orientation="horizontal"
             android:padding="10dp"
             android:weightSum="10"
@@ -45,7 +45,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/food_name3"
-                    android:textColor="@color/color_white"
+                    android:textColor="@color/color_black"
                     android:textSize="20sp" />
 
                 <LinearLayout
@@ -58,7 +58,7 @@
                         android:layout_height="wrap_content"
                         android:text="Rs"
                         android:layout_marginRight="5dp"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/colorAccent1"
                         android:textSize="20sp" />
 
                     <TextView
@@ -66,7 +66,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="12.55"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/colorAccent1"
                         android:textSize="20sp" />
 
 
@@ -91,7 +91,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:src="@drawable/ic_favorite_border_black_24dp"
-                    android:tint="@android:color/white" />
+                    android:tint="@android:color/black" />
 
                 <ImageView
                     android:id="@+id/img_quick_cart"
@@ -99,7 +99,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:src="@drawable/ic_shopping_cart_black_24dp"
-                    android:tint="@color/color_white" />
+                    android:tint="@color/color_black" />
 
             </LinearLayout>
 

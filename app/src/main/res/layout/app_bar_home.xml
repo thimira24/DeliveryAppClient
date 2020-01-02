@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/dark_background"
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
@@ -30,8 +31,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
+        android:tint="#FFFFFF"
         app:badgeBackgroundColor="@color/color_notify"
-        app:backgroundTint="#FFFFFF"
+        app:backgroundTint="@color/dark_effect"
         app:srcCompat="@drawable/slide_ic_cart" />
 
 

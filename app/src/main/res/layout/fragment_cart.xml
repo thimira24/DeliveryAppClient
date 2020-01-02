@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ECEBEB">
+    >
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_cart"
@@ -25,7 +25,7 @@
         android:fontFamily="sans-serif"
         android:text="Looks like you haven't added anything to your cart yet"
         android:textAlignment="center"
-        android:textColor="#858484"
+        android:textColor="@color/dark_sub_text"
         android:textSize="14dp" />
 
     <ImageView
@@ -42,32 +42,34 @@
         android:layout_height="45dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:background="#FFFFFF"
+        android:background="@color/dark_effect"
         android:text="Continue Shopping"
         android:textAllCaps="true"
-        android:textColor="@color/color_black"
-        android:textSize="18dp" />
+        android:textColor="@color/dark_sub_primary"
+        android:textSize="18dp"
+        android:visibility="gone" />
 
-    <androidx.cardview.widget.CardView
+    <RelativeLayout
         android:id="@+id/group_Place_holder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="#DCF5E9E9">
+        android:background="@color/dark_effect1">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:orientation="vertical"
             android:padding="8dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="3dp"
                 android:fontFamily="sans-serif-thin"
-                android:text="Total amount"
+                android:text="TOTAL"
+                android:textColor="@color/dark_sub_primary"
                 android:textStyle="bold" />
 
             <TextView
@@ -75,12 +77,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:layout_marginStart="8dp"
                 android:layout_marginTop="0dp"
-                android:layout_marginEnd="8dp"
                 android:fontFamily="sans-serif-thin"
                 android:text="000.00"
-                android:textColor="@color/color_black"
+                android:textColor="@color/dark_sub_primary"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -88,9 +88,7 @@
                 android:id="@+id/btn_place_order"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginLeft="8dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginRight="8dp"
                 android:background="@drawable/button_design3"
                 android:fontFamily="sans-serif"
                 android:text="Confirm Order"
@@ -101,6 +99,6 @@
 
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+    </RelativeLayout>
 
 </RelativeLayout>

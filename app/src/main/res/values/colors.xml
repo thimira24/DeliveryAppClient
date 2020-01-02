@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#06B700</color>
-    <color name="colorPrimaryDark">#06B700</color>
+    <color name="colorPrimary">#323232</color>
+    <color name="colorPrimaryDark">#323232</color>
     <color name="colorAccent">#06B700</color>
 
     <color name="color_white">#FFFFFF</color>
@@ -9,6 +9,7 @@
     <color name="transparent">#00000000</color>
 
     <color name="main_color">#09AC10</color>
+    <color name="colorAccent1">#06B700</color>
     <color name="color_ash">#D9D8DA</color>
     <color name="color_orange">#F64630</color>
 
@@ -21,5 +22,11 @@
 
     <color name="color_notify">#FF2C76</color>
     <color name="color_effect">#E6F3DAD3</color>
+
+    <color name="dark_background">#323232</color>
+    <color name="dark_effect">#282828</color>
+    <color name="dark_effect1">#72181717</color>
+    <color name="dark_sub_text">#969696</color>
+    <color name="dark_sub_primary">#f0f0f0</color>
 
 </resources>
