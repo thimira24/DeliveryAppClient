@@ -45,7 +45,7 @@ class MyFoodListAdapter(
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         Glide.with(context).load(foodList.get(position).image).into(holder.img_food_image!!)
         holder.txt_food_name!!.setText(foodList.get(position).name)
-        holder.txt_food_price!!.setText(foodList.get(position).price.toString())
+        holder.txt_food_price!!.setText(StringBuilder("Rs ").append(foodList.get(position).price.toString()))
 
         //event
         holder.setListner(object:IRecyclerItemClickListner{
@@ -80,6 +80,7 @@ class MyFoodListAdapter(
                     override fun onSuccess(cartItemFromDB: CartItem) {
                        if (cartItemFromDB.equals(cartItem))
                        {
+
                            // if item already in databse, just update
                            cartItemFromDB.foodExtraPrice = cartItem.foodExtraPrice
                            cartItemFromDB.foodAddon = cartItem.foodAddon
@@ -90,7 +91,7 @@ class MyFoodListAdapter(
                                .observeOn(AndroidSchedulers.mainThread())
                                .subscribe(object: SingleObserver<Int>{
                                    override fun onSuccess(t: Int) {
-                                       //Toast.makeText(context, "Cart updated", Toast.LENGTH_SHORT).show()
+
                                        Snackbar.make(it, "Cart updated", Snackbar.LENGTH_LONG).show()
                                        EventBus.getDefault().postSticky(CounterCartEvent(true))
                                    }
@@ -112,7 +113,6 @@ class MyFoodListAdapter(
                                .subscribeOn(Schedulers.io())
                                .observeOn(AndroidSchedulers.mainThread())
                                .subscribe({
-                                  // Toast.makeText(context, "Added to cart", Toast.LENGTH_SHORT).show()
                                    Snackbar.make(it, "Added to the cart", Snackbar.LENGTH_LONG).show()
                                    //send notification
                                    EventBus.getDefault().postSticky(CounterCartEvent(true))

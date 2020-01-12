@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/color_white"
+    android:background="@color/dark_background"
     android:orientation="horizontal"
     android:padding="8dp"
     android:weightSum="10">
@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Name"
-            android:textColor="#353333"
+            android:textColor="@color/dark_sub_primary"
             android:textSize="22sp" />
 
         <TextView
@@ -37,7 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Date"
-            android:textColor="#353333"
+            android:textColor="@color/dark_sub_primary"
             android:textSize="14sp" />
 
         <RatingBar
@@ -50,6 +50,7 @@
 
 
         <TextView
+            android:textColor="@color/dark_sub_text"
             android:id="@+id/txt_comment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
