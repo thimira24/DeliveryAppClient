@@ -64,6 +64,10 @@ class MyCategoriesAdapter(
 
     }
 
+    fun getCategoryList(): List<CategoryModel>{
+        return categoriesList
+    }
+
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
         View.OnClickListener {
 

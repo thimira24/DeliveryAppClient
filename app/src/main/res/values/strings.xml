@@ -31,6 +31,7 @@
     <string name="todo3">TODO</string>
     <string name="addon">Add Extra Meals</string>
     <string name="clearcart">Clear All</string>
+    <string name="action_search">Search</string>
     <string name="signout">Sign Out</string>
     <string name="imgCart">TODO</string>
     <string name="carpricevalue">100.00</string>

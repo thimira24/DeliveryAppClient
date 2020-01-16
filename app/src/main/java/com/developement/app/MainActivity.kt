@@ -177,8 +177,8 @@ class MainActivity : AppCompatActivity() {
         // set mobile number
         edt_phone.setText(user!!.phoneNumber)
         builder.setView(itemView)
-       // builder.setNegativeButton("Cancel") { dialogInterface, i -> dialogInterface.dismiss() }
-        builder.setPositiveButton("Register") { dialogInterface, i ->
+        builder.setNegativeButton("Exit") { dialogInterface, i -> System.exit(-1) }
+        builder.setPositiveButton("Sign Up") { dialogInterface, i ->
             if (TextUtils.isDigitsOnly(edt_name.text.toString())) {
                 Toast.makeText(this@MainActivity, "Enter your name", Toast.LENGTH_SHORT).show()
                 return@setPositiveButton

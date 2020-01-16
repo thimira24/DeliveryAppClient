@@ -548,7 +548,7 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
 
     override fun onPrepareOptionsMenu(menu: Menu) {
         menu!!.findItem(R.id.action_settings).setVisible(false) // hide setting action in cart fragment
-        menu!!.findItem(R.id.action_search).setVisible(false) // hide search action in cart fragment
+       // menu!!.findItem(R.id.action_search).setVisible(true) // hide search action in cart fragment
         super.onPrepareOptionsMenu(menu)
     }
 
