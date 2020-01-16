@@ -21,12 +21,13 @@
             android:id="@+id/edt_comment"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
+            android:autofillHints=""
+            android:fontFamily="@font/latoregular"
             android:hint="@string/tell_others_what_you_think"
-            android:maxLines="100"
             android:inputType="textLongMessage"
-            android:autofillHints="" />
+            android:maxLines="100"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@color/dark_background"
     android:layout_marginTop="10dp"
+    android:background="@color/dark_background"
     android:orientation="vertical"
     android:padding="8dp">
 
@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:fontFamily="sans-serif"
+        android:fontFamily="@font/latothin"
         android:gravity="center_horizontal"
         android:text="@string/grocery_categories"
         android:textAlignment="center"

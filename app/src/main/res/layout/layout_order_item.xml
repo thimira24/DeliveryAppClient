@@ -8,37 +8,37 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:background="@color/dark_effect"
-        app:cardBackgroundColor="@color/dark_effect"
         android:layout_height="135dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="5dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
+        android:background="@color/dark_effect"
+        app:cardBackgroundColor="@color/dark_effect"
         app:cardCornerRadius="10dp">
 
         <LinearLayout
-            android:background="@color/dark_effect"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/dark_effect"
             android:orientation="horizontal"
             android:padding="18dp">
 
-                <ImageView
-                    android:layout_width="80dp"
-                    android:tint="@color/dark_sub_text"
-                    android:layout_height="100dp"
-                    android:src="@drawable/img_order"
-                    android:contentDescription="@string/todo18" />
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="100dp"
+                android:contentDescription="@string/todo18"
+                android:src="@drawable/img_order"
+                android:tint="@color/dark_sub_text" />
 
-                <ImageView
-                    android:visibility="gone"
-                    android:id="@+id/img_order"
-                    android:layout_width="80dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center"
-                    android:scaleType="fitXY"
-                    android:contentDescription="@string/todo19" />
+            <ImageView
+                android:id="@+id/img_order"
+                android:layout_width="80dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/todo19"
+                android:scaleType="fitXY"
+                android:visibility="gone" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -52,6 +52,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/allerrg"
                     android:text="@string/_2019_10_21"
                     android:textColor="@color/dark_sub_primary"
                     android:textSize="12sp"
@@ -76,26 +77,25 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
-                    android:fontFamily="sans-serif"
                     android:text="@string/comment3"
                     android:textColor="@color/dark_sub_text"
                     android:textSize="12sp"
                     android:textStyle="normal" />
 
                 <LinearLayout
-                    android:layout_marginTop="8dp"
-                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
 
                     <RelativeLayout
 
-                        android:background="@drawable/button_design5"
                         android:layout_width="wrap_content"
                         android:layout_height="18dp"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="0dp"
                         android:layout_marginEnd="8dp"
+                        android:background="@drawable/button_design5"
                         android:orientation="horizontal">
 
                         <TextView
@@ -103,6 +103,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:fontFamily="@font/allerrg"
                             android:gravity="center"
                             android:paddingLeft="5dp"
                             android:paddingRight="5dp"
@@ -113,23 +114,23 @@
                             android:textStyle="bold" />
 
 
-
                     </RelativeLayout>
 
                     <RelativeLayout
 
-                        android:background="@drawable/button_design6"
                         android:layout_width="60dp"
                         android:layout_height="18dp"
                         android:layout_marginStart="0dp"
                         android:layout_marginTop="0dp"
                         android:layout_marginEnd="8dp"
+                        android:background="@drawable/button_design6"
                         android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:fontFamily="@font/allerrg"
                             android:gravity="center"
                             android:paddingLeft="5dp"
                             android:paddingRight="5dp"

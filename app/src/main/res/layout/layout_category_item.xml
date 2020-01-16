@@ -25,9 +25,9 @@
                 android:id="@+id/category_image"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
+                android:contentDescription="@string/todo15"
                 android:scaleType="fitXY"
-                tools:ignore="UnusedAttribute"
-                android:contentDescription="@string/todo15" />
+                tools:ignore="UnusedAttribute" />
 
             <View
                 android:layout_width="match_parent"
@@ -46,7 +46,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center"
                 android:layout_marginTop="101dp"
-                android:fontFamily="sans-serif"
+                android:fontFamily="@font/allerrg"
                 android:text="@string/popular_category2"
                 android:textAlignment="center"
                 android:textColor="@color/dark_sub_primary"

@@ -7,21 +7,20 @@
     android:padding="8dp">
 
 
-
     <com.google.android.material.textfield.TextInputLayout
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
 
         <EditText
             android:id="@+id/edt_address"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:fontFamily="@font/latoregular"
             android:hint="Adddress"
-            android:textSize="17sp"
-            android:textStyle="bold"
             android:inputType="textPostalAddress"
-            android:padding="10dp" />
+            android:padding="10dp"
+            android:textSize="17sp" />
 
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -30,28 +29,28 @@
         android:id="@+id/txt_address_deetails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/latoregular"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:text="Address"
-        android:visibility="gone"
         android:textColor="@color/color_black"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:visibility="gone" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
 
         <EditText
             android:id="@+id/edt_txt_comment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/latoregular"
             android:hint="Write a Note"
-            android:textStyle="bold"
-            android:textSize="17sp"
             android:inputType="textPostalAddress"
-            android:padding="10dp" />
+            android:padding="10dp"
+            android:textSize="17sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -59,11 +58,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:fontFamily="sans-serif-thin"
+        android:fontFamily="@font/allerrg"
         android:text="Select delivery method"
         android:textColor="@color/gradient_middle"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textSize="20sp" />
 
     <RadioGroup
         android:layout_width="match_parent"
@@ -76,6 +74,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="true"
+            android:fontFamily="@font/latoregular"
             android:text="Home Address"
             android:textSize="16dp" />
 
@@ -83,6 +82,7 @@
             android:id="@+id/rdi_other_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/latoregular"
             android:text="Other Address"
             android:textSize="16dp" />
 
@@ -90,6 +90,7 @@
             android:id="@+id/rdi_ship_this_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/latoregular"
             android:text="Current Location"
             android:textSize="16dp" />
 
@@ -99,11 +100,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:fontFamily="sans-serif-thin"
+        android:fontFamily="@font/allerrg"
         android:text="Select payment method"
         android:textColor="@color/gradient_middle"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textSize="20sp" />
 
     <RadioGroup
         android:layout_width="match_parent"
@@ -116,6 +116,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="true"
+            android:fontFamily="@font/latoregular"
             android:text="Cash On Delivery"
             android:textSize="16dp" />
 
@@ -123,11 +124,11 @@
             android:id="@+id/rdi_braintree"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/latoregular"
             android:text="Visa / Debit Card / PayPal"
             android:textSize="16dp" />
 
     </RadioGroup>
-
 
 
 </LinearLayout>

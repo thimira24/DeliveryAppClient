@@ -2,8 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_cart"
@@ -22,7 +21,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="100dp"
-        android:fontFamily="sans-serif"
+        android:fontFamily="@font/latoregular"
         android:text="@string/looks_like_you_haven_t_added_anything_to_your_cart_yet"
         android:textAlignment="center"
         android:textColor="@color/dark_sub_text"
@@ -34,8 +33,8 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_margin="50dp"
-        android:src="@drawable/empty_cart"
-        android:contentDescription="@string/todo8" />
+        android:contentDescription="@string/todo8"
+        android:src="@drawable/empty_cart" />
 
     <Button
         android:id="@+id/btn_shopping"
@@ -44,6 +43,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="@color/dark_effect"
+        android:fontFamily="@font/latoregular"
         android:text="@string/continue_shopping"
         android:textAllCaps="true"
         android:textColor="@color/dark_sub_primary"
@@ -68,7 +68,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
-                android:fontFamily="sans-serif-thin"
+                android:fontFamily="@font/latoregular"
                 android:text="@string/total"
                 android:textColor="@color/dark_sub_primary"
                 android:textStyle="bold" />
@@ -78,7 +78,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="0dp"
-                android:fontFamily="sans-serif-thin"
+                android:fontFamily="@font/ralewayregular"
                 android:text="@string/_000_00"
                 android:textColor="@color/dark_sub_primary"
                 android:textSize="24sp"
@@ -90,7 +90,7 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/button_design3"
-                android:fontFamily="sans-serif"
+                android:fontFamily="@font/ralewayregular"
                 android:text="@string/confirm_order"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"

@@ -14,13 +14,12 @@
             android:id="@+id/edt_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif"
+            android:autofillHints=""
+            android:fontFamily="@font/latoregular"
             android:hint="@string/name_reg"
             android:inputType="text"
             android:textColor="#2E2D2D"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:autofillHints="" />
+            android:textSize="18sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -32,13 +31,12 @@
             android:id="@+id/edt_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif"
-            android:inputType="textEmailAddress"
+            android:autofillHints=""
+            android:fontFamily="@font/latoregular"
             android:hint="@string/emailreg"
+            android:inputType="textEmailAddress"
             android:textColor="#2E2D2D"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:autofillHints="" />
+            android:textSize="18sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -50,14 +48,13 @@
             android:id="@+id/edt_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints=""
             android:focusable="false"
-            android:fontFamily="sans-serif"
+            android:fontFamily="@font/latoregular"
             android:hint="@string/phone_numberreg"
-            android:textColor="#2E2D2D"
-            android:textStyle="bold"
-            android:textSize="18sp"
             android:inputType="phone"
-            android:autofillHints="" />
+            android:textColor="#2E2D2D"
+            android:textSize="18sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -69,13 +66,12 @@
             android:id="@+id/edt_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif"
+            android:autofillHints=""
+            android:fontFamily="@font/latoregular"
             android:hint="@string/addressreg"
             android:inputType="textPostalAddress"
             android:textColor="#2E2D2D"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:autofillHints="" />
+            android:textSize="18sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -87,18 +83,16 @@
             android:id="@+id/edt_hometown"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif"
-            android:hint="@string/hometownreg"
-            android:text="@string/colomboreg"
+            android:autofillHints=""
             android:focusable="false"
-            android:textColor="#2E2D2D"
-            android:textStyle="bold"
-            android:textSize="18sp"
+            android:fontFamily="@font/latoregular"
+            android:hint="@string/hometownreg"
             android:inputType="text"
-            android:autofillHints="" />
+            android:text="@string/colomboreg"
+            android:textColor="#2E2D2D"
+            android:textSize="18sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
-
 
 
     <com.google.android.material.textfield.TextInputLayout
@@ -109,17 +103,14 @@
             android:id="@+id/edt_nic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif"
+            android:autofillHints=""
+            android:fontFamily="@font/latoregular"
             android:hint="@string/nicreg"
-            android:textColor="#2E2D2D"
-            android:textStyle="bold"
-            android:textSize="18sp"
             android:inputType="number"
-            android:autofillHints="" />
+            android:textColor="#2E2D2D"
+            android:textSize="18sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
-
-
 
 
 </LinearLayout>

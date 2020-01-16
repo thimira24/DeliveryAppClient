@@ -2,9 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/dark_background"
-    android:orientation="vertical"
-    android:layout_height="match_parent">
+    android:orientation="vertical">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -28,11 +28,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="10dp"
-                    android:fontFamily="sans-serif"
+                    android:fontFamily="@font/allerrg"
                     android:text="@string/best_deals"
-                    android:textStyle="bold"
                     android:textColor="@color/dark_sub_primary"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <com.asksira.loopingviewpager.LoopingViewPager
                     android:id="@+id/viewpager"
@@ -55,12 +55,12 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif"
+                    android:fontFamily="@font/allerrg"
                     android:paddingStart="8dp"
                     android:text="@string/categories1"
-                    android:textStyle="bold"
                     android:textColor="@color/dark_sub_primary"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler_popular"
@@ -73,62 +73,62 @@
     </androidx.core.widget.NestedScrollView>
 
     <LinearLayout
-        android:layout_marginTop="12dp"
         android:layout_width="match_parent"
-        android:background="@drawable/bg_gradient"
         android:layout_height="match_parent"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_gradient"
         android:orientation="horizontal">
 
         <LinearLayout
-            android:gravity="center"
-            android:layout_gravity="center_horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
-                android:layout_margin="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
                 app:cardCornerRadius="10dp">
 
                 <ImageView
-                    android:layout_gravity="center"
-                    android:src="@drawable/applogo"
                     android:layout_width="100dp"
                     android:layout_height="60dp"
-                    android:contentDescription="@string/todo" />
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/todo"
+                    android:src="@drawable/applogo" />
 
             </androidx.cardview.widget.CardView>
 
 
             <androidx.cardview.widget.CardView
-                android:layout_margin="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
                 app:cardCornerRadius="10dp">
 
                 <ImageView
-                    android:layout_gravity="center"
-                    android:src="@drawable/applogo"
                     android:layout_width="100dp"
                     android:layout_height="60dp"
-                    android:contentDescription="@string/todo" />
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/todo"
+                    android:src="@drawable/applogo" />
 
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:layout_margin="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
                 app:cardCornerRadius="10dp">
 
                 <ImageView
-                    android:layout_gravity="center"
-                    android:src="@drawable/applogo"
                     android:layout_width="100dp"
                     android:layout_height="60dp"
-                    android:contentDescription="@string/todo9" />
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/todo9"
+                    android:src="@drawable/applogo" />
 
             </androidx.cardview.widget.CardView>
 
