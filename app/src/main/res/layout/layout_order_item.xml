@@ -28,7 +28,8 @@
                     android:layout_width="80dp"
                     android:tint="@color/dark_sub_text"
                     android:layout_height="100dp"
-                    android:src="@drawable/img_order"/>
+                    android:src="@drawable/img_order"
+                    android:contentDescription="@string/todo18" />
 
                 <ImageView
                     android:visibility="gone"
@@ -36,7 +37,8 @@
                     android:layout_width="80dp"
                     android:layout_height="100dp"
                     android:layout_gravity="center"
-                    android:scaleType="fitXY" />
+                    android:scaleType="fitXY"
+                    android:contentDescription="@string/todo19" />
 
             <LinearLayout
                 android:layout_width="match_parent"

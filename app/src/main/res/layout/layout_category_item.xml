@@ -26,7 +26,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:scaleType="fitXY"
-                tools:ignore="UnusedAttribute" />
+                tools:ignore="UnusedAttribute"
+                android:contentDescription="@string/todo15" />
 
             <View
                 android:layout_width="match_parent"
@@ -46,7 +47,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="101dp"
                 android:fontFamily="sans-serif"
-                android:text="Popular Category"
+                android:text="@string/popular_category2"
                 android:textAlignment="center"
                 android:textColor="@color/dark_sub_primary"
                 android:textSize="16sp"

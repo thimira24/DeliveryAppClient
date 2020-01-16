@@ -38,7 +38,8 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
-                    android:src="@drawable/bottom_shadow"/>
+                    android:src="@drawable/bottom_shadow"
+                    android:contentDescription="@string/todo12" />
 
             </RelativeLayout>
 
@@ -81,7 +82,7 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginEnd="1dp"
                         android:fontFamily="sans-serif-medium"
-                        android:text="Rs"
+                        android:text="@string/rs123"
                         android:textColor="@color/colorAccent1"
                         android:textSize="15sp" />
 
@@ -102,7 +103,7 @@
                         android:layout_marginStart="0dp"
                         android:layout_marginEnd="1dp"
                         android:fontFamily="sans-serif-medium"
-                        android:text="/="
+                        android:text="@string/klju"
                         android:textColor="@color/colorAccent1"
                         android:textSize="15sp" />
 
@@ -132,11 +133,12 @@
         android:layout_height="match_parent">
         <ImageView
             android:layout_centerInParent="true"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:tint="@color/dark_sub_text"
             android:layout_width="15dp"
             android:layout_height="50dp"
-            android:src="@drawable/slidemenu"/>
+            android:src="@drawable/slidemenu"
+            android:contentDescription="@string/todo13" />
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

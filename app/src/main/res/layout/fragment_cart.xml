@@ -23,10 +23,10 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="100dp"
         android:fontFamily="sans-serif"
-        android:text="Looks like you haven't added anything to your cart yet"
+        android:text="@string/looks_like_you_haven_t_added_anything_to_your_cart_yet"
         android:textAlignment="center"
         android:textColor="@color/dark_sub_text"
-        android:textSize="14dp" />
+        android:textSize="14sp" />
 
     <ImageView
         android:id="@+id/empty_img_cart"
@@ -34,7 +34,8 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_margin="50dp"
-        android:src="@drawable/empty_cart" />
+        android:src="@drawable/empty_cart"
+        android:contentDescription="@string/todo8" />
 
     <Button
         android:id="@+id/btn_shopping"
@@ -43,10 +44,10 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="@color/dark_effect"
-        android:text="Continue Shopping"
+        android:text="@string/continue_shopping"
         android:textAllCaps="true"
         android:textColor="@color/dark_sub_primary"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:visibility="gone" />
 
     <RelativeLayout
@@ -68,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
                 android:fontFamily="sans-serif-thin"
-                android:text="TOTAL"
+                android:text="@string/total"
                 android:textColor="@color/dark_sub_primary"
                 android:textStyle="bold" />
 
@@ -76,10 +77,9 @@
                 android:id="@+id/txt_total_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
                 android:layout_marginTop="0dp"
                 android:fontFamily="sans-serif-thin"
-                android:text="000.00"
+                android:text="@string/_000_00"
                 android:textColor="@color/dark_sub_primary"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -91,7 +91,7 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/button_design3"
                 android:fontFamily="sans-serif"
-                android:text="Confirm Order"
+                android:text="@string/confirm_order"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"
                 android:textStyle="bold" />

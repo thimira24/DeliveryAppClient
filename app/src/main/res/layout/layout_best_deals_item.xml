@@ -24,17 +24,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="0dp"
-                android:scaleType="fitXY" />
+                android:scaleType="fitXY"
+                android:contentDescription="@string/todo10" />
 
             <ImageView
                 android:layout_width="55dp"
                 android:layout_height="40dp"
-                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginEnd="10dp"
                 android:layout_marginBottom="0dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/best_sale" />
+                android:src="@drawable/best_sale"
+                android:contentDescription="@string/todo11" />
 
             <View
                 android:layout_width="match_parent"
@@ -50,9 +52,9 @@
                 android:layout_marginTop="10dp"
                 android:fontFamily="sans-serif"
                 android:paddingBottom="20dp"
-                android:text="Product name here"
+                android:text="@string/product_name_here"
                 android:textAlignment="textStart"
-                android:paddingLeft="10dp"
+                android:paddingStart="10dp"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" />
 

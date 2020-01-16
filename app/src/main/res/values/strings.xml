@@ -53,6 +53,30 @@
     <string name="status2">Paid</string>
     <string name="_2017001">2017001</string>
     <string name="_2019_10_21">2019-10-21</string>
+    <string name="looks_like_you_haven_t_added_anything_to_your_cart_yet">Looks like you haven\'t added anything to your cart yet</string>
+    <string name="continue_shopping">Continue Shopping</string>
+    <string name="total">TOTAL</string>
+    <string name="_000_00">000.00</string>
+    <string name="confirm_order">Confirm Order</string>
+    <string name="todo8">TODO</string>
+    <string name="todo">TODO</string>
+    <string name="todo20">TODO</string>
+    <string name="todo9">TODO</string>
+    <string name="product_name_here">Product name here</string>
+    <string name="todo10">TODO</string>
+    <string name="todo11">TODO</string>
+    <string name="rs123">Rs</string>
+    <string name="klju">/=</string>
+    <string name="todo12">TODO</string>
+    <string name="todo13">TODO</string>
+    <string name="popular_category2">Popular Category</string>
+    <string name="todo15">TODO</string>
+    <string name="_00_00123">00.00</string>
+    <string name="todo16">TODO</string>
+    <string name="todo17">TODO</string>
+    <string name="todo18">TODO</string>
+    <string name="todo19">TODO</string>
+    <string name="tell_others_what_you_think">Tell others what you think</string>
 
 
 </resources>
