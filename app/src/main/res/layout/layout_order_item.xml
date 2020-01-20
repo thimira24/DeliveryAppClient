@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/dark_background"
+    android:background="@color/dark_effect"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
@@ -13,14 +13,13 @@
         android:layout_marginTop="5dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
-        android:background="@color/dark_effect"
-        app:cardBackgroundColor="@color/dark_effect"
+        app:cardBackgroundColor="@color/dark_background"
         app:cardCornerRadius="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/dark_effect"
+            android:background="@color/dark_background"
             android:orientation="horizontal"
             android:padding="18dp">
 
@@ -103,7 +102,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:fontFamily="@font/allerrg"
                             android:gravity="center"
                             android:paddingLeft="5dp"
                             android:paddingRight="5dp"
@@ -123,14 +121,13 @@
                         android:layout_marginStart="0dp"
                         android:layout_marginTop="0dp"
                         android:layout_marginEnd="8dp"
-                        android:background="@drawable/button_design6"
+                        android:background="@drawable/button_design7"
                         android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:fontFamily="@font/allerrg"
                             android:gravity="center"
                             android:paddingLeft="5dp"
                             android:paddingRight="5dp"

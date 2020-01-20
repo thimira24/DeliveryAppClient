@@ -40,6 +40,8 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import org.greenrobot.eventbus.EventBus
+import java.math.RoundingMode
+import java.text.DecimalFormat
 
 class FoodDetailFragment : Fragment(), TextWatcher {
 
@@ -82,7 +84,7 @@ class FoodDetailFragment : Fragment(), TextWatcher {
     private lateinit var addonBottomSheetDialog: BottomSheetDialog
 
     private var img_food: ImageView? = null
-    private var btncart: TextView? = null
+    private var btncart: Button? = null
     private var btnRating: TextView? = null
     private var food_name: TextView? = null
     private var food_descryption: TextView? = null
@@ -237,11 +239,15 @@ class FoodDetailFragment : Fragment(), TextWatcher {
         displayPrice = totalPrice * number_button!!.number.toInt()
         displayPrice = Math.round(displayPrice * 100.0) / 100.0
 
-        food_price!!.text = StringBuilder("").append(Common.formatPrice(displayPrice)).toString()
+        //food_price!!.text = StringBuilder("").append(Common.formatPrice(displayPrice)).toString()
+        food_price!!.text = Common.foodSelected!!.price!!.toString()
+
+
+
     }
 
     private fun initViews(root: View?) {
-        (activity as AppCompatActivity).supportActionBar!!.setTitle(Common.foodSelected!!.name)
+        (activity as AppCompatActivity).supportActionBar!!.setTitle(Common.categorySelected!!.name)
 
         cartDataSource = LocalClassDataSource(CartDatabase.getInstance(context!!).cartDAO())
 
@@ -263,7 +269,7 @@ class FoodDetailFragment : Fragment(), TextWatcher {
 
         // for testing
         btnRating = root!!.findViewById(R.id.btnRate) as TextView
-        btncart = root!!.findViewById(R.id.add_to_cart) as TextView
+        btncart = root!!.findViewById(R.id.add_to_cart) as Button
         //end
 
 
@@ -309,7 +315,7 @@ class FoodDetailFragment : Fragment(), TextWatcher {
             cartItem.foodImage = Common.foodSelected!!.image!!
             cartItem.foodPrice = Common.foodSelected!!.price!!.toDouble()
             cartItem.foodQuantity = number_button!!.number.toInt()
-            cartItem.foodExtraPrice = Common.calculateExtraPrice(Common.foodSelected!!.userSelectedAddon, Common.foodSelected!!.userSelectedSize)
+            //cartItem.foodExtraPrice = Common.calculateExtraPrice(Common.foodSelected!!.userSelectedAddon, Common.foodSelected!!.userSelectedSize)
             if (Common.foodSelected!!.userSelectedAddon !== null)
                 cartItem.foodAddon = Gson().toJson(Common.foodSelected!!.userSelectedAddon)
             else

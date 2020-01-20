@@ -5,12 +5,14 @@
     android:layout_height="200dp"
     android:layout_marginLeft="8dp"
     android:layout_marginTop="8dp"
+    app:cardBackgroundColor="@color/dark_background"
     android:layout_marginRight="8dp"
     android:layout_marginBottom="8dp"
     app:cardCornerRadius="10dp"
     app:cardElevation="10dp">
 
     <RelativeLayout
+        android:background="@color/dark_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -26,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:background="@color/color_black"
+            android:background="@color/dark_background"
             android:baselineAligned="false"
             android:orientation="horizontal"
             android:padding="10dp"
@@ -83,8 +85,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:contentDescription="@string/todo16"
-                    android:src="@drawable/ic_favorite_border_black_24dp"
-                    android:tint="@color/dark_sub_primary" />
+                    android:src="@drawable/ic_favorite_black_24dp"
+                    android:tint="@color/color_heart" />
 
                 <ImageView
                     android:id="@+id/img_quick_cart"

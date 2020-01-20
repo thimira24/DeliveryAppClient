@@ -23,7 +23,8 @@
     <string name="accountnav">Account</string>
     <string name="settingsnav">Settings</string>
     <string name="food_name1">Food Name</string>
-    <string name="see_reviews">Reviews</string>
+    <string name="see_reviews">Comments</string>
+    <string name="see_reviews1">Leave a Feedback</string>
     <string name="size">Size</string>
     <string name="description">this text view include all the information of this prodcut</string>
     <string name="description1">Description</string>
@@ -79,7 +80,7 @@
     <string name="tell_others_what_you_think">Tell others what you think</string>
     <string name="name123">Name</string>
     <string name="date12">Date</string>
-    <string name="this_is_a_comment_for_this_product">this is a comment for this product</string>
+    <string name="this_is_a_comment_for_this_product">this is a comment for this product  </string>
     <string name="todo21">TODO</string>
 
 

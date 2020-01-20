@@ -323,7 +323,7 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
             }
 
             builder.setView(view)
-            builder.setNegativeButton("Go Back", {dialogInterface, i -> dialogInterface.dismiss() })
+            builder.setNegativeButton("Dissmiss", {dialogInterface, i -> dialogInterface.dismiss() })
                 .setPositiveButton("Pay",
                     {dialogInterface, i ->
                         if (rdi_cod.isChecked)
@@ -415,12 +415,17 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(object:  SingleObserver<Int>{
                             override fun onSuccess(t: Int) {
-                                //Toast.makeText(context!!, "Order placed sucessfully! ", Toast.LENGTH_SHORT).show
-                                Snackbar.make(view!!, "Order placed Sucessfully!", Snackbar.LENGTH_LONG).show()
 
+                                // after payments shows this alert dialog
+
+                                val builder = AlertDialog.Builder(context!!)
+                                val view = LayoutInflater.from(context).inflate(R.layout.test, null)
+                                builder.setView(view)
+                                val dialog = builder.create()
+                                dialog.show()
                                 clearcart()
-                                txt_empty_cart!!.setText("Thank you for Shopping with us!")
-                                txt_empty_cart!!.setTextColor(getResources().getColor(R.color.colorAccent1))
+                                 txt_empty_cart!!.setText("Now you can see the order status in Order History page!")
+                                //txt_empty_cart!!.setTextColor(getResources().getColor(R.color.colorAccent1))
                             }
 
                             override fun onSubscribe(d: Disposable) {
@@ -539,8 +544,8 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
                 }
 
                 override fun onError(e: Throwable) {
-                    if (!e.message!!.contains("Query returned empty"))
-                        Toast.makeText(context, "[SUM CART]"+e.message, Toast.LENGTH_SHORT).show()
+                   if (!e.message!!.contains("Query returned empty"))
+                       Toast.makeText(context, "[SUM CART]"+e.message, Toast.LENGTH_SHORT).show()
                 }
 
             })
@@ -548,7 +553,6 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
 
     override fun onPrepareOptionsMenu(menu: Menu) {
         menu!!.findItem(R.id.action_settings).setVisible(false) // hide setting action in cart fragment
-       // menu!!.findItem(R.id.action_search).setVisible(true) // hide search action in cart fragment
         super.onPrepareOptionsMenu(menu)
     }
 

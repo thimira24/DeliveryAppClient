@@ -10,6 +10,7 @@
     android:paddingRight="2dp">
 
     <androidx.cardview.widget.CardView
+        app:cardBackgroundColor="@color/dark_background"
         android:layout_width="match_parent"
         android:layout_height="125dp"
         android:background="@color/dark_background"
@@ -19,33 +20,33 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/dark_effect">
+            android:background="@color/dark_background">
 
             <ImageView
                 android:id="@+id/category_image"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="match_parent"
                 android:contentDescription="@string/todo15"
                 android:scaleType="fitXY"
                 tools:ignore="UnusedAttribute" />
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="match_parent"
                 android:background="@drawable/bottom_shadow" />
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="match_parent"
                 android:background="#4F2C2B2B" />
 
             <TextView
+                android:gravity="center"
                 android:id="@+id/category_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center"
-                android:layout_marginTop="101dp"
                 android:fontFamily="@font/allerrg"
                 android:text="@string/popular_category2"
                 android:textAlignment="center"

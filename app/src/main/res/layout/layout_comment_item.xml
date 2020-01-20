@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/dark_background"
+    android:background="@color/dark_effect"
     android:orientation="horizontal"
     android:padding="8dp"
     android:weightSum="10">
@@ -53,9 +53,14 @@
 
         <TextView
             android:id="@+id/txt_comment"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/button_design"
             android:fontFamily="@font/latoregular"
+            android:paddingLeft="3dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="2dp"
             android:text="@string/this_is_a_comment_for_this_product"
             android:textColor="@color/dark_sub_text"
             android:textStyle="italic" />
