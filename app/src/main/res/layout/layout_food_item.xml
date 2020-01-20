@@ -59,7 +59,7 @@
                         android:id="@+id/txt_food_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/ralewayregular"
+                        android:fontFamily="@font/latoregular"
                         android:text="@string/_00_00123"
                         android:textColor="@color/colorAccent1"
                         android:textSize="20sp" />

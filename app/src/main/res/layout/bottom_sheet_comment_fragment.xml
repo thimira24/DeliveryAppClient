@@ -1,35 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00000000"
     android:orientation="vertical">
 
     <LinearLayout
-        android:orientation="vertical"
-        android:padding="8dp"
-        android:background="@drawable/button_design2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Comments"
-        android:textColor="@color/dark_sub_text"
-        android:textSize="16sp"
-        android:textAllCaps="false"
-        android:fontFamily="@font/allerrg"
-        android:textAlignment="center"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:background="@drawable/button_design2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="5dp"
-        android:id="@+id/recycler_comment"
-        app:stackFromEnd="false"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/comments123"
+            android:textColor="@color/dark_sub_text"
+            android:textSize="16sp"
+            android:textAllCaps="false"
+            android:fontFamily="@font/allerrg"
+            android:textAlignment="center"/>
+
+
+            <View
+                android:id="@+id/divider"
+                android:backgroundTint="@color/dark_background"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+
+            <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="5dp"
+            android:id="@+id/recycler_comment"
+            app:stackFromEnd="false"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 
-</LinearLayout>
+    <ImageView
+        android:layout_alignParentEnd="true"
+        android:padding="8dp"
+        android:tint="@color/dark_sub_text"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:src="@drawable/ic_mode_comment_black_24dp"
+        android:contentDescription="@string/todo24" />
+
+</RelativeLayout>
