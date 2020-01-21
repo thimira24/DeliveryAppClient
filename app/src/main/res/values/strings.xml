@@ -41,8 +41,9 @@
     <string name="emailreg">Email</string>
     <string name="phone_numberreg">Phone number</string>
     <string name="nicreg">NIC</string>
-    <string name="addressreg">Address</string>
-    <string name="hometownreg">Hometown</string>
+    <string name="addressreg">Home Address</string>
+    <string name="addressreg1">Work Address</string>
+    <string name="hometownreg">City</string>
     <string name="colomboreg">Colombo</string>
     <string name="note_this_service_only_available_in_colombo_area">Note: This Service only available in Colombo area.</string>
     <string name="food_name3">Food name</string>

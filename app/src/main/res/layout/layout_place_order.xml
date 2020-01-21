@@ -83,7 +83,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/latoregular"
-            android:text="Other Address"
+            android:text="Work Place Address"
             android:textSize="16dp" />
 
         <RadioButton

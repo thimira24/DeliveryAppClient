@@ -11,48 +11,49 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:orientation="vertical"
-            android:padding="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:background="@drawable/button_design2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:orientation="vertical"
+            android:padding="8dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/comments123"
-            android:textColor="@color/dark_sub_text"
-            android:textSize="16sp"
-            android:textAllCaps="false"
-            android:fontFamily="@font/allerrg"
-            android:textAlignment="center"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/allerrg"
+                android:text="@string/comments123"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/dark_sub_text"
+                android:textSize="16sp" />
 
 
             <View
                 android:id="@+id/divider"
-                android:backgroundTint="@color/dark_background"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="?android:attr/listDivider" />
+                android:layout_height="1.5dp"
+                android:layout_marginTop="5dp"
+                android:background="?android:attr/listDivider"
+                android:backgroundTint="@color/dark_background" />
 
             <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginTop="5dp"
-            android:id="@+id/recycler_comment"
-            app:stackFromEnd="false"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+                android:id="@+id/recycler_comment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                app:stackFromEnd="false" />
 
         </LinearLayout>
 
     </LinearLayout>
 
     <ImageView
-        android:layout_alignParentEnd="true"
-        android:padding="8dp"
-        android:tint="@color/dark_sub_text"
         android:layout_width="wrap_content"
         android:layout_height="37dp"
+        android:layout_alignParentEnd="true"
+        android:contentDescription="@string/todo24"
+        android:padding="8dp"
         android:src="@drawable/ic_mode_comment_black_24dp"
-        android:contentDescription="@string/todo24" />
+        android:tint="@color/dark_sub_text" />
 
 </RelativeLayout>

@@ -273,9 +273,12 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
             rdi_other_address.setOnCheckedChangeListener { compoundButton, b ->
                 if (b)
                 {
-                    edt_address.setText ("")
-                    edt_address.setHint(" ")
+//                    edt_address.setText ("")
+//                    edt_address.setHint(" ")
+//                    txt_address.visibility = View.GONE
+                    edt_address.setText (Common.currentUser!!.workaddress)
                     txt_address.visibility = View.GONE
+
                 }
             }
 

@@ -8,7 +8,9 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.developement.app.Common.Common
 import com.developement.app.Model.UserModel
@@ -160,9 +162,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showRegisterDialog(user: FirebaseUser) {
+
+
         val builder = androidx.appcompat.app.AlertDialog.Builder(this)
-        builder.setTitle("Create Account")
-        builder.setMessage("It will take less than a minute")
+       // builder.setTitle("Create Account")
+       // builder.setMessage("It will take less than a minute")
 
         val itemView = LayoutInflater.from(this@MainActivity)
             .inflate(R.layout.layout_register, null)
@@ -174,71 +178,165 @@ class MainActivity : AppCompatActivity() {
         val edt_email = itemView.findViewById<EditText>(R.id.edt_email)
         val edt_nic = itemView.findViewById<EditText>(R.id.edt_nic)
 
+        // sign up button, work address and text view dissmiss
+        val edt_work_address = itemView.findViewById<EditText>(R.id.edt_work_address)
+        val btn_signup = itemView.findViewById<Button>(R.id.btn_signup)
+        val txt_dismiss = itemView.findViewById<TextView>(R.id.txt_dismiss)
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////
+        // click activity for sign up button
+         btn_signup.setOnClickListener {
+             if (TextUtils.isDigitsOnly(edt_name.text.toString())) {
+                 Toast.makeText(this@MainActivity, "Enter your name", Toast.LENGTH_SHORT).show()
+                 return@setOnClickListener
+
+             } else if (TextUtils.isDigitsOnly(edt_address.text.toString())) {
+                 Toast.makeText(this@MainActivity, "Address", Toast.LENGTH_SHORT).show()
+                 return@setOnClickListener
+
+             } else if (TextUtils.isDigitsOnly(edt_hometown.text.toString())) {
+                 Toast.makeText(this@MainActivity, "Hometown", Toast.LENGTH_SHORT).show()
+                 return@setOnClickListener
+
+             } else if (TextUtils.isDigitsOnly(edt_email.text.toString())) {
+                 Toast.makeText(this@MainActivity, "Email", Toast.LENGTH_SHORT).show()
+                 return@setOnClickListener
+
+             } else if (TextUtils.isDigitsOnly(edt_email.text.toString())) {
+                 Toast.makeText(this@MainActivity, "NIC", Toast.LENGTH_SHORT).show()
+                 return@setOnClickListener
+
+             } else if (TextUtils.isDigitsOnly(edt_work_address.text.toString())){
+                 Toast.makeText(this@MainActivity, "Work Address", Toast.LENGTH_SHORT).show()
+                 return@setOnClickListener
+             }
+
+
+             val userModel = UserModel()
+             userModel.uid = user!!.uid
+             userModel.name = edt_name.text.toString()
+             userModel.address = edt_address.text.toString()
+             userModel.workaddress = edt_work_address.text.toString()
+             userModel.phone = edt_phone.text.toString()
+             userModel.hometown = edt_hometown.text.toString()
+             userModel.email = edt_email.text.toString()
+             userModel.nic = edt_nic.text.toString()
+
+             userRef!!.child(user!!.uid)
+                 .setValue(userModel)
+                 .addOnCompleteListener { task ->
+                     if (task.isSuccessful) {
+                         FirebaseAuth.getInstance().currentUser!!
+                             .getIdToken(true)
+                             .addOnFailureListener { t ->
+                                 Toast.makeText(this@MainActivity, ""+t.message, Toast.LENGTH_SHORT).show()
+                             }
+                             .addOnCompleteListener {
+                                 Common.authorizeToken = it!!.result!!.token
+
+                                 val headers = HashMap<String, String>()
+                                 headers.put("Authorization", Common.buildToken(Common.authorizeToken!!))
+
+                                 compositeDisposable.add(cloudFunctions.getToken(headers)
+                                     .subscribeOn(Schedulers.io())
+                                     .observeOn(AndroidSchedulers.mainThread())
+                                     .subscribe({ braintreeToken ->
+
+
+                                         //Toast.makeText(this@MainActivity, "Welcome", Toast.LENGTH_SHORT).show()
+
+                                         goToHomeActivity(userModel, braintreeToken.token)
+                                     }, { t: Throwable? ->
+
+
+                                         Toast.makeText(this@MainActivity, ""+t!!.message, Toast.LENGTH_SHORT).show()
+                                     }))
+                             }
+                     }
+                 }
+         }
+
+        // click activity for dissmiss textview
+          txt_dismiss.setOnClickListener {
+            System.exit(-1)
+         }
+
+
         // set mobile number
         edt_phone.setText(user!!.phoneNumber)
         builder.setView(itemView)
-        builder.setNegativeButton("Exit") { dialogInterface, i -> System.exit(-1) }
-        builder.setPositiveButton("Sign Up") { dialogInterface, i ->
-            if (TextUtils.isDigitsOnly(edt_name.text.toString())) {
-                Toast.makeText(this@MainActivity, "Enter your name", Toast.LENGTH_SHORT).show()
-                return@setPositiveButton
-            } else if (TextUtils.isDigitsOnly(edt_address.text.toString())) {
-                Toast.makeText(this@MainActivity, "Address", Toast.LENGTH_SHORT).show()
-                return@setPositiveButton
-            } else if (TextUtils.isDigitsOnly(edt_hometown.text.toString())) {
-                Toast.makeText(this@MainActivity, "Hometown", Toast.LENGTH_SHORT).show()
-                return@setPositiveButton
-            } else if (TextUtils.isDigitsOnly(edt_email.text.toString())) {
-                Toast.makeText(this@MainActivity, "Email", Toast.LENGTH_SHORT).show()
-                return@setPositiveButton
-            } else if (TextUtils.isDigitsOnly(edt_email.text.toString())) {
-                Toast.makeText(this@MainActivity, "NIC", Toast.LENGTH_SHORT).show()
-                return@setPositiveButton
-            }
-
-
-            val userModel = UserModel()
-            userModel.uid = user!!.uid
-            userModel.name = edt_name.text.toString()
-            userModel.address = edt_address.text.toString()
-            userModel.phone = edt_phone.text.toString()
-            userModel.hometown = edt_hometown.text.toString()
-            userModel.email = edt_email.text.toString()
-            userModel.nic = edt_nic.text.toString()
-
-            userRef!!.child(user!!.uid)
-                .setValue(userModel)
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        FirebaseAuth.getInstance().currentUser!!
-                            .getIdToken(true)
-                            .addOnFailureListener { t ->
-                                Toast.makeText(this@MainActivity, ""+t.message, Toast.LENGTH_SHORT).show()
-                            }
-                            .addOnCompleteListener {
-                                Common.authorizeToken = it!!.result!!.token
-
-                                val headers = HashMap<String, String>()
-                                headers.put("Authorization", Common.buildToken(Common.authorizeToken!!))
-
-                                compositeDisposable.add(cloudFunctions.getToken(headers)
-                                    .subscribeOn(Schedulers.io())
-                                    .observeOn(AndroidSchedulers.mainThread())
-                                    .subscribe({ braintreeToken ->
-
-                                        dialogInterface.dismiss()
-                                        Toast.makeText(this@MainActivity, "Welcome", Toast.LENGTH_SHORT).show()
-
-                                        goToHomeActivity(userModel, braintreeToken.token)
-                                    }, { t: Throwable? ->
-
-                                        dialogInterface.dismiss()
-                                        Toast.makeText(this@MainActivity, ""+t!!.message, Toast.LENGTH_SHORT).show()
-                                    }))
-                            }
-                    }
-                }
-        }
+//        builder.setNegativeButton("Exit") { dialogInterface, i -> System.exit(-1) }
+//        builder.setPositiveButton("Sign Up") { dialogInterface, i ->
+//
+//            if (TextUtils.isDigitsOnly(edt_name.text.toString())) {
+//                Toast.makeText(this@MainActivity, "Enter your name", Toast.LENGTH_SHORT).show()
+//                return@setPositiveButton
+//
+//            } else if (TextUtils.isDigitsOnly(edt_address.text.toString())) {
+//                Toast.makeText(this@MainActivity, "Address", Toast.LENGTH_SHORT).show()
+//                return@setPositiveButton
+//
+//            } else if (TextUtils.isDigitsOnly(edt_hometown.text.toString())) {
+//                Toast.makeText(this@MainActivity, "Hometown", Toast.LENGTH_SHORT).show()
+//                return@setPositiveButton
+//
+//            } else if (TextUtils.isDigitsOnly(edt_email.text.toString())) {
+//                Toast.makeText(this@MainActivity, "Email", Toast.LENGTH_SHORT).show()
+//                return@setPositiveButton
+//
+//            } else if (TextUtils.isDigitsOnly(edt_email.text.toString())) {
+//                Toast.makeText(this@MainActivity, "NIC", Toast.LENGTH_SHORT).show()
+//                return@setPositiveButton
+//
+//            } else if (TextUtils.isDigitsOnly(edt_work_address.text.toString())){
+//                Toast.makeText(this@MainActivity, "Work Address", Toast.LENGTH_SHORT).show()
+//                return@setPositiveButton
+//            }
+//
+//
+//            val userModel = UserModel()
+//            userModel.uid = user!!.uid
+//            userModel.name = edt_name.text.toString()
+//            userModel.address = edt_address.text.toString()
+//            userModel.workaddress = edt_work_address.text.toString()
+//            userModel.phone = edt_phone.text.toString()
+//            userModel.hometown = edt_hometown.text.toString()
+//            userModel.email = edt_email.text.toString()
+//            userModel.nic = edt_nic.text.toString()
+//
+//            userRef!!.child(user!!.uid)
+//                .setValue(userModel)
+//                .addOnCompleteListener { task ->
+//                    if (task.isSuccessful) {
+//                        FirebaseAuth.getInstance().currentUser!!
+//                            .getIdToken(true)
+//                            .addOnFailureListener { t ->
+//                                Toast.makeText(this@MainActivity, ""+t.message, Toast.LENGTH_SHORT).show()
+//                            }
+//                            .addOnCompleteListener {
+//                                Common.authorizeToken = it!!.result!!.token
+//
+//                                val headers = HashMap<String, String>()
+//                                headers.put("Authorization", Common.buildToken(Common.authorizeToken!!))
+//
+//                                compositeDisposable.add(cloudFunctions.getToken(headers)
+//                                    .subscribeOn(Schedulers.io())
+//                                    .observeOn(AndroidSchedulers.mainThread())
+//                                    .subscribe({ braintreeToken ->
+//
+//                                        dialogInterface.dismiss()
+//                                        //Toast.makeText(this@MainActivity, "Welcome", Toast.LENGTH_SHORT).show()
+//
+//                                        goToHomeActivity(userModel, braintreeToken.token)
+//                                    }, { t: Throwable? ->
+//
+//                                        dialogInterface.dismiss()
+//                                        Toast.makeText(this@MainActivity, ""+t!!.message, Toast.LENGTH_SHORT).show()
+//                                    }))
+//                            }
+//                    }
+//                }
+//        }
 
         // important show dialog
         val dialog = builder.create()

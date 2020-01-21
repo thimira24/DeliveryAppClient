@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/allerrg"
             android:text="@string/name123"
-            android:textColor="@color/dark_sub_primary"
+            android:textColor="@color/color_ash"
             android:textSize="22sp" />
 
         <TextView
