@@ -3,23 +3,19 @@ package com.developement.app.ui.cart
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Color
-import android.location.Address
 import android.location.Geocoder
 import android.location.Location
 import android.os.Bundle
 import android.os.Looper
 import android.os.Parcelable
-import android.service.media.MediaBrowserService
 import android.text.TextUtils
 import android.util.Log
 import android.view.*
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
-import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.braintreepayments.api.dropin.DropInRequest
@@ -53,10 +49,8 @@ import io.reactivex.SingleObserver
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
-import io.reactivex.observers.DisposableObserver
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.fragment_cart.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
@@ -82,6 +76,8 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
     var btn_shopping: Button? = null
     var adapter: MyCartAdapter? = null
 
+
+
     private lateinit var locationRequest: LocationRequest
     private lateinit var locationCallback: LocationCallback
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
@@ -99,7 +95,6 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
         if (fusedLocationProviderClient != null)
             fusedLocationProviderClient.requestLocationUpdates(locationRequest, locationCallback, Looper.getMainLooper())
     }
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -180,7 +175,7 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
 
         val layoutManager = LinearLayoutManager(context)
         recycler_cart!!.layoutManager = layoutManager
-        //recycler_cart!!.addItemDecoration(DividerItemDecoration(context, layoutManager.orientation))
+
 
         val swipe = object: MySwipeHelper(context!!, recycler_cart!!, 200) {
             override fun instantiateMyButton(
@@ -205,7 +200,7 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
                                         sumCart()
                                         EventBus.getDefault().postSticky(CounterCartEvent(true))
                                         //Toast.makeText(context, "Deleted from cart", Toast.LENGTH_SHORT).show()
-                                        Snackbar.make(view!!, "Deleted from the Cart", Snackbar.LENGTH_LONG).show()
+                                        Snackbar.make(view!!, "Deleted from the Cart", Snackbar.LENGTH_SHORT).show()
                                     }
 
                                     override fun onSubscribe(d: Disposable) {
@@ -232,6 +227,7 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
         empty_img_cart = root.findViewById(R.id.empty_img_cart) as ImageView
         btn_shopping = root.findViewById(R.id.btn_shopping) as Button
 
+
         // continue shopping button action
 
         btn_shopping!!.setOnClickListener {
@@ -242,9 +238,8 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
         btn_place_order = root.findViewById(R.id.btn_place_order) as Button
         // event
         btn_place_order.setOnClickListener {
-            val builder = AlertDialog.Builder(context!!)
-            builder.setTitle("Delivery info & Payments")
 
+            val builder = AlertDialog.Builder(context!!)
             val view = LayoutInflater.from(context).inflate(R.layout.layout_place_order, null)
 
             val  edt_address = view.findViewById<View>(R.id.edt_address) as EditText
@@ -255,7 +250,24 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
             val  rdi_ship_to_this_address = view.findViewById<View>(R.id.rdi_ship_this_address) as RadioButton
             val  rdi_cod = view.findViewById<View>(R.id.rdi_cod) as RadioButton
             val  rdi_braintree = view.findViewById<View>(R.id.rdi_braintree) as RadioButton
+            val  edit_address = view.findViewById<View>(R.id.edt_edit_address) as TextView
 
+
+
+            //pay button and dissmiss button
+            val btn_pay = view.findViewById<View>(R.id.btn_pay) as Button
+            val txt_back = view.findViewById<View>(R.id.txt_back) as TextView
+
+            //show total amount
+            val show_total_amount_in_dialog = view.findViewById<View>(R.id.txt_back) as TextView
+
+            // set address not editable
+            edt_address.isEnabled = false
+
+            //set edit text enable
+            edit_address.setOnClickListener {
+                edt_address.isEnabled = true
+            }
 
             //data
             edt_address.setText (Common.currentUser!!.address!!)
@@ -266,6 +278,8 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
                 {
                     edt_address.setText (Common.currentUser!!.address!!)
                     txt_address.visibility = View.GONE
+                    rdi_ship_to_this_address.setText("Current Location")
+                    edt_address.isEnabled = false
                 }
             }
 
@@ -278,6 +292,8 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
 //                    txt_address.visibility = View.GONE
                     edt_address.setText (Common.currentUser!!.workaddress)
                     txt_address.visibility = View.GONE
+                    rdi_ship_to_this_address.setText("Current Location")
+                    edt_address.isEnabled = false
 
                 }
             }
@@ -307,8 +323,8 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
                                    edt_address.setText(coordinates)
                                    txt_address.visibility = View.VISIBLE
                                    txt_address.setText(t)
-
-
+                                   //rdi_ship_to_this_address.setText(t)
+                                   edt_address.isEnabled = false
                                }
 
                                override fun onError(e: Throwable) {
@@ -317,37 +333,41 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
                                   txt_address.setText(e.message!!)
 
                                }
-
                            })
-
-
                        }
                 }
             }
 
             builder.setView(view)
-            builder.setNegativeButton("Dissmiss", {dialogInterface, i -> dialogInterface.dismiss() })
-                .setPositiveButton("Pay",
-                    {dialogInterface, i ->
-                        if (rdi_cod.isChecked)
-                            paymentCOD(edt_address.text.toString(), edt_comment.text.toString())
-                        else if (rdi_braintree.isChecked)
-                        {
-                            address = edt_address.text.toString()
-                            comment = edt_comment.text.toString()
-                            if (!TextUtils.isEmpty(Common.currentToken))
-                            {
-                                val dropInRequest = DropInRequest().clientToken(Common.currentToken)
-                                startActivityForResult(dropInRequest.getIntent(context), REQUEST_BRAINTREE_CODE)
-
-                            }
-                        }
-
-
-                })
 
             val dialog = builder.create()
+
+            //payment button listner
+            btn_pay.setOnClickListener {
+
+                if (rdi_cod.isChecked)
+                    paymentCOD(edt_address.text.toString(), edt_comment.text.toString())
+                else if (rdi_braintree.isChecked)
+                {
+                    address = edt_address.text.toString()
+                    comment = edt_comment.text.toString()
+                    if (!TextUtils.isEmpty(Common.currentToken))
+                    {
+                        val dropInRequest = DropInRequest().clientToken(Common.currentToken)
+                        startActivityForResult(dropInRequest.getIntent(context), REQUEST_BRAINTREE_CODE)
+
+                    }
+                }
+                dialog.dismiss()
+
+            }
+
+            //when click back button in checkout view
+            txt_back.setOnClickListener {  dialog.dismiss()}
+
             dialog.show()
+
+
 
         }
     }
@@ -422,13 +442,22 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
                                 // after payments shows this alert dialog
 
                                 val builder = AlertDialog.Builder(context!!)
-                                val view = LayoutInflater.from(context).inflate(R.layout.test, null)
+                                val view = LayoutInflater.from(context).inflate(R.layout.layout_order_placed_message, null)
+
+                                val txt_order_ok = view.findViewById<Button>(R.id.btn_after_order_message)
+
                                 builder.setView(view)
                                 val dialog = builder.create()
                                 dialog.show()
+
+                                txt_order_ok.setOnClickListener {
+                                    dialog.dismiss()
+                                }
+                                //Toast.makeText(context!!, "Order placed sucessfully! ", Toast.LENGTH_SHORT).show()
                                 clearcart()
-                                 txt_empty_cart!!.setText("Now you can see the order status in Order History page!")
-                                //txt_empty_cart!!.setTextColor(getResources().getColor(R.color.colorAccent1))
+
+                                txt_empty_cart!!.setText("Now you can see the order status in Order History page!")
+
                             }
 
                             override fun onSubscribe(d: Disposable) {
@@ -722,8 +751,7 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object: SingleObserver<Int>{
                     override fun onSuccess(t: Int) {
-                        //Toast.makeText(context, "Sucessfully clear cart", Toast.LENGTH_SHORT).show()
-                        Snackbar.make(view!!, "Order Placed Successfully.", Snackbar.LENGTH_LONG).show()
+
                         EventBus.getDefault().postSticky(CounterCartEvent(true))
                     }
 

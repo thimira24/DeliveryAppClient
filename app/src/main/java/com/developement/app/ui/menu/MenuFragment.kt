@@ -54,7 +54,7 @@ class MenuFragment : Fragment() {
             dialog.dismiss()
             adapter = MyCategoriesAdapter(context!!, it)
             recycler_menu!!.adapter = adapter
-            //recycler_menu!!.layoutAnimation = layoutAnimationController
+
         })
         return root
     }

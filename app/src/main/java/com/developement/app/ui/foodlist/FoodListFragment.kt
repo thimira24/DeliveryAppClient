@@ -14,6 +14,7 @@ import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.developement.app.Adapter.MyFoodListAdapter
@@ -63,7 +64,9 @@ class FoodListFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar!!.setTitle(Common.categorySelected!!.name)
         recyclerView_food_list = root!!.findViewById(R.id.recycler_food_list) as RecyclerView
         recyclerView_food_list!!.setHasFixedSize(true)
-        recyclerView_food_list!!.layoutManager = LinearLayoutManager(context)
+
+
+        recyclerView_food_list!!.layoutManager = GridLayoutManager(context, 2)
 
         layoutAnimationController = AnimationUtils.loadLayoutAnimation(context, R.anim.layout_item_from_left)
 

@@ -91,7 +91,7 @@ class ViewOrderFragment : Fragment(),  ILoadOrderCallbackListner{
         recycler_order.setHasFixedSize(true)
         val layoutManager = LinearLayoutManager(context!!)
         recycler_order.layoutManager = layoutManager
-        //recycler_order.addItemDecoration(DividerItemDecoration(context!!, layoutManager.orientation))
+
     }
 
     override fun onLoadOrderSuccess(orderList: List<Order>) {

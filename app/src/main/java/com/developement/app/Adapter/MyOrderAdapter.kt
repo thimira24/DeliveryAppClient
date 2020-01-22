@@ -34,6 +34,7 @@ class MyOrderAdapter(
         internal var txt_order_status: TextView? = null
         internal var txt_order_number: TextView? = null
         internal var txt_order_comment: TextView? = null
+        internal var txt_show_order: TextView? = null
 
         init {
             img_order = itemView.findViewById(R.id.img_order) as ImageView
@@ -41,6 +42,7 @@ class MyOrderAdapter(
             txt_order_status = itemView.findViewById(R.id.txt_order_stsus) as TextView
             txt_order_date = itemView.findViewById(R.id.txt_order_date) as TextView
             txt_order_number = itemView.findViewById(R.id.txt_order_number) as TextView
+            txt_show_order = itemView.findViewById(R.id.show_total) as TextView
         }
     }
 
@@ -66,6 +68,7 @@ class MyOrderAdapter(
         holder.txt_order_number!!.text = StringBuilder("Order ID: ").append(orderList[position].orderNumber)
         holder.txt_order_comment!!.text = StringBuilder("Note: ").append(orderList[position].comment)
         holder.txt_order_status!!.text = StringBuilder("Order ").append(Common.convertStatusToText(orderList[position].orderStatus))
+        holder.txt_show_order!!.text = StringBuilder("Rs ").append(orderList[position].totalPayment)
     }
 
 }

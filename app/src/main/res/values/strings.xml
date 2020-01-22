@@ -85,6 +85,16 @@
     <string name="todo21">TODO</string>
     <string name="comments123">Comments</string>
     <string name="todo24">TODO</string>
+    <string name="cash_on_delivery">Cash On Delivery</string>
+    <string name="write_a_note">Write a Note</string>
+    <string name="visa_debit_card_paypal">Visa / Debit Card / PayPal</string>
+    <string name="select_payment_method">Select payment method</string>
+    <string name="current_location">Current Location</string>
+    <string name="work_place_address">Work Place Address</string>
+    <string name="home_address">Home Address</string>
+    <string name="select_delivery_method">Set Address</string>
+    <string name="adddress">Adddress</string>
+    <string name="address">Address</string>
 
 
 </resources>

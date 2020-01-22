@@ -243,8 +243,6 @@ class MainActivity : AppCompatActivity() {
                                      .subscribe({ braintreeToken ->
 
 
-                                         //Toast.makeText(this@MainActivity, "Welcome", Toast.LENGTH_SHORT).show()
-
                                          goToHomeActivity(userModel, braintreeToken.token)
                                      }, { t: Throwable? ->
 

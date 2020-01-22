@@ -2,23 +2,24 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
+    android:layout_height="250dp"
     android:layout_marginLeft="8dp"
     android:layout_marginTop="8dp"
-    app:cardBackgroundColor="@color/dark_background"
     android:layout_marginRight="8dp"
     android:layout_marginBottom="8dp"
-    app:cardCornerRadius="10dp"
+    app:cardBackgroundColor="@color/dark_background"
+    app:cardCornerRadius="5dp"
     app:cardElevation="10dp">
 
     <RelativeLayout
-        android:background="@color/dark_background"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/dark_background">
 
 
         <ImageView
             android:id="@+id/img_food_image"
+            android:layout_marginBottom="55dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@string/todo5"
@@ -48,7 +49,7 @@
                     android:fontFamily="@font/allerrg"
                     android:text="@string/food_name3"
                     android:textColor="@color/dark_sub_primary"
-                    android:textSize="20sp" />
+                    android:textSize="14sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -62,7 +63,7 @@
                         android:fontFamily="@font/latoregular"
                         android:text="@string/_00_00123"
                         android:textColor="@color/colorAccent1"
-                        android:textSize="20sp" />
+                        android:textSize="14sp" />
 
 
                 </LinearLayout>
