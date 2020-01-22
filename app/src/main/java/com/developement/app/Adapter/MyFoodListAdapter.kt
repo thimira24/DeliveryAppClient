@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -183,7 +184,7 @@ class MyFoodListAdapter(
 
         var img_food_image: ImageView? = null
         var img_fav: ImageView? = null
-        var img_cart: ImageView? = null
+        var img_cart: Button? = null
 
         internal var listener: IRecyclerItemClickListner? = null
 
@@ -198,7 +199,7 @@ class MyFoodListAdapter(
             txt_food_price = itemView.findViewById(R.id.txt_food_price) as TextView
             img_food_image = itemView.findViewById(R.id.img_food_image) as ImageView
             img_fav = itemView.findViewById(R.id.img_fav) as ImageView
-            img_cart = itemView.findViewById(R.id.img_quick_cart) as ImageView
+            img_cart = itemView.findViewById(R.id.img_quick_cart) as Button
 
             itemView.setOnClickListener(this)
 

@@ -16,12 +16,21 @@
         android:layout_height="match_parent"
         android:background="@color/dark_background">
 
+        <ImageView
+            android:id="@+id/img_fav"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_favorite_black_24dp"
+            android:tint="@color/colorAccent1" />
+
 
         <ImageView
             android:id="@+id/img_food_image"
-            android:layout_marginBottom="55dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginBottom="55dp"
             android:contentDescription="@string/todo5"
             android:scaleType="fitXY" />
 
@@ -32,77 +41,50 @@
             android:background="@color/dark_background"
             android:baselineAligned="false"
             android:orientation="horizontal"
-            android:padding="10dp"
+            android:padding="0dp"
             android:weightSum="10">
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="8"
+                android:layout_weight="10"
                 android:gravity="center_vertical"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/txt_food_name"
+                    android:paddingLeft="8dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:fontFamily="@font/allerrg"
                     android:text="@string/food_name3"
                     android:textColor="@color/dark_sub_primary"
                     android:textSize="14sp" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+
+                <TextView
+                    android:id="@+id/txt_food_price"
+                    android:paddingLeft="8dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:fontFamily="@font/latoregular"
+                    android:text="@string/_00_00123"
+                    android:textColor="@color/colorAccent1"
+                    android:textSize="14sp" />
 
-                    <TextView
-                        android:id="@+id/txt_food_price"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/latoregular"
-                        android:text="@string/_00_00123"
-                        android:textColor="@color/colorAccent1"
-                        android:textSize="14sp" />
-
-
-                </LinearLayout>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="2"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:weightSum="2">
-
-                <ImageView
-                    android:id="@+id/img_fav"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:contentDescription="@string/todo16"
-                    android:src="@drawable/ic_favorite_black_24dp"
-                    android:tint="@color/color_heart" />
-
-                <ImageView
+                <Button
                     android:id="@+id/img_quick_cart"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="10dp"
                     android:layout_weight="1"
-                    android:contentDescription="@string/todo17"
-                    android:src="@drawable/ic_shopping_cart_black_24dp"
-                    android:tint="@color/dark_sub_primary" />
+                    android:background="@drawable/button_design9"
+                    android:fontFamily="@font/latoregular"
+                    android:text="Add to cart" />
 
             </LinearLayout>
 
         </LinearLayout>
-
     </RelativeLayout>
-
-
 </androidx.cardview.widget.CardView>
