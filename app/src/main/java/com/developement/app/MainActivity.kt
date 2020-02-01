@@ -177,6 +177,7 @@ class MainActivity : AppCompatActivity() {
         val edt_hometown = itemView.findViewById<EditText>(R.id.edt_hometown)
         val edt_email = itemView.findViewById<EditText>(R.id.edt_email)
         val edt_nic = itemView.findViewById<EditText>(R.id.edt_nic)
+        val lable_mumber = itemView.findViewById<TextView>(R.id.lable_number)
 
         // sign up button, work address and text view dissmiss
         val edt_work_address = itemView.findViewById<EditText>(R.id.edt_work_address)
@@ -259,6 +260,8 @@ class MainActivity : AppCompatActivity() {
             System.exit(-1)
          }
 
+        //lable_mumber.setText(user!!.phoneNumber)
+        lable_mumber!!.text = StringBuilder("Verified your number ").append(user!!.phoneNumber)
 
         // set mobile number
         edt_phone.setText(user!!.phoneNumber)

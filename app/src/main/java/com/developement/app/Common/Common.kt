@@ -105,8 +105,8 @@ object Common {
     fun convertStatusToText(orderStatus: Int): String {
         when (orderStatus) {
             0 -> return "Placed"
-            1 -> return "Shipping"
-            2 -> return "Shipped"
+            1 -> return "on the way"
+            2 -> return "Delivered"
             -1 -> return "Cancelled"
             else -> return "Unk"
         }

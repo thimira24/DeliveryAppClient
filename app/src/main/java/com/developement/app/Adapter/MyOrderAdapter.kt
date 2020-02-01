@@ -65,7 +65,7 @@ class MyOrderAdapter(
             .append(" ")
             .append(simpleDateFormat.format(date))
 
-        holder.txt_order_number!!.text = StringBuilder("Order ID: ").append(orderList[position].orderNumber)
+        holder.txt_order_number!!.text = StringBuilder("").append(orderList[position].orderNumber)
         holder.txt_order_comment!!.text = StringBuilder("Note: ").append(orderList[position].comment)
         holder.txt_order_status!!.text = StringBuilder("Order ").append(Common.convertStatusToText(orderList[position].orderStatus))
         holder.txt_show_order!!.text = StringBuilder("Rs ").append(orderList[position].totalPayment)

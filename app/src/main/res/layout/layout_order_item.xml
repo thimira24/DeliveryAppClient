@@ -8,7 +8,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="135dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="5dp"
         android:layout_marginRight="10dp"
@@ -21,11 +21,11 @@
             android:layout_height="wrap_content"
             android:background="@color/dark_background"
             android:orientation="horizontal"
-            android:padding="18dp">
+            android:padding="8dp">
 
             <ImageView
                 android:layout_width="80dp"
-                android:layout_height="100dp"
+                android:layout_height="110dp"
                 android:contentDescription="@string/todo18"
                 android:src="@drawable/img_order"
                 android:tint="@color/dark_sub_text" />
@@ -54,7 +54,7 @@
                     android:fontFamily="@font/allerrg"
                     android:text="@string/_2019_10_21"
                     android:textColor="@color/dark_sub_primary"
-                    android:textSize="12sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -64,9 +64,10 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/allerrg"
                     android:text="@string/_2017001"
                     android:textColor="@color/dark_sub_primary"
-                    android:textSize="12sp"
+                    android:textSize="16sp"
                     android:textStyle="normal" />
 
                 <TextView
@@ -75,10 +76,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
+                    android:fontFamily="@font/allerrg"
                     android:layout_marginEnd="8dp"
                     android:text="@string/comment3"
                     android:textColor="@color/dark_sub_text"
-                    android:textSize="12sp"
+                    android:textSize="16sp"
                     android:textStyle="normal" />
 
                 <LinearLayout
@@ -90,7 +92,7 @@
                     <RelativeLayout
 
                         android:layout_width="wrap_content"
-                        android:layout_height="18dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="0dp"
                         android:layout_marginEnd="8dp"
@@ -117,7 +119,7 @@
                     <RelativeLayout
 
                         android:layout_width="wrap_content"
-                        android:layout_height="18dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="0dp"
                         android:layout_marginTop="0dp"
                         android:layout_marginEnd="8dp"
@@ -129,6 +131,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
+
                             android:paddingRight="10dp"
                             android:text="@string/status2"
                             android:textColor="@color/dark_sub_primary"
@@ -138,6 +141,7 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:visibility="gone"
                         android:layout_width="15dp"
                         android:layout_height="18dp"
                         android:layout_marginStart="0dp"
