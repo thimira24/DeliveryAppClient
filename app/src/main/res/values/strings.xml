@@ -95,6 +95,8 @@
     <string name="select_delivery_method">Set Address</string>
     <string name="adddress">Adddress</string>
     <string name="address">Address</string>
+    <string name="todo30" />
+    <string name="add_to_cart31" />
 
 
 </resources>

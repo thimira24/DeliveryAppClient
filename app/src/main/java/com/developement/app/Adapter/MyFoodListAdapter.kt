@@ -4,10 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.developement.app.Callback.IRecyclerItemClickListner
@@ -47,7 +44,7 @@ class MyFoodListAdapter(
         Glide.with(context).load(foodList.get(position).image).into(holder.img_food_image!!)
         holder.txt_food_name!!.setText(foodList.get(position).name)
         holder.txt_food_price!!.setText(StringBuilder("Rs ").append(foodList.get(position).price.toString()))
-
+        holder.rating_bar!!.rating = foodList.get(position).ratingValue.toFloat()
         //event
         holder.setListner(object:IRecyclerItemClickListner{
             override fun onItemClick(view: View, pos: Int) {
@@ -185,6 +182,7 @@ class MyFoodListAdapter(
         var img_food_image: ImageView? = null
         var img_fav: ImageView? = null
         var img_cart: Button? = null
+        var rating_bar: RatingBar? = null
 
         internal var listener: IRecyclerItemClickListner? = null
 
@@ -200,7 +198,7 @@ class MyFoodListAdapter(
             img_food_image = itemView.findViewById(R.id.img_food_image) as ImageView
             img_fav = itemView.findViewById(R.id.img_fav) as ImageView
             img_cart = itemView.findViewById(R.id.img_quick_cart) as Button
-
+            rating_bar = itemView.findViewById(R.id.rating_bar) as RatingBar
             itemView.setOnClickListener(this)
 
         }
