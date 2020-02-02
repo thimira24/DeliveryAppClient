@@ -45,6 +45,8 @@ class MyFoodListAdapter(
         holder.txt_food_name!!.setText(foodList.get(position).name)
         holder.txt_food_price!!.setText(StringBuilder("Rs ").append(foodList.get(position).price.toString()))
         holder.rating_bar!!.rating = foodList.get(position).ratingValue.toFloat()
+        holder.rating_lable!!.setText(foodList.get(position).ratingValue.toString())
+        holder.rating_count!!.setText(foodList.get(position).ratingCount.toString())
         //event
         holder.setListner(object:IRecyclerItemClickListner{
             override fun onItemClick(view: View, pos: Int) {
@@ -183,6 +185,8 @@ class MyFoodListAdapter(
         var img_fav: ImageView? = null
         var img_cart: Button? = null
         var rating_bar: RatingBar? = null
+        var rating_lable: TextView? = null
+        var rating_count: TextView? = null
 
         internal var listener: IRecyclerItemClickListner? = null
 
@@ -199,6 +203,8 @@ class MyFoodListAdapter(
             img_fav = itemView.findViewById(R.id.img_fav) as ImageView
             img_cart = itemView.findViewById(R.id.img_quick_cart) as Button
             rating_bar = itemView.findViewById(R.id.rating_bar) as RatingBar
+            rating_lable = itemView.findViewById(R.id.rating_bar_one) as TextView
+            rating_count = itemView.findViewById(R.id.review_count) as TextView
             itemView.setOnClickListener(this)
 
         }
