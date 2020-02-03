@@ -1,5 +1,6 @@
 package com.developement.app.ui.fooddetail
 
+import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -21,6 +22,7 @@ import com.developement.app.Database.CartDatabase
 import com.developement.app.Database.CartItem
 import com.developement.app.Database.LocalClassDataSource
 import com.developement.app.EventBus.CounterCartEvent
+import com.developement.app.EventBus.HideFABCart
 import com.developement.app.EventBus.MenuItemBack
 import com.developement.app.Model.CommentModel
 import com.developement.app.Model.FoodModel
@@ -39,6 +41,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.fragment_food_detail.*
 import org.greenrobot.eventbus.EventBus
 import java.math.RoundingMode
 import java.text.DecimalFormat
@@ -95,7 +98,7 @@ class FoodDetailFragment : Fragment(), TextWatcher {
     private var rdi_group_size: RadioGroup? = null
     private var img_add_on: ImageView? = null
     private var chip_group_user_selected_addon: ChipGroup? = null
-
+    private var comment_count: TextView? = null
     // Addon Layout
     private var chip_group_addon: ChipGroup? = null
     private var edt_search_addon: EditText? = null
@@ -108,6 +111,9 @@ class FoodDetailFragment : Fragment(), TextWatcher {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        EventBus.getDefault().postSticky(HideFABCart(true))
+
         foodDetailViewModel =
             ViewModelProviders.of(this).get(FoodDetailViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_food_detail, container, false)
@@ -160,7 +166,7 @@ class FoodDetailFragment : Fragment(), TextWatcher {
                         //apply rating
                         val sumRating = foodModel.ratingValue!!.toDouble() + (ratingValue)
                         val ratingCount = foodModel.ratingCount + 1
-
+                 
 
                         val updateData = HashMap<String, Any>()
                         updateData["ratingValue"] = sumRating
@@ -178,7 +184,11 @@ class FoodDetailFragment : Fragment(), TextWatcher {
                                     Common.foodSelected = foodModel
                                     foodDetailViewModel!!.setFoodModel(foodModel)
                                     //Toast.makeText(context!!, "Thank you for your feedback!", Toast.LENGTH_SHORT)
+                                 
                                     Snackbar.make(view!!, "Thank you for your feedback!", Snackbar.LENGTH_LONG).show()
+
+
+
 
                                 }
                             }
@@ -196,6 +206,7 @@ class FoodDetailFragment : Fragment(), TextWatcher {
         food_name!!.text = StringBuilder(it!!.name!!)
         food_descryption!!.text = StringBuilder(it!!.description!!)
         food_price!!.text = StringBuilder(it!!.price!!.toString())
+        count_comment!!.text = StringBuilder(it!!.ratingCount!!.toString())
 
         ratingBar!!.rating = it!!.ratingValue.toFloat() / it!!.ratingCount
 
@@ -248,7 +259,7 @@ class FoodDetailFragment : Fragment(), TextWatcher {
 
     private fun initViews(root: View?) {
         (activity as AppCompatActivity).supportActionBar!!.setTitle(Common.categorySelected!!.name)
-
+        
         cartDataSource = LocalClassDataSource(CartDatabase.getInstance(context!!).cartDAO())
 
         addonBottomSheetDialog = BottomSheetDialog(context!!, R.style.DialogStyle)
@@ -278,6 +289,7 @@ class FoodDetailFragment : Fragment(), TextWatcher {
         food_name = root!!.findViewById(R.id.food_name) as TextView
         food_descryption = root!!.findViewById(R.id.food_descryption) as TextView
         food_price = root!!.findViewById(R.id.food_price) as TextView
+        comment_count = root!!.findViewById(R.id.count_comment) as TextView
         number_button = root!!.findViewById(R.id.number_button) as ElegantNumberButton
         ratingBar = root!!.findViewById(R.id.rating_Bar) as RatingBar
         btnShowComment = root!!.findViewById(R.id.btnShowComment) as TextView
@@ -363,7 +375,9 @@ class FoodDetailFragment : Fragment(), TextWatcher {
                                 .observeOn(AndroidSchedulers.mainThread())
                                 .subscribe({
                                     //Toast.makeText(context, "Added to cart", Toast.LENGTH_SHORT).show()
+
                                     Snackbar.make(view!!, "Added to the cart", Snackbar.LENGTH_LONG).show()
+
                                     //send notification
                                     EventBus.getDefault().postSticky(CounterCartEvent(true))
                                 },{

@@ -163,7 +163,7 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
     private fun initViews(root:View) {
 
         setHasOptionsMenu(true)//note
-
+        EventBus.getDefault().postSticky(HideFABCart(true))
         cloudFunctions = RetrofitCloudClient.getInstance().create(ICloudFunctions::class.java)
 
         listener = this
@@ -519,6 +519,7 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
         super.onStart()
         if (!EventBus.getDefault().isRegistered(this))
             EventBus.getDefault().register(this)
+        EventBus.getDefault().postSticky(HideFABCart(true))
 
     }
 
@@ -604,6 +605,7 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
                        // Toast.makeText(context, "Sucessfully clear cart", Toast.LENGTH_SHORT).show()
                         Snackbar.make(view!!, "Deleted all items in the Cart", Snackbar.LENGTH_LONG).show()
                         EventBus.getDefault().postSticky(CounterCartEvent(true))
+                        EventBus.getDefault().postSticky(HideFABCart(true))
                     }
 
                     override fun onSubscribe(d: Disposable) {

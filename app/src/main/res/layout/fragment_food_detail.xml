@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/dark_effect"
@@ -34,7 +33,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="260dp"
+            android:layout_marginTop="210dp"
             android:orientation="vertical">
 
             <TextView
@@ -44,8 +43,8 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:fontFamily="@font/allerrg"
-                android:textAllCaps="false"
                 android:text="@string/food_name1"
+                android:textAllCaps="false"
                 android:textColor="@color/dark_sub_primary"
                 android:textSize="24sp"
                 android:textStyle="normal" />
@@ -59,71 +58,62 @@
                 android:isIndicator="true"
                 android:numStars="5" />
 
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:fontFamily="@font/latoregular"
+                    android:text="Rs"
+                    android:textColor="@color/colorAccent1"
+                    android:textSize="28sp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/food_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="0dp"
+                    android:fontFamily="@font/latoregular"
+                    android:text="00.00"
+                    android:textColor="@color/colorAccent1"
+                    android:textSize="28sp"
+                    android:textStyle="normal" />
+
+                <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
+                    android:id="@+id/number_button"
+                    android:layout_width="160dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:backgroundTint="#00000000"
+                    app:backGroundColor="#00000000"
+                    app:finalNumber="20"
+                    app:initialNumber="1"
+                    app:textColor="@color/color_white"
+                    app:textSize="7dp" />
+
+            </RelativeLayout>
+
         </LinearLayout>
 
 
     </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="320dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:fontFamily="@font/ralewayregular"
-            android:text="Price"
-            android:textColor="@color/colorAccent1"
-            android:textStyle="normal"
-            android:visibility="gone" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/ralewayregular"
-            android:text="Rs"
-            android:textColor="@color/colorAccent1"
-            android:textSize="28sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/food_price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="55dp"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/allerrg"
-            android:text="00.00"
-            android:textColor="@color/colorAccent1"
-            android:textSize="28sp"
-            android:textStyle="normal" />
-
-        <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
-            android:id="@+id/number_button"
-            android:layout_width="160dp"
-            android:layout_height="40dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:backgroundTint="#00000000"
-            app:backGroundColor="@color/dark_background"
-            app:finalNumber="20"
-            app:initialNumber="1"
-            app:textColor="@color/color_white"
-            app:textSize="7dp" />
-
-    </RelativeLayout>
 
     <Button
         android:id="@+id/add_to_cart"
         android:layout_width="160dp"
         android:layout_height="40dp"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="375dp"
+        android:layout_marginTop="325dp"
         android:layout_marginRight="10dp"
         android:background="@drawable/button_design4"
         android:fontFamily="@font/allerrg"
@@ -133,25 +123,28 @@
         android:textStyle="bold" />
 
     <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="425dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_marginTop="420dp"
+        android:layout_marginRight="8dp">
+
 
         <LinearLayout
+            android:layout_gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="55dp"
+            android:layout_marginBottom="8dp"
             android:background="@drawable/button_design6"
             android:gravity="center"
-            android:layout_marginBottom="8dp"
             android:orientation="horizontal"
             android:padding="10dp">
 
+
             <TextView
                 android:id="@+id/btnShowComment"
-                android:layout_width="150dp"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:backgroundTint="#FFFFFF"
@@ -161,20 +154,41 @@
                 android:textColor="#00BCD4"
                 android:textStyle="bold" />
 
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:tint="@color/color_heart"
+                android:src="@drawable/ic_favorite_black_24dp">
+
+            </ImageView>
+
+
             <TextView
                 android:id="@+id/btnRate"
-                android:layout_width="150dp"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-
                 android:backgroundTint="#FFFFFF"
                 android:fontFamily="@font/allerrg"
                 android:gravity="center"
-                android:text="@string/see_reviews1"
+                android:text="Feedback"
                 android:textColor="#00BCD4"
                 android:textStyle="bold" />
 
         </LinearLayout>
+
+        <TextView
+            android:paddingBottom="3dp"
+            android:id="@+id/count_comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:fontFamily="@font/latolight"
+            android:text="12"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp"
+            android:textStyle="normal" />
 
     </RelativeLayout>
 
@@ -182,13 +196,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="425dp"
+        android:layout_marginTop="375dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="58dp"
         android:elevation="5dp"
         app:cardBackgroundColor="@color/dark_background"
-        app:cardCornerRadius="10dp"
-        >
+        app:cardCornerRadius="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
