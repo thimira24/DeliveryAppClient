@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/allerrg"
+            android:text="Sign Out "
+            android:textColor="@color/dark_background"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="1dp"
+            android:fontFamily="@font/allerrg"
+            android:text="Do you really want to Sign out? "
+            android:textColor="@color/dark_background"
+            android:textSize="16sp"
+            android:textStyle="normal" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_exit_to_app_black_24dp"
+            android:tint="#252525"/>
+
+        <Button
+            android:id="@+id/btn_sign_out"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/rdi_group"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/button_design5"
+            android:fontFamily="@font/allerrg"
+            android:text="Sign Out"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="19sp" />
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/btn_ok"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:background="#00000000"
+            android:fontFamily="@font/allerrg"
+            android:text="Dismiss"
+            android:textAllCaps="false"
+            android:textColor="#000000"
+            android:textSize="19sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -6,6 +6,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
+import android.view.*
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import androidx.navigation.findNavController
@@ -17,10 +18,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
-import android.view.WindowManager
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.NavController
@@ -141,24 +139,33 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun signOut() {
+
         val builder = androidx.appcompat.app.AlertDialog.Builder(this)
-        builder.setTitle("Sign Out")
-            .setMessage("Do you really want to exit?")
-            .setNegativeButton("Cancel", { dialogInterface, i -> dialogInterface.dismiss() })
-            .setPositiveButton("Yes! I'm Sure") { dialogInterface, i ->
-                Common.foodSelected = null
-                Common.categorySelected = null
-                Common.currentUser = null
-                FirebaseAuth.getInstance().signOut()
+        val  itemView = LayoutInflater.from(this).inflate(R.layout.layout_sign_out, null)
 
-                val intent = Intent(this@HomeActivity, MainActivity::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                startActivity(intent)
-                finish()
-            }
+        val btn_sign_out = itemView.findViewById<View>(R.id.btn_sign_out) as Button
+        val btn_cancelled = itemView.findViewById<View>(R.id.btn_cancel) as Button
 
-        val dialog = builder.create()
-        dialog.show()
+        builder.setView(itemView)
+        val shows = builder.create()
+
+        btn_sign_out.setOnClickListener {
+            Common.foodSelected = null
+            Common.categorySelected = null
+            Common.currentUser = null
+            FirebaseAuth.getInstance().signOut()
+
+            val intent = Intent(this@HomeActivity, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+            finish()
+        }
+
+        btn_cancelled.setOnClickListener {
+            shows.dismiss()
+        }
+
+        shows.show()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
