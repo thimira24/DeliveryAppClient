@@ -134,7 +134,7 @@
             android:layout_marginTop="8dp"
             android:fontFamily="@font/latoregular"
             android:paddingLeft="8dp"
-            android:paddingRight="95dp"
+            android:paddingRight="93dp"
             android:text="1"
             android:textColor="@color/colorAccent1"
             android:textSize="12sp" />

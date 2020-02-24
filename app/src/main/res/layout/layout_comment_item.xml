@@ -14,8 +14,8 @@
         android:layout_weight="2"
         android:contentDescription="@string/todo21"
         android:padding="7dp"
-        android:src="@drawable/user"
-        android:tint="@color/color_ash" />
+        android:src="@drawable/mainlogo"
+        android:tint="#00000000" />
 
     <LinearLayout
         android:layout_width="0dp"
