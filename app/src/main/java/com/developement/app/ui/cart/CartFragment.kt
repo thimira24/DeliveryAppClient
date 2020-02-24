@@ -34,10 +34,14 @@ import com.developement.app.EventBus.HideFABCart
 import com.developement.app.EventBus.MenuItemBack
 import com.developement.app.EventBus.UpdateItemInCart
 import com.developement.app.HomeActivity
+import com.developement.app.Model.FCMRespone
+import com.developement.app.Model.FCMSendData
 import com.developement.app.Model.Order
 import com.developement.app.R
 import com.developement.app.Remote.ICloudFunctions
+import com.developement.app.Remote.IFCMService
 import com.developement.app.Remote.RetrofitCloudClient
+import com.developement.app.Remote.RetrofitFCMClient
 import com.google.android.gms.location.*
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.database.DataSnapshot
@@ -57,6 +61,7 @@ import org.greenrobot.eventbus.ThreadMode
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.HashMap
 
 class CartFragment : Fragment(), ILoadTimeFromCallback {
 
@@ -87,6 +92,7 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
     internal var comment:String = ""
 
     lateinit var cloudFunctions: ICloudFunctions
+    lateinit var ifcmService: IFCMService
     lateinit var listener: ILoadTimeFromCallback
 
     override fun onResume() {
@@ -165,6 +171,7 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
         setHasOptionsMenu(true)//note
         EventBus.getDefault().postSticky(HideFABCart(true))
         cloudFunctions = RetrofitCloudClient.getInstance().create(ICloudFunctions::class.java)
+        ifcmService = RetrofitFCMClient.getInstance().create(IFCMService::class.java)
 
         listener = this
 
@@ -453,9 +460,22 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
                                 txt_order_ok.setOnClickListener {
                                     dialog.dismiss()
                                 }
-                                //Toast.makeText(context!!, "Order placed sucessfully! ", Toast.LENGTH_SHORT).show()
-                                clearcart()
 
+                                val dataSend = HashMap<String, String>()
+                                dataSend.put(Common.NOTI_TITLE, "New Order")
+                                dataSend.put(Common.NOTI_CONTENT, "The order from "+Common.currentUser!!.name)
+
+
+                                val sendData = FCMSendData(Common.getNewOrderTopic(), dataSend)
+
+                                compositeDisposable.add(
+                                    ifcmService.sendNofitication(sendData)
+                                        .subscribeOn(Schedulers.io())
+                                        .observeOn(AndroidSchedulers.mainThread())
+                                        .subscribe()
+                                )
+
+                                clearcart()
                                 txt_empty_cart!!.setText("Now you can see the order status in Order History page!")
 
                             }
@@ -687,7 +707,8 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
 
                                             },
                                                 { t: Throwable? ->
-                                                    Toast.makeText(context, ""+t!!.message, Toast.LENGTH_LONG).show()
+                                                    if (!t!!.message!!.contains("Query returned empty"))
+                                                        Toast.makeText(context, "[SUM CART]"+t.message, Toast.LENGTH_SHORT).show()
                                                 })
                                         )
                                     },
@@ -702,7 +723,8 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
                         }
 
                         override fun onError(e: Throwable) {
-                           Toast.makeText(context, ""+e.message, Toast.LENGTH_LONG).show()
+
+                                Toast.makeText(context, ""+e.message, Toast.LENGTH_SHORT).show()
                         }
 
                     })

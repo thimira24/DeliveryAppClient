@@ -165,6 +165,12 @@ object Common {
 
     }
 
+    fun getNewOrderTopic(): String {
+        return StringBuilder("/topics/new_order").toString()
+    }
+
+    const val NOTI_User ="Noti_user"
+    const val NOTI_NOTE ="Noti_note"
     const val NOTI_TITLE = "title"
     const val NOTI_CONTENT = "content"
     var authorizeToken: String? = null
