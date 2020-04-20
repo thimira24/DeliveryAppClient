@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/dark_effect"
     android:orientation="horizontal"
     android:padding="8dp"
     android:weightSum="10">
@@ -31,7 +30,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/allerrg"
             android:text="@string/name123"
-            android:textColor="@color/color_ash"
+            android:textColor="@color/dark_effect1"
             android:textSize="22sp" />
 
         <TextView
@@ -40,11 +39,12 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/ralewayregular"
             android:text="@string/date12"
-            android:textColor="@color/dark_sub_primary"
+            android:textColor="#333333"
             android:textSize="14sp" />
 
         <RatingBar
             android:id="@+id/rating_bar"
+            android:progressTint="@color/color_yellow"
             style="?attr/ratingBarStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -56,13 +56,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:background="@drawable/button_design"
+            android:background="@drawable/button_design0"
             android:fontFamily="@font/latoregular"
             android:paddingLeft="3dp"
             android:paddingRight="8dp"
             android:paddingBottom="2dp"
             android:text="@string/this_is_a_comment_for_this_product"
-            android:textColor="@color/dark_sub_text"
+            android:textColor="@color/dark_effect1"
             android:textStyle="italic" />
 
 

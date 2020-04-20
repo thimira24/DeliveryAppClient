@@ -3,34 +3,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark_effect"
     android:orientation="vertical">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/dark_effect">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/dark_effect"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:background="@color/dark_effect"
                 android:orientation="vertical">
 
                 <TextView
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/allerrg"
                     android:text="@string/best_deals"
-                    android:textColor="@color/dark_sub_primary"
+                    android:textColor="@color/dark_effect1"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -58,7 +55,7 @@
                     android:fontFamily="@font/allerrg"
                     android:paddingStart="8dp"
                     android:text="@string/categories1"
-                    android:textColor="@color/dark_sub_primary"
+                    android:textColor="@color/dark_effect1"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 

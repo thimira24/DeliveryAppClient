@@ -2,7 +2,6 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    app:cardBackgroundColor="@color/dark_background"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
     android:orientation="vertical"
@@ -11,7 +10,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/dark_background"
         android:orientation="horizontal"
         android:padding="0dp">
 
@@ -19,14 +17,11 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginTop="0dp"
-            app:cardBackgroundColor="@color/dark_background"
-            android:background="@color/dark_effect"
             app:cardCornerRadius="0dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/dark_effect"
                 android:orientation="vertical">
 
                 <ImageView
@@ -60,7 +55,6 @@
                 android:orientation="vertical">
 
                 <TextView
-
                     android:id="@+id/txt_food_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -69,7 +63,7 @@
                     android:layout_marginEnd="8dp"
                     android:fontFamily="@font/allerrg"
                     android:text="@string/food_namecart"
-                    android:textColor="@color/dark_sub_primary"
+                    android:textColor="@color/dark_effect1"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -122,10 +116,10 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginRight="8dp"
-                app:backGroundColor="@color/dark_background"
+                app:backGroundColor="#F8F4F4"
                 app:finalNumber="20"
                 app:initialNumber="1"
-                app:textColor="@color/dark_sub_primary" />
+                app:textColor="@color/dark_effect1" />
 
         </LinearLayout>
 

@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="10dp"
     android:layout_marginBottom="60dp"
-    android:background="@color/dark_effect">
+    >
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"

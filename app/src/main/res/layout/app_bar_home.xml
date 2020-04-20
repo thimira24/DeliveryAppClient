@@ -4,18 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark_effect"
     tools:context=".HomeActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textAlignment="center"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <androidx.appcompat.widget.Toolbar
-
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
+            android:textAlignment="center"
             android:layout_height="?attr/actionBarSize"
             app:popupTheme="@style/AppTheme.PopupOverlay"
             app:titleTextColor="@android:color/white" />
@@ -31,9 +31,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        android:tint="#FFFFFF"
-        app:backgroundTint="@color/dark_effect"
-        app:badgeBackgroundColor="@color/color_notify"
+        app:backgroundTint="@color/color_white"
+        app:badgeBackgroundColor="@color/colorAccent"
         app:srcCompat="@drawable/slide_ic_cart" />
 
 

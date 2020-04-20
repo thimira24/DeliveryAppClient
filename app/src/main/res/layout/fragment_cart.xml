@@ -2,8 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/dark_effect">
+    android:layout_height="match_parent">
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -26,7 +25,7 @@
         android:fontFamily="@font/latoregular"
         android:text="@string/looks_like_you_haven_t_added_anything_to_your_cart_yet"
         android:textAlignment="center"
-        android:textColor="@color/dark_sub_text"
+        android:textColor="@color/dark_effect1"
         android:textSize="14sp" />
 
     <ImageView
@@ -44,7 +43,7 @@
         android:layout_height="45dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:background="@color/dark_background"
+        android:background="#06B700"
         android:fontFamily="@font/latoregular"
         android:text="@string/continue_shopping"
         android:textAllCaps="true"
@@ -56,13 +55,14 @@
         android:id="@+id/group_Place_holder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/dark_effect">
+        android:background="#00000000"
+        android:layout_alignParentBottom="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:background="#97FFFFFF"
             android:orientation="vertical"
             android:padding="8dp">
 
@@ -72,7 +72,7 @@
                 android:layout_marginTop="1dp"
                 android:fontFamily="@font/latoregular"
                 android:text="@string/total"
-                android:textColor="@color/dark_sub_primary"
+                android:textColor="@color/dark_effect1"
                 android:textStyle="bold" />
 
             <TextView
@@ -83,7 +83,7 @@
                 android:layout_marginBottom="5dp"
                 android:fontFamily="@font/ralewayregular"
                 android:text="@string/_000_00"
-                android:textColor="@color/dark_sub_primary"
+                android:textColor="@color/dark_effect1"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 

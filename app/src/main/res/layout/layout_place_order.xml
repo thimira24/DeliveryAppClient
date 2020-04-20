@@ -143,6 +143,7 @@
             android:textSize="16sp" />
 
         <RadioButton
+            android:visibility="gone"
             android:id="@+id/rdi_braintree"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

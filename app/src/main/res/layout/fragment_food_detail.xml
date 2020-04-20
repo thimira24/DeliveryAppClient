@@ -53,6 +53,7 @@
                 android:id="@+id/rating_Bar"
                 style="?android:attr/ratingBarStyleSmall"
                 android:layout_width="wrap_content"
+                android:progressTint="@color/color_yellow"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:isIndicator="true"

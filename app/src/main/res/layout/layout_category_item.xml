@@ -10,7 +10,6 @@
     android:paddingRight="2dp">
 
     <androidx.cardview.widget.CardView
-        app:cardBackgroundColor="@color/dark_background"
         android:layout_width="match_parent"
         android:layout_height="125dp"
         android:background="@color/dark_background"
@@ -19,8 +18,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/dark_background">
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/category_image"
