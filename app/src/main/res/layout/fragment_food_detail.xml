@@ -19,12 +19,11 @@
             android:backgroundTint="#FFFFFF" />
 
         <LinearLayout
-            android:layout_marginBottom="100dp"
+            android:layout_marginBottom="130dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:paddingRight="16dp"
-            android:paddingBottom="16dp"
             android:paddingTop="16dp"
             android:paddingLeft="16dp">
 
@@ -74,7 +73,6 @@
                 android:textStyle="bold" />
 
             <ScrollView
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -91,35 +89,40 @@
 
             </ScrollView>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/latoregular"
-                    android:text="Price LKR "
-                    android:textColor="@color/dark_effect1"
-                    android:textSize="16dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/food_price"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/latoregular"
-                    android:paddingLeft="10dp"
-                    android:text="456.00 "
-                    android:textColor="@color/dark_effect1"
-                    android:textSize="16dp" />
-
-            </LinearLayout>
-
         </LinearLayout>
 
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:background="@color/color_white"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/latoregular"
+            android:text="Price LKR "
+            android:textColor="@color/dark_effect1"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/food_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/latoregular"
+            android:paddingLeft="6dp"
+            android:text="456.00 "
+            android:textColor="@color/dark_effect1"
+            android:textSize="16dp" />
 
     </LinearLayout>
 
