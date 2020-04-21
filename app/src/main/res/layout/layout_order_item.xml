@@ -24,8 +24,7 @@
                 android:layout_width="80dp"
                 android:layout_height="110dp"
                 android:contentDescription="@string/todo18"
-                android:src="@drawable/package"
-                android:tint="@color/dark_effect1" />
+                android:src="@drawable/orders" />
 
             <ImageView
                 android:id="@+id/img_order"
@@ -73,9 +72,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
-                    android:fontFamily="@font/allerrg"
-                    android:background="@drawable/button_design0"
                     android:layout_marginEnd="8dp"
+                    android:background="@drawable/button_design0"
+                    android:fontFamily="@font/allerrg"
                     android:paddingLeft="5dp"
                     android:text="@string/comment3"
                     android:textColor="@color/dark_effect1"
@@ -103,9 +102,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:fontFamily="@font/allerrg"
                             android:gravity="center"
                             android:paddingLeft="5dp"
-                            android:fontFamily="@font/allerrg"
                             android:paddingRight="5dp"
                             android:text="@string/status1"
                             android:textAlignment="center"
@@ -130,8 +129,8 @@
                             android:id="@+id/show_total"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:paddingLeft="10dp"
                             android:fontFamily="@font/allerrg"
+                            android:paddingLeft="10dp"
                             android:paddingRight="10dp"
                             android:text="@string/status2"
                             android:textColor="@color/dark_sub_primary"
@@ -141,18 +140,18 @@
                     </RelativeLayout>
 
                     <RelativeLayout
-                        android:visibility="gone"
                         android:layout_width="15dp"
                         android:layout_height="18dp"
                         android:layout_marginStart="0dp"
                         android:layout_marginTop="0dp"
                         android:layout_marginEnd="8dp"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:visibility="gone">
 
-                       <ImageView
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:src="@drawable/confirms"/>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/confirms" />
 
                     </RelativeLayout>
 
