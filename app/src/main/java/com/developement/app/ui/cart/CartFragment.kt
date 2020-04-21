@@ -519,7 +519,7 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object: SingleObserver<Double>{
                 override fun onSuccess(t: Double) {
-                    txt_total_price!!.text = StringBuilder("Rs ")
+                    txt_total_price!!.text = StringBuilder("RS ")
                         .append(t)
                 }
 
@@ -588,7 +588,7 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object: SingleObserver<Double>{
                 override fun onSuccess(price: Double) {
-                        txt_total_price!!.text = StringBuilder("Rs ")
+                        txt_total_price!!.text = StringBuilder("LKR ")
                             .append(Common.formatPrice(price))
                 }
 

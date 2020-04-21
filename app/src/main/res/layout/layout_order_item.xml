@@ -22,7 +22,7 @@
 
             <ImageView
                 android:layout_width="80dp"
-                android:layout_height="110dp"
+                android:layout_height="match_parent"
                 android:contentDescription="@string/todo18"
                 android:src="@drawable/orders" />
 
