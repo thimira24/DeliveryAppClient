@@ -26,17 +26,17 @@
 
                 <ImageView
                     android:id="@+id/img_cart"
+                    android:background="@color/color_white"
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/imgCart"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/slide_ic_account" />
+                    android:scaleType="fitXY" />
 
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/todo12"
-                    android:src="@drawable/bottom_shadow" />
+                   />
 
             </RelativeLayout>
 
@@ -79,7 +79,7 @@
                         android:layout_marginEnd="1dp"
                         android:fontFamily="@font/latoregular"
                         android:text="@string/rs123"
-                        android:textColor="@color/colorAccent1"
+                        android:textColor="@color/dark_effect"
                         android:textSize="15sp"
                          />
 
@@ -91,7 +91,7 @@
                         android:layout_marginEnd="1dp"
                         android:fontFamily="@font/latoregular"
                         android:text="@string/carpricevalue"
-                        android:textColor="@color/colorAccent1"
+                        android:textColor="@color/dark_effect"
                         android:textSize="15sp" />
 
                     <TextView
@@ -101,7 +101,7 @@
                         android:layout_marginEnd="1dp"
                         android:fontFamily="@font/latoregular"
                         android:text="@string/klju"
-                        android:textColor="@color/colorAccent1"
+                        android:textColor="@color/dark_effect"
                         android:textSize="15sp" />
 
                 </LinearLayout>
