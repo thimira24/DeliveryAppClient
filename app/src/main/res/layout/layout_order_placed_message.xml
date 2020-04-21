@@ -62,7 +62,7 @@
                 android:textSize="19sp"
                 android:textColor="#FFFFFF"
                 android:fontFamily="@font/allerrg"
-                android:background="@drawable/button_design8"/>
+                android:background="@drawable/button_design7"/>
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

@@ -159,7 +159,7 @@
         android:layout_height="40dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:background="@drawable/button_design8"
+        android:background="@drawable/button_design7"
         android:fontFamily="@font/allerrg"
         android:text="Pay"
         android:textAllCaps="false"

@@ -24,7 +24,7 @@
                 android:layout_width="80dp"
                 android:layout_height="110dp"
                 android:contentDescription="@string/todo18"
-                android:src="@drawable/img_order"
+                android:src="@drawable/package"
                 android:tint="@color/dark_effect1" />
 
             <ImageView
