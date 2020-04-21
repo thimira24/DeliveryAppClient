@@ -2,24 +2,21 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:background="#FFFFFF"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:theme="@style/Theme.Design.Light.NoActionBar">
 
     <LinearLayout
-
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <ImageView
-            android:backgroundTint="#FFFFFF"
             android:id="@+id/img_food"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:background="#999999" />
 
         <LinearLayout
-            android:layout_marginBottom="100dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -45,12 +42,10 @@
                 android:textStyle="bold" />
 
             <ScrollView
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:paddingBottom="5dp"
                     android:id="@+id/food_descryption"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -121,7 +116,7 @@
         app:finalNumber="20"
         app:initialNumber="1"
         app:textColor="@color/color_black"
-        app:textSize="6dp" />
+        app:textSize="4dp" />
 
     <View
         android:layout_width="match_parent"
@@ -133,7 +128,7 @@
         android:layout_width="40dp"
         android:layout_height="35dp"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="260dp"
+        android:layout_marginTop="16dp"
         android:layout_marginRight="16dp"
         android:src="@drawable/ic_stars_black_24dp"
         android:tint="@color/colorPrimary" />
@@ -143,16 +138,15 @@
         android:layout_width="40dp"
         android:layout_height="35dp"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="260dp"
+        android:layout_marginTop="16dp"
         android:layout_marginRight="56dp"
         android:padding="3dp"
-        android:src="@drawable/ic_comment_black_24dp"
+        android:src="@drawable/comment"
         android:tint="@color/dark_effect1" />
 
     <RatingBar
         android:id="@+id/rating_Bar"
         style="?android:attr/ratingBarStyleSmall"
-        android:progressTint="@color/color_yellow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"

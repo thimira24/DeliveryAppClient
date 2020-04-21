@@ -88,13 +88,13 @@ class FoodDetailFragment : Fragment(), TextWatcher {
 
     private var img_food: ImageView? = null
     private var btncart: Button? = null
-    private var btnRating: TextView? = null
+    private var btnRating: ImageView? = null
     private var food_name: TextView? = null
     private var food_descryption: TextView? = null
     private var food_price: TextView? = null
     private var number_button: ElegantNumberButton? = null
     private var ratingBar: RatingBar? = null
-    private var btnShowComment: TextView? = null
+    private var btnShowComment: ImageView? = null
     private var rdi_group_size: RadioGroup? = null
     private var img_add_on: ImageView? = null
     private var chip_group_user_selected_addon: ChipGroup? = null
@@ -279,7 +279,7 @@ class FoodDetailFragment : Fragment(), TextWatcher {
         waitingDialog = SpotsDialog.Builder().setContext(context!!).setCancelable(false).build()
 
         // for testing
-        btnRating = root!!.findViewById(R.id.btnRate) as TextView
+        btnRating = root!!.findViewById(R.id.btnRate) as ImageView
         btncart = root!!.findViewById(R.id.add_to_cart) as Button
         //end
 
@@ -292,7 +292,7 @@ class FoodDetailFragment : Fragment(), TextWatcher {
         comment_count = root!!.findViewById(R.id.count_comment) as TextView
         number_button = root!!.findViewById(R.id.number_button) as ElegantNumberButton
         ratingBar = root!!.findViewById(R.id.rating_Bar) as RatingBar
-        btnShowComment = root!!.findViewById(R.id.btnShowComment) as TextView
+        btnShowComment = root!!.findViewById(R.id.btnShowComment) as ImageView
         rdi_group_size = root!!.findViewById(R.id.rdi_group_size) as RadioGroup
         img_add_on = root!!.findViewById(R.id.img_add_addon) as ImageView
         chip_group_user_selected_addon =
