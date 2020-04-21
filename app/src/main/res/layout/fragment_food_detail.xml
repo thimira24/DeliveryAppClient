@@ -12,18 +12,47 @@
         android:orientation="vertical">
 
         <ImageView
-            android:backgroundTint="#FFFFFF"
             android:id="@+id/img_food"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:background="#999999" />
+            android:layout_height="285dp"
+            android:background="#999999"
+            android:backgroundTint="#FFFFFF" />
 
         <LinearLayout
             android:layout_marginBottom="100dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:paddingRight="16dp"
+            android:paddingBottom="16dp"
+            android:paddingTop="16dp"
+            android:paddingLeft="16dp">
+
+            <LinearLayout
+                android:layout_marginBottom="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RatingBar
+                    android:id="@+id/rating_Bar"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:progressTint="@color/color_yellow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:isIndicator="true"
+                    android:numStars="5" />
+
+                <TextView
+                    android:textSize="12dp"
+                    android:id="@+id/count_comment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:gravity="center"
+                    android:text="1 review" />
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/food_name"
@@ -99,6 +128,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:fontFamily="@font/latoregular"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
@@ -115,7 +145,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="58dp"
+        android:layout_marginBottom="60dp"
         android:backgroundTint="#00000000"
         app:backGroundColor="#00000000"
         app:finalNumber="20"
@@ -133,7 +163,7 @@
         android:layout_width="40dp"
         android:layout_height="35dp"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="260dp"
+        android:layout_marginTop="290dp"
         android:layout_marginRight="16dp"
         android:src="@drawable/ic_stars_black_24dp"
         android:tint="@color/colorPrimary" />
@@ -143,31 +173,11 @@
         android:layout_width="40dp"
         android:layout_height="35dp"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="260dp"
+        android:layout_marginTop="290dp"
         android:layout_marginRight="56dp"
         android:padding="3dp"
         android:src="@drawable/ic_comment_black_24dp"
         android:tint="@color/dark_effect1" />
-
-    <RatingBar
-        android:id="@+id/rating_Bar"
-        style="?android:attr/ratingBarStyleSmall"
-        android:progressTint="@color/color_yellow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="275dp"
-        android:isIndicator="true"
-        android:numStars="5" />
-
-    <TextView
-        android:id="@+id/count_comment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="273dp"
-        android:gravity="center"
-        android:text="1 review" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"

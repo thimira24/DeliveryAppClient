@@ -45,7 +45,7 @@
                 android:layout_height="match_parent"
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center"
-                android:fontFamily="@font/allerrg"
+                android:fontFamily="@font/latoregular"
                 android:text="@string/popular_category2"
                 android:textAlignment="center"
                 android:textColor="@color/dark_sub_primary"

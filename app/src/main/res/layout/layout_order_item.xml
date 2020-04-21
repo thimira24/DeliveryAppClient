@@ -36,6 +36,7 @@
                 android:visibility="gone" />
 
             <LinearLayout
+                android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -47,7 +48,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="8dp"
-                    android:fontFamily="@font/allerrg"
+                    android:fontFamily="@font/latoregular"
                     android:text="@string/_2019_10_21"
                     android:textColor="@color/dark_effect1"
                     android:textSize="16sp"
@@ -60,7 +61,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
-                    android:fontFamily="@font/allerrg"
+                    android:fontFamily="@font/latoregular"
                     android:text="@string/_2017001"
                     android:textColor="@color/dark_effect1"
                     android:textSize="16sp"
@@ -74,7 +75,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:background="@drawable/button_design0"
-                    android:fontFamily="@font/allerrg"
+                    android:fontFamily="@font/latoregular"
                     android:paddingLeft="5dp"
                     android:text="@string/comment3"
                     android:textColor="@color/dark_effect1"
@@ -94,15 +95,16 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="0dp"
                         android:layout_marginEnd="8dp"
-                        android:background="@drawable/button_design5"
+                        android:background="@drawable/button_design_green"
                         android:orientation="horizontal">
 
                         <TextView
+                            android:layout_marginBottom="1dp"
                             android:id="@+id/txt_order_stsus"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:fontFamily="@font/allerrg"
+                            android:fontFamily="@font/latoregular"
                             android:gravity="center"
                             android:paddingLeft="5dp"
                             android:paddingRight="5dp"
@@ -110,7 +112,7 @@
                             android:textAlignment="center"
                             android:textColor="@color/color_white"
                             android:textSize="16sp"
-                            android:textStyle="bold" />
+                             />
 
 
                     </RelativeLayout>
@@ -122,20 +124,21 @@
                         android:layout_marginStart="0dp"
                         android:layout_marginTop="0dp"
                         android:layout_marginEnd="8dp"
-                        android:background="@drawable/button_design7"
+                        android:background="@drawable/button_design_paid"
                         android:orientation="horizontal">
 
                         <TextView
+                            android:layout_marginBottom="1dp"
                             android:id="@+id/show_total"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/allerrg"
+                            android:fontFamily="@font/latoregular"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
                             android:text="@string/status2"
-                            android:textColor="@color/dark_sub_primary"
+                            android:textColor="@color/color_white"
                             android:textSize="16sp"
-                            android:textStyle="bold" />
+                             />
 
                     </RelativeLayout>
 

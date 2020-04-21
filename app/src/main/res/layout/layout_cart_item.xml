@@ -61,7 +61,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
-                    android:fontFamily="@font/allerrg"
+                    android:fontFamily="@font/latoregular"
                     android:text="@string/food_namecart"
                     android:textColor="@color/dark_effect1"
                     android:textSize="16sp"
@@ -77,11 +77,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginEnd="1dp"
-                        android:fontFamily="@font/ralewayregular"
+                        android:fontFamily="@font/latoregular"
                         android:text="@string/rs123"
                         android:textColor="@color/colorAccent1"
                         android:textSize="15sp"
-                        android:textStyle="bold" />
+                         />
 
                     <TextView
                         android:id="@+id/txt_food_price"
@@ -89,7 +89,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="2dp"
                         android:layout_marginEnd="1dp"
-                        android:fontFamily="@font/allerrg"
+                        android:fontFamily="@font/latoregular"
                         android:text="@string/carpricevalue"
                         android:textColor="@color/colorAccent1"
                         android:textSize="15sp" />
@@ -99,7 +99,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="0dp"
                         android:layout_marginEnd="1dp"
-                        android:fontFamily="sans-serif-medium"
+                        android:fontFamily="@font/latoregular"
                         android:text="@string/klju"
                         android:textColor="@color/colorAccent1"
                         android:textSize="15sp" />
