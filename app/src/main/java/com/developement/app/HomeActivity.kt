@@ -19,6 +19,7 @@ import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.NavController
@@ -144,7 +145,7 @@ class HomeActivity : AppCompatActivity() {
         val  itemView = LayoutInflater.from(this).inflate(R.layout.layout_sign_out, null)
 
         val btn_sign_out = itemView.findViewById<View>(R.id.btn_sign_out) as Button
-        val btn_cancelled = itemView.findViewById<View>(R.id.btn_cancel) as Button
+        val btn_cancelled = itemView.findViewById<View>(R.id.btn_cancel) as ImageView
 
         builder.setView(itemView)
         val shows = builder.create()
