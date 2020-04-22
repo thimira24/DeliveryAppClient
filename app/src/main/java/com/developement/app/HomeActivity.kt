@@ -43,6 +43,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.app_bar_home.*
+import kotlinx.android.synthetic.main.nav_header_home.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
@@ -96,6 +97,7 @@ class HomeActivity : AppCompatActivity() {
         var headerView = navView.getHeaderView(0)
         var txt_user = headerView.findViewById<TextView>(R.id.txt_user)
         var txt_phone_user = headerView.findViewById<TextView>(R.id.txt_user_phone)
+        var txt_user_account =headerView.findViewById<ImageView>(R.id.edit_account_details)
         Common.setSpanString("Hello, ", Common.currentUser!!.name, txt_user)
         Common.setSpanString("", Common.currentUser!!.phone, txt_phone_user)
 
@@ -136,8 +138,14 @@ class HomeActivity : AppCompatActivity() {
 
         countCartItem()
 
+        txt_user_account.setOnClickListener {
+            Toast.makeText(this,"you clicked ",Toast.LENGTH_SHORT).show()
+        }
+
 
     }
+
+
 
     private fun signOut() {
 
