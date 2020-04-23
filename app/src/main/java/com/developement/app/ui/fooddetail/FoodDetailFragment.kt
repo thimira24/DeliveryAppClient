@@ -1,6 +1,5 @@
 package com.developement.app.ui.fooddetail
 
-import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -13,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.andremion.counterfab.CounterFab
 import com.bumptech.glide.Glide
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
 import com.developement.app.Common.Common
@@ -31,7 +29,6 @@ import com.developement.app.ui.comment.CommentFragment
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.database.*
 import com.google.gson.Gson
@@ -43,11 +40,8 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_food_detail.*
 import org.greenrobot.eventbus.EventBus
-import java.math.RoundingMode
-import java.text.DecimalFormat
 
 class FoodDetailFragment : Fragment(), TextWatcher {
-
 
 
     override fun afterTextChanged(p0: Editable?) {
@@ -61,14 +55,13 @@ class FoodDetailFragment : Fragment(), TextWatcher {
     override fun onTextChanged(charSequence: CharSequence?, p1: Int, p2: Int, p3: Int) {
         chip_group_addon!!.clearCheck()
         chip_group_addon!!.removeAllViews()
-        for (addonModel in Common.foodSelected!!.addon!!)
-        {
-            if (addonModel.name!!.toLowerCase().contains(charSequence.toString().toLowerCase()))
-            {
+        for (addonModel in Common.foodSelected!!.addon!!) {
+            if (addonModel.name!!.toLowerCase().contains(charSequence.toString().toLowerCase())) {
                 val chip = layoutInflater.inflate(R.layout.layout_chip, null, false) as Chip
-                chip.text = StringBuilder(addonModel.name!!).append("(+$").append(addonModel.price).append(")").toString()
-                chip.setOnCheckedChangeListener{compoundButton, b ->
-                    if (b){
+                chip.text = StringBuilder(addonModel.name!!).append("(+$").append(addonModel.price)
+                    .append(")").toString()
+                chip.setOnCheckedChangeListener { compoundButton, b ->
+                    if (b) {
                         if (Common.foodSelected!!.userSelectedAddon == null)
                             Common.foodSelected!!.userSelectedAddon = ArrayList()
                         Common.foodSelected!!.userSelectedAddon!!.add(addonModel)
@@ -81,7 +74,7 @@ class FoodDetailFragment : Fragment(), TextWatcher {
     }
 
     private val compositeDisposable = CompositeDisposable()
-    private lateinit var cartDataSource:  CartDataSource
+    private lateinit var cartDataSource: CartDataSource
 
     private lateinit var foodDetailViewModel: FoodDetailViewModel
     private lateinit var addonBottomSheetDialog: BottomSheetDialog
@@ -99,6 +92,7 @@ class FoodDetailFragment : Fragment(), TextWatcher {
     private var img_add_on: ImageView? = null
     private var chip_group_user_selected_addon: ChipGroup? = null
     private var comment_count: TextView? = null
+
     // Addon Layout
     private var chip_group_addon: ChipGroup? = null
     private var edt_search_addon: EditText? = null
@@ -166,7 +160,7 @@ class FoodDetailFragment : Fragment(), TextWatcher {
                         //apply rating
                         val sumRating = foodModel.ratingValue!!.toDouble() + (ratingValue)
                         val ratingCount = foodModel.ratingCount + 1
-                 
+
 
                         val updateData = HashMap<String, Any>()
                         updateData["ratingValue"] = sumRating
@@ -184,10 +178,12 @@ class FoodDetailFragment : Fragment(), TextWatcher {
                                     Common.foodSelected = foodModel
                                     foodDetailViewModel!!.setFoodModel(foodModel)
                                     //Toast.makeText(context!!, "Thank you for your feedback!", Toast.LENGTH_SHORT)
-                                 
-                                    Snackbar.make(view!!, "Thank you for your feedback!", Snackbar.LENGTH_LONG).show()
 
-
+                                    Snackbar.make(
+                                        view!!,
+                                        "Thank you for your feedback!",
+                                        Snackbar.LENGTH_LONG
+                                    ).show()
 
 
                                 }
@@ -254,12 +250,11 @@ class FoodDetailFragment : Fragment(), TextWatcher {
         food_price!!.text = Common.foodSelected!!.price!!.toString()
 
 
-
     }
 
     private fun initViews(root: View?) {
         (activity as AppCompatActivity).supportActionBar!!.setTitle(Common.categorySelected!!.name)
-        
+
         cartDataSource = LocalClassDataSource(CartDatabase.getInstance(context!!).cartDAO())
 
         addonBottomSheetDialog = BottomSheetDialog(context!!, R.style.DialogStyle)
@@ -301,8 +296,7 @@ class FoodDetailFragment : Fragment(), TextWatcher {
 
         //event
         img_add_on!!.setOnClickListener {
-            if (Common.foodSelected!!.addon != null)
-            {
+            if (Common.foodSelected!!.addon != null) {
                 displyAllAddon()
                 addonBottomSheetDialog.show()
             }
@@ -333,27 +327,30 @@ class FoodDetailFragment : Fragment(), TextWatcher {
             else
                 cartItem.foodAddon = "Default"
 
-            cartDataSource.getItemWithAllOptions(Common.currentUser!!.uid!!,
+            cartDataSource.getItemWithAllOptions(
+                Common.currentUser!!.uid!!,
                 cartItem.foodID,
-                cartItem.foodAddon!!)
+                cartItem.foodAddon!!
+            )
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(object: SingleObserver<CartItem> {
+                .subscribe(object : SingleObserver<CartItem> {
                     override fun onSuccess(cartItemFromDB: CartItem) {
-                        if (cartItemFromDB.equals(cartItem))
-                        {
+                        if (cartItemFromDB.equals(cartItem)) {
                             // if item already in databse, just update
                             cartItemFromDB.foodExtraPrice = cartItem.foodExtraPrice
                             cartItemFromDB.foodAddon = cartItem.foodAddon
-                            cartItemFromDB.foodQuantity = cartItemFromDB.foodQuantity + cartItem.foodQuantity
+                            cartItemFromDB.foodQuantity =
+                                cartItemFromDB.foodQuantity + cartItem.foodQuantity
 
                             cartDataSource.updateCart(cartItemFromDB)
                                 .subscribeOn(Schedulers.io())
                                 .observeOn(AndroidSchedulers.mainThread())
-                                .subscribe(object: SingleObserver<Int> {
+                                .subscribe(object : SingleObserver<Int> {
                                     override fun onSuccess(t: Int) {
                                         //Toast.makeText(context, "Cart updated", Toast.LENGTH_SHORT).show()
-                                        Snackbar.make(view!!, "Cart updated", Snackbar.LENGTH_LONG).show()
+                                        Snackbar.make(view!!, "Cart updated", Snackbar.LENGTH_LONG)
+                                            .show()
                                         EventBus.getDefault().postSticky(CounterCartEvent(true))
                                     }
 
@@ -362,13 +359,15 @@ class FoodDetailFragment : Fragment(), TextWatcher {
                                     }
 
                                     override fun onError(e: Throwable) {
-                                        Toast.makeText(context, "[UPDATE CART]"+e.message, Toast.LENGTH_SHORT).show()
+                                        Toast.makeText(
+                                            context,
+                                            "[UPDATE CART]" + e.message,
+                                            Toast.LENGTH_SHORT
+                                        ).show()
                                     }
 
                                 })
-                        }
-                        else
-                        {
+                        } else {
                             // if item not available in the cart , then insert
                             compositeDisposable.add(cartDataSource.insertOrReplaceAll(cartItem)
                                 .subscribeOn(Schedulers.io())
@@ -376,13 +375,22 @@ class FoodDetailFragment : Fragment(), TextWatcher {
                                 .subscribe({
                                     //Toast.makeText(context, "Added to cart", Toast.LENGTH_SHORT).show()
 
-                                    Snackbar.make(view!!, "Added to the cart", Snackbar.LENGTH_LONG).show()
+                                    Snackbar.make(
+                                        view!!,
+                                        "Added to the cart",
+                                        Snackbar.LENGTH_LONG
+                                    ).show()
 
                                     //send notification
                                     EventBus.getDefault().postSticky(CounterCartEvent(true))
-                                },{
-                                        t:Throwable -> Toast.makeText(context, "[INSERT CART]"+t!!.message,Toast.LENGTH_SHORT).show()
-                                }))
+                                }, { t: Throwable ->
+                                    Toast.makeText(
+                                        context,
+                                        "[INSERT CART]" + t!!.message,
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                })
+                            )
                         }
                     }
 
@@ -391,22 +399,30 @@ class FoodDetailFragment : Fragment(), TextWatcher {
                     }
 
                     override fun onError(e: Throwable) {
-                        if (e.message!!.contains("empty"))
-                        {
+                        if (e.message!!.contains("empty")) {
                             compositeDisposable.add(cartDataSource.insertOrReplaceAll(cartItem)
                                 .subscribeOn(Schedulers.io())
                                 .observeOn(AndroidSchedulers.mainThread())
                                 .subscribe({
                                     //Toast.makeText(context, "Added to cart", Toast.LENGTH_SHORT).show()
-                                    Snackbar.make(view!!, "Added to the cart", Snackbar.LENGTH_LONG).show()
+                                    Snackbar.make(
+                                        view!!,
+                                        "Added to the cart",
+                                        Snackbar.LENGTH_LONG
+                                    ).show()
                                     //send notification
                                     EventBus.getDefault().postSticky(CounterCartEvent(true))
-                                },{
-                                        t:Throwable -> Toast.makeText(context, "[INSERT CART]"+t!!.message,Toast.LENGTH_SHORT).show()
-                                }))
-                        }
-                        else
-                            Toast.makeText(context, "[CART ERROR]"+e.message, Toast.LENGTH_SHORT).show()
+                                }, { t: Throwable ->
+                                    Toast.makeText(
+                                        context,
+                                        "[INSERT CART]" + t!!.message,
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                })
+                            )
+                        } else
+                            Toast.makeText(context, "[CART ERROR]" + e.message, Toast.LENGTH_SHORT)
+                                .show()
                     }
 
                 })
@@ -415,26 +431,26 @@ class FoodDetailFragment : Fragment(), TextWatcher {
     }
 
     private fun displyAllAddon() {
-        if (Common.foodSelected!!.addon!!.size > 0)
-        {
+        if (Common.foodSelected!!.addon!!.size > 0) {
             chip_group_addon!!.clearCheck()
             chip_group_addon!!.removeAllViews()
 
             edt_search_addon!!.addTextChangedListener(this)
 
-            for (addonModel in Common.foodSelected!!.addon!!)
-            {
+            for (addonModel in Common.foodSelected!!.addon!!) {
 
-                    val chip = layoutInflater.inflate(R.layout.layout_chip, null, false) as Chip
-                    chip.text = StringBuilder(addonModel.name!!).append("(+Rs ").append(addonModel.price).append(")").toString()
-                    chip.setOnCheckedChangeListener{compoundButton, b ->
-                        if (b){
-                            if (Common.foodSelected!!.userSelectedAddon == null)
-                                Common.foodSelected!!.userSelectedAddon = ArrayList()
-                            Common.foodSelected!!.userSelectedAddon!!.add(addonModel)
-                        }
+                val chip = layoutInflater.inflate(R.layout.layout_chip, null, false) as Chip
+                chip.text =
+                    StringBuilder(addonModel.name!!).append("(+Rs ").append(addonModel.price)
+                        .append(")").toString()
+                chip.setOnCheckedChangeListener { compoundButton, b ->
+                    if (b) {
+                        if (Common.foodSelected!!.userSelectedAddon == null)
+                            Common.foodSelected!!.userSelectedAddon = ArrayList()
+                        Common.foodSelected!!.userSelectedAddon!!.add(addonModel)
                     }
-                    chip_group_addon!!.addView(chip)
+                }
+                chip_group_addon!!.addView(chip)
 
             }
         }
@@ -446,8 +462,9 @@ class FoodDetailFragment : Fragment(), TextWatcher {
             for (addonModel in Common.foodSelected!!.userSelectedAddon!!) {
                 val chip =
                     layoutInflater.inflate(R.layout.layout_chip_with_delete, null, false) as Chip
-                chip.text = StringBuilder(addonModel!!.name!!).append("(+Rs ").append(addonModel.price)
-                    .append(")").toString()
+                chip.text =
+                    StringBuilder(addonModel!!.name!!).append("(+Rs ").append(addonModel.price)
+                        .append(")").toString()
                 chip.isClickable = false
                 chip.setOnCloseIconClickListener { view ->
                     chip_group_user_selected_addon!!.removeView(view)
@@ -462,17 +479,17 @@ class FoodDetailFragment : Fragment(), TextWatcher {
 
     private fun showDialogRating() {
         var builder = AlertDialog.Builder(context!!)
-        builder.setTitle("Rate this product")
-        builder.setMessage("Wee need your feedback!")
-
         val itemView = LayoutInflater.from(context).inflate(R.layout.layout_rating_comment, null)
-
         val ratingBars = itemView.findViewById<RatingBar>(R.id.rating_bars)
         val edt_comment = itemView.findViewById<EditText>(R.id.edt_comment)
+        val img_dissmiss = itemView.findViewById<ImageView>(R.id.img_dismiss)
+        val btn_post = itemView.findViewById<Button>(R.id.btn_post)
 
         builder.setView(itemView)
-        builder.setNegativeButton("Cancel") { dialogInterface, i -> dialogInterface.dismiss() }
-        builder.setPositiveButton("POST") { dialogInterface, i ->
+        val dialog = builder.create()
+
+        btn_post.setOnClickListener {
+
             val commentModel = CommentModel()
             commentModel.name = Common.currentUser!!.name
             commentModel.uid = Common.currentUser!!.uid
@@ -485,10 +502,13 @@ class FoodDetailFragment : Fragment(), TextWatcher {
 
             foodDetailViewModel!!.setCommentModel(commentModel)
 
-
+            dialog.dismiss()
         }
 
-        val dialog = builder.create()
+
+        img_dissmiss.setOnClickListener {
+            dialog.dismiss()
+        }
         dialog.show()
     }
 

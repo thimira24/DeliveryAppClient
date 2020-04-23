@@ -156,11 +156,10 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun showUpdateInfo() {
+
         val builder = androidx.appcompat.app.AlertDialog.Builder(this)
-
-
         val itemView = LayoutInflater.from(this@HomeActivity)
-            .inflate(R.layout.layout_update, null)
+            .inflate(R.layout.layout_register, null)
 
         val edt_name = itemView.findViewById<EditText>(R.id.edt_name)
         val edt_phone = itemView.findViewById<EditText>(R.id.edt_phone)
@@ -174,6 +173,12 @@ class HomeActivity : AppCompatActivity() {
         val btn_signup = itemView.findViewById<Button>(R.id.btn_signup)
         val txt_dismiss = itemView.findViewById<ImageView>(R.id.txt_dismiss)
         val edt_address = itemView.findViewById<EditText>(R.id.txt_address_detail)
+
+        val txt_window_title = itemView.findViewById<TextView>(R.id.window_title)
+        val txt_search_title = itemView.findViewById<TextView>(R.id.txt_search_message)
+        txt_window_title.setText("Update Account")
+        txt_search_title.setText("Search here to Change your Home address")
+        btn_signup.setText("Update")
 
         // set mobile number
         edt_phone.setText(Common.currentUser!!.phone)
