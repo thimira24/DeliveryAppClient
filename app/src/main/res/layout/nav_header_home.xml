@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/latoregular"
             android:text="0717701797"
-            android:textColor="@color/dark_sub_text" />
+            android:textColor="#444444" />
 
         <ImageView
             android:padding="2dp"

@@ -112,5 +112,7 @@
     Looks like you haven\'t added anything to your cart yet</string>
     <string name="add_to_cart31" />
 
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCxbNNYk5UbQD7dwgb2JKTswWa3fS_BvD8</string>
+
 
 </resources>

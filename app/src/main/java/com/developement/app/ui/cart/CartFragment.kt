@@ -529,7 +529,7 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
 
                 override fun onError(e: Throwable) {
                   if (!e.message!!.contains("Query returned empty"))
-                      Toast.makeText(context, ""+e.message!!, Toast.LENGTH_SHORT).show()
+                      Toast.makeText(context, ""+e.message!!, Toast.LENGTH_SHORT)
                 }
 
             })
@@ -708,7 +708,7 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
                                             },
                                                 { t: Throwable? ->
                                                     if (!t!!.message!!.contains("Query returned empty"))
-                                                        Toast.makeText(context, "[SUM CART]"+t.message, Toast.LENGTH_SHORT).show()
+                                                        Toast.makeText(context, "[SUM CART]"+t.message, Toast.LENGTH_SHORT)
                                                 })
                                         )
                                     },
@@ -784,7 +784,7 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
                     }
 
                     override fun onError(e: Throwable) {
-                        Toast.makeText(context, ""+e.message, Toast.LENGTH_SHORT).show()
+                      //  Toast.makeText(context, ""+e.message, Toast.LENGTH_SHORT).show()
                     }
 
                 })

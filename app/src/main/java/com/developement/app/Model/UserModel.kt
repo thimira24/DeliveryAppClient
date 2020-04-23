@@ -10,6 +10,8 @@ class UserModel {
     var hometown: String? = null
     var email: String? = null
     var nic: String? = null
+    var lat: Double = 0.0
+    var lng: Double = 0.0
 
 
 }
