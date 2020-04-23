@@ -45,23 +45,23 @@
             android:textSize="12sp"
             android:textStyle="normal" />
 
+        <TextView
+            android:gravity="center"
+            android:layout_marginBottom="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/latoregular"
+            android:text="Search here to change your Home address"/>
+
         <RelativeLayout
             android:background="@drawable/button_design4"
             android:layout_width="match_parent"
             android:layout_height="40dp">
 
-            <TextView
-                android:gravity="center"
-                android:paddingLeft="8dp"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="Search here to change your Home address"/>
-
             <fragment
-                android:layout_alignParentRight="true"
                 android:id="@+id/places_autocomplete_fragment"
                 android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
-                android:layout_width="50dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
         </RelativeLayout>
