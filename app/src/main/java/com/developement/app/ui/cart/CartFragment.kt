@@ -34,9 +34,8 @@ import com.developement.app.EventBus.HideFABCart
 import com.developement.app.EventBus.MenuItemBack
 import com.developement.app.EventBus.UpdateItemInCart
 import com.developement.app.HomeActivity
-import com.developement.app.Model.FCMRespone
 import com.developement.app.Model.FCMSendData
-import com.developement.app.Model.Order
+import com.developement.app.Model.OrderModel
 import com.developement.app.R
 import com.developement.app.Remote.ICloudFunctions
 import com.developement.app.Remote.IFCMService
@@ -207,7 +206,7 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
                                         sumCart()
                                         EventBus.getDefault().postSticky(CounterCartEvent(true))
                                         //Toast.makeText(context, "Deleted from cart", Toast.LENGTH_SHORT).show()
-                                        Snackbar.make(view!!, "Deleted from the Cart", Snackbar.LENGTH_SHORT).show()
+                                        Snackbar.make(view!!, "Deleted in your cart", Snackbar.LENGTH_SHORT).show()
                                     }
 
                                     override fun onSubscribe(d: Disposable) {
@@ -263,10 +262,10 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
 
             //pay button and dissmiss button
             val btn_pay = view.findViewById<View>(R.id.btn_pay) as Button
-            val txt_back = view.findViewById<View>(R.id.txt_back) as TextView
+            val txt_back = view.findViewById<View>(R.id.txt_back) as ImageView
 
             //show total amount
-            val show_total_amount_in_dialog = view.findViewById<View>(R.id.txt_back) as TextView
+            val show_total_amount_in_dialog = view.findViewById<View>(R.id.txt_back) as ImageView
 
             // set address not editable
             edt_address.isEnabled = false
@@ -393,7 +392,7 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
                         override fun onSuccess(totalPrice: Double) {
 
                             val finalPrice = totalPrice
-                            val order = Order()
+                            val order = OrderModel()
                             order.userID = Common.currentUser!!.uid!!
                             order.userName = Common.currentUser!!.name!!
                             order.userPhone = Common.currentUser!!.phone!!
@@ -430,7 +429,7 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
             },{ throwable -> Toast.makeText(context!!, ""+throwable.message, Toast.LENGTH_SHORT).show()}))
     }
 
-    private fun writeOrderToFirebase(order: Order) {
+    private fun writeOrderToFirebase(order: OrderModel) {
         FirebaseDatabase.getInstance()
             .getReference(Common.ORDER_REF)
             .child(Common.createOrderNumber())
@@ -462,7 +461,7 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
                                 }
 
                                 val dataSend = HashMap<String, String>()
-                                dataSend.put(Common.NOTI_TITLE, "New Order")
+                                dataSend.put(Common.NOTI_TITLE, "New OrderModel")
                                 dataSend.put(Common.NOTI_CONTENT, "The order from "+Common.currentUser!!.name)
 
 
@@ -476,7 +475,7 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
                                 )
 
                                 clearcart()
-                                txt_empty_cart!!.setText("Now you can see the order status in Order History page!")
+                                txt_empty_cart!!.setText("Now you can see the order status in OrderModel History page!")
 
                             }
 
@@ -623,7 +622,7 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
                 .subscribe(object: SingleObserver<Int>{
                     override fun onSuccess(t: Int) {
                        // Toast.makeText(context, "Sucessfully clear cart", Toast.LENGTH_SHORT).show()
-                        Snackbar.make(view!!, "Deleted all items in the Cart", Snackbar.LENGTH_LONG).show()
+                        Snackbar.make(view!!, "Deleted all items in your Cart", Snackbar.LENGTH_LONG).show()
                         EventBus.getDefault().postSticky(CounterCartEvent(true))
                         EventBus.getDefault().postSticky(HideFABCart(true))
                     }
@@ -680,7 +679,7 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
                                                 {
                                                     //create order
                                                     val finalPrice = totalPrice
-                                                    val order = Order()
+                                                    val order = OrderModel()
                                                     order.userID = Common.currentUser!!.uid!!
                                                     order.userName = Common.currentUser!!.name!!
                                                     order.userPhone = Common.currentUser!!.phone!!
@@ -733,7 +732,7 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
         }
     }
 
-    private fun syncLocalTimeWithServerTime(order: Order) {
+    private fun syncLocalTimeWithServerTime(order: OrderModel) {
         val offsetRef = FirebaseDatabase.getInstance().getReference(".info/serverTimeOffset")
         offsetRef.addListenerForSingleValueEvent(object:ValueEventListener{
             override fun onCancelled(p0: DatabaseError) {
@@ -752,7 +751,7 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
         })
     }
 
-    override fun onLoadTimeSuccess(order: Order, estimatedTimeMs: Long) {
+    override fun onLoadTimeSuccess(order: OrderModel, estimatedTimeMs: Long) {
         order.createDate = (estimatedTimeMs)
         order.orderStatus = 0
         writeOrderToFirebase(order)

@@ -9,14 +9,14 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.developement.app.Common.Common
-import com.developement.app.Model.Order
+import com.developement.app.Model.OrderModel
 import com.developement.app.R
 import java.text.SimpleDateFormat
 import java.util.*
 
 class MyOrderAdapter(
     private val context: Context,
-    private val orderList: List<Order>
+    private val orderList: MutableList<OrderModel>
 ) : RecyclerView.Adapter<MyOrderAdapter.MyViewHolder>() {
 
     internal var calender : Calendar
@@ -49,6 +49,16 @@ class MyOrderAdapter(
     override fun getItemCount(): Int {
         return orderList.size
     }
+
+    fun getItemAtPosition(position: Int): OrderModel{
+        return orderList[position]
+    }
+
+    fun setItemAtPosition(position: Int, orderModel: OrderModel){
+        orderList[position] = orderModel
+    }
+
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(LayoutInflater.from(context!!)

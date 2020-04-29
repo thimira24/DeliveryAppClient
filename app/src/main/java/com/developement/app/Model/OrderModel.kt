@@ -2,7 +2,7 @@ package com.developement.app.Model
 
 import com.developement.app.Database.CartItem
 
-class Order {
+class OrderModel {
     var userID: String? = null
     var userName: String? = null
     var userPhone: String? = null

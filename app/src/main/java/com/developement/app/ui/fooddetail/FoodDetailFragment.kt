@@ -348,10 +348,8 @@ class FoodDetailFragment : Fragment(), TextWatcher {
                                 .observeOn(AndroidSchedulers.mainThread())
                                 .subscribe(object : SingleObserver<Int> {
                                     override fun onSuccess(t: Int) {
-                                        //Toast.makeText(context, "Cart updated", Toast.LENGTH_SHORT).show()
-                                        Snackbar.make(view!!, "Cart updated", Snackbar.LENGTH_LONG)
-                                            .show()
-                                        EventBus.getDefault().postSticky(CounterCartEvent(true))
+                                        Toast.makeText(context, "Cart updated", Toast.LENGTH_SHORT).show()
+
                                     }
 
                                     override fun onSubscribe(d: Disposable) {
@@ -373,13 +371,9 @@ class FoodDetailFragment : Fragment(), TextWatcher {
                                 .subscribeOn(Schedulers.io())
                                 .observeOn(AndroidSchedulers.mainThread())
                                 .subscribe({
-                                    //Toast.makeText(context, "Added to cart", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(context, "Added to cart", Toast.LENGTH_SHORT).show()
 
-                                    Snackbar.make(
-                                        view!!,
-                                        "Added to the cart",
-                                        Snackbar.LENGTH_LONG
-                                    ).show()
+
 
                                     //send notification
                                     EventBus.getDefault().postSticky(CounterCartEvent(true))
@@ -404,12 +398,8 @@ class FoodDetailFragment : Fragment(), TextWatcher {
                                 .subscribeOn(Schedulers.io())
                                 .observeOn(AndroidSchedulers.mainThread())
                                 .subscribe({
-                                    //Toast.makeText(context, "Added to cart", Toast.LENGTH_SHORT).show()
-                                    Snackbar.make(
-                                        view!!,
-                                        "Added to the cart",
-                                        Snackbar.LENGTH_LONG
-                                    ).show()
+                                    Toast.makeText(context, "Added to cart", Toast.LENGTH_SHORT).show()
+
                                     //send notification
                                     EventBus.getDefault().postSticky(CounterCartEvent(true))
                                 }, { t: Throwable ->

@@ -92,7 +92,7 @@ class MyFoodListAdapter(
                                .subscribe(object: SingleObserver<Int>{
                                    override fun onSuccess(t: Int) {
 
-                                       Snackbar.make(it, "Cart updated", Snackbar.LENGTH_SHORT).show()
+                                       Toast.makeText(context, "Cart updated", Toast.LENGTH_SHORT).show()
                                        EventBus.getDefault().postSticky(CounterCartEvent(true))
                                    }
 
@@ -113,7 +113,7 @@ class MyFoodListAdapter(
                                .subscribeOn(Schedulers.io())
                                .observeOn(AndroidSchedulers.mainThread())
                                .subscribe({
-                                   Snackbar.make(it, "Added to the cart", Snackbar.LENGTH_SHORT).show()
+                                   Toast.makeText(context, "Added to cart", Toast.LENGTH_SHORT).show()
                                    //send notification
                                    EventBus.getDefault().postSticky(CounterCartEvent(true))
                                },{
@@ -133,8 +133,8 @@ class MyFoodListAdapter(
                                 .subscribeOn(Schedulers.io())
                                 .observeOn(AndroidSchedulers.mainThread())
                                 .subscribe({
-                                    //Toast.makeText(context, "Added to cart", Toast.LENGTH_SHORT).show()
-                                    Snackbar.make(it, "Added to the cart", Snackbar.LENGTH_SHORT).show()
+                                    Toast.makeText(context, "Added to cart", Toast.LENGTH_SHORT).show()
+
                                     //send notification
                                     EventBus.getDefault().postSticky(CounterCartEvent(true))
                                 },{

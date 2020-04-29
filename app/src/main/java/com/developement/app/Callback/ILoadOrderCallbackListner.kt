@@ -1,8 +1,8 @@
 package com.developement.app.Callback
 
-import com.developement.app.Model.Order
+import com.developement.app.Model.OrderModel
 
 interface ILoadOrderCallbackListner {
-    fun onLoadOrderSuccess(orderList: List<Order>)
+    fun onLoadOrderSuccess(orderList: List<OrderModel>)
     fun onLoadOrderFailed(message: String)
 }
