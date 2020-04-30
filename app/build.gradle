@@ -106,5 +106,6 @@ dependencies {
     //braintree library
     implementation 'com.braintreepayments.api:drop-in:4.1.1'
     implementation 'com.google.android.libraries.places:places:2.1.0'
+    implementation 'com.androidwidgets:formatedittext:0.2.0'
 }
 apply plugin: 'com.google.gms.google-services'

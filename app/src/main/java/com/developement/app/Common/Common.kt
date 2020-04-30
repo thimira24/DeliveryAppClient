@@ -169,6 +169,7 @@ object Common {
         return StringBuilder("/topics/new_order").toString()
     }
 
+    val REFUND_REQUEST_REF: String="RefundRequest"
     const val NOTI_User ="Noti_user"
     const val NOTI_NOTE ="Noti_note"
     const val NOTI_TITLE = "title"

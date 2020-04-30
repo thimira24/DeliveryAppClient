@@ -163,7 +163,7 @@
             android:fontFamily="@font/latoregular"
             android:text="@string/visa_debit_card_paypal"
             android:textSize="16sp"
-            android:visibility="gone" />
+             />
 
     </RadioGroup>
 

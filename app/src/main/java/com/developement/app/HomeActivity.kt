@@ -285,6 +285,7 @@ class HomeActivity : AppCompatActivity() {
         val itemView = LayoutInflater.from(this).inflate(R.layout.layout_sign_out, null)
 
         val btn_sign_out = itemView.findViewById<View>(R.id.btn_sign_out) as Button
+        val btn_back = itemView.findViewById<View>(R.id.btn_no) as Button
         val btn_cancelled = itemView.findViewById<View>(R.id.btn_cancel) as ImageView
 
         builder.setView(itemView)
@@ -303,6 +304,10 @@ class HomeActivity : AppCompatActivity() {
         }
 
         btn_cancelled.setOnClickListener {
+            shows.dismiss()
+        }
+
+        btn_back.setOnClickListener {
             shows.dismiss()
         }
 
