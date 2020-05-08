@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.developement.app.Callback.IRecyclerItemClickListner
@@ -96,9 +98,37 @@ class MyOrderAdapter(
         holder.txt_order_status!!.text = StringBuilder("Order ").append(Common.convertStatusToText(orderList[position].orderStatus))
         holder.txt_show_order!!.text = StringBuilder("Rs ").append(orderList[position].totalPayment)
 
+        holder.setListner(object:IRecyclerItemClickListner{
+            override fun onItemClick(view: View, pos: Int) {
+                showDialog(orderList[pos].cartItemList)
+            }
+        })
 
     }
 
+    private fun showDialog(cartItemList: List<CartItem>?) {
 
+        val layout_dialog = LayoutInflater.from(context).inflate(R.layout.layout_dialog_order_detail, null)
+        val builder = androidx.appcompat.app.AlertDialog.Builder(context)
+        builder.setView(layout_dialog)
+
+        val btn_ok = layout_dialog.findViewById<View>(R.id.btn_ok) as Button
+        val recycler_order_detail = layout_dialog.findViewById<View>(R.id.recycler_order_detail) as RecyclerView
+        recycler_order_detail.setHasFixedSize(true)
+
+        val layoutManager = LinearLayoutManager(context)
+        recycler_order_detail.layoutManager = layoutManager
+        //recycler_order_detail.addItemDecoration(DividerItemDecoration(context, layoutManager.orientation))
+
+        val adapter = MyOrderDetailAdapter(context, cartItemList!!.toMutableList())
+        recycler_order_detail.adapter = adapter
+
+        //show dialog
+        val dialog = builder.create()
+        dialog.show()
+
+        btn_ok.setOnClickListener{ dialog.dismiss()}
+
+    }
 
 }

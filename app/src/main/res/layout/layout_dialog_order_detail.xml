@@ -4,15 +4,15 @@
     android:layout_height="wrap_content"
     android:paddingLeft="20dp"
     android:paddingTop="8dp"
-    android:paddingRight="20dp"
-    android:paddingBottom="8dp">
+    android:paddingRight="20dp">
 
     <TextView
+        android:layout_marginBottom="10dp"
         android:id="@+id/txt_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/latoregular"
-        android:text="Order Liist"
+        android:text="Order List"
         android:textColor="@color/dark_effect"
         android:textSize="32sp" />
 
@@ -29,16 +29,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:gravity="right"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <Button
+            android:layout_margin="8dp"
             android:id="@+id/btn_ok"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
             android:padding="8dp"
             android:text="OK"
-            android:textColor="#455CD8" />
+            android:background="@drawable/button_design9"
+            android:textColor="#FFFFFF" />
 
     </LinearLayout>
 
