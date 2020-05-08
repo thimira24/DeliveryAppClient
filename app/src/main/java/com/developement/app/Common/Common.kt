@@ -176,7 +176,7 @@ object Common {
     const val NOTI_CONTENT = "content"
     var authorizeToken: String? = null
     var currentToken: String = ""
-    const val ORDER_REF: String = "OrderModel"
+    const val ORDER_REF: String = "Order"
     const val COMMENT_REF: String = "Comments"
     var foodSelected: FoodModel? = null
     var categorySelected: CategoryModel? = null

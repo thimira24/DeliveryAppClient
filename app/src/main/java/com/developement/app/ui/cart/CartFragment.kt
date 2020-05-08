@@ -461,8 +461,8 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
                                 }
 
                                 val dataSend = HashMap<String, String>()
-                                dataSend.put(Common.NOTI_TITLE, "New OrderModel")
-                                dataSend.put(Common.NOTI_CONTENT, "The order from "+Common.currentUser!!.name)
+                                dataSend.put(Common.NOTI_TITLE, "Hey! you have a new order")
+                                dataSend.put(Common.NOTI_CONTENT, "The order from "+Common.currentUser!!.name +" " +Common.currentUser!!.phone )
 
 
                                 val sendData = FCMSendData(Common.getNewOrderTopic(), dataSend)

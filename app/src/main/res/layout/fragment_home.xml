@@ -14,61 +14,27 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <LinearLayout
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:background="@drawable/dashboard"
+                android:id="@+id/recycler_popular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <com.asksira.loopingviewpager.LoopingViewPager
+                android:id="@+id/viewpager"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:orientation="vertical">
+                app:autoScroll="true"
+                app:isInfinite="true"
+                app:scrollInterval="6000"
+                app:viewpagerAspectRatio="1.344" />
 
-                <TextView
 
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/allerrg"
-                    android:text="@string/best_deals"
-                    android:textColor="@color/dark_effect1"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <com.asksira.loopingviewpager.LoopingViewPager
-                    android:id="@+id/viewpager"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:autoScroll="true"
-                    app:isInfinite="true"
-                    app:scrollInterval="6000"
-                    app:viewpagerAspectRatio="1.344" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="170dp"
-                android:layout_marginTop="0dp"
-                android:orientation="vertical"
-                android:paddingTop="8dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/allerrg"
-                    android:paddingStart="8dp"
-                    android:text="@string/categories1"
-                    android:textColor="@color/dark_effect1"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycler_popular"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-            </LinearLayout>
 
         </LinearLayout>
+
     </androidx.core.widget.NestedScrollView>
-
-
 
 </LinearLayout>

@@ -1,14 +1,18 @@
 package com.developement.app.Adapter
 
+import android.app.AlertDialog
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.developement.app.Callback.IRecyclerItemClickListner
 import com.developement.app.Common.Common
+import com.developement.app.Database.CartItem
 import com.developement.app.Model.OrderModel
 import com.developement.app.R
 import java.text.SimpleDateFormat
@@ -27,14 +31,20 @@ class MyOrderAdapter(
         simpleDateFormat = SimpleDateFormat("dd-MM-yyyy, HH:mm")
     }
 
-    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
-    {
+    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
+        View.OnClickListener {
         internal var img_order: ImageView? = null
         internal var txt_order_date: TextView? = null
         internal var txt_order_status: TextView? = null
         internal var txt_order_number: TextView? = null
         internal var txt_order_comment: TextView? = null
         internal var txt_show_order: TextView? = null
+
+        internal var iRecyclerItemClickListner:IRecyclerItemClickListner?=null
+        fun setListner(iRecyclerItemClickListner: IRecyclerItemClickListner)
+        {
+            this.iRecyclerItemClickListner = iRecyclerItemClickListner
+        }
 
         init {
             img_order = itemView.findViewById(R.id.img_order) as ImageView
@@ -43,6 +53,12 @@ class MyOrderAdapter(
             txt_order_date = itemView.findViewById(R.id.txt_order_date) as TextView
             txt_order_number = itemView.findViewById(R.id.txt_order_number) as TextView
             txt_show_order = itemView.findViewById(R.id.show_total) as TextView
+
+            itemView.setOnClickListener(this)
+        }
+
+        override fun onClick(p0: View?) {
+            iRecyclerItemClickListner!!.onItemClick(p0!!, adapterPosition)
         }
     }
 
@@ -79,6 +95,10 @@ class MyOrderAdapter(
         holder.txt_order_comment!!.text = StringBuilder("Note: ").append(orderList[position].comment)
         holder.txt_order_status!!.text = StringBuilder("Order ").append(Common.convertStatusToText(orderList[position].orderStatus))
         holder.txt_show_order!!.text = StringBuilder("Rs ").append(orderList[position].totalPayment)
+
+
     }
+
+
 
 }
