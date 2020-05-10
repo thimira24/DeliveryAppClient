@@ -19,6 +19,7 @@ import androidx.core.app.NotificationCompat
 import com.developement.app.Model.*
 import com.developement.app.R
 import com.developement.app.Services.MyFCMServices
+import com.google.android.gms.maps.model.LatLng
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.collection.LLRBNode
 import lib.android.paypal.com.magnessdk.network.i
@@ -136,11 +137,11 @@ object Common {
         val notificationManager =
             context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-        {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val notificationChannel = NotificationChannel(
                 NOTIFICATION_CHANNEL_ID,
-                "Delivery App", NotificationManager.IMPORTANCE_DEFAULT)
+                "Delivery App", NotificationManager.IMPORTANCE_DEFAULT
+            )
 
             notificationChannel.description = "Delivery App"
             notificationChannel.enableLights(true)
@@ -153,7 +154,12 @@ object Common {
         val builder = NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID)
         builder.setContentTitle(title!!).setContentText(content!!).setAutoCancel(true)
             .setSmallIcon(R.mipmap.ic_launcher_round)
-            .setLargeIcon(BitmapFactory.decodeResource(context.resources, R.drawable.ic_shopping_cart_black_24dp))
+            .setLargeIcon(
+                BitmapFactory.decodeResource(
+                    context.resources,
+                    R.drawable.ic_shopping_cart_black_24dp
+                )
+            )
 
         if (pendingIntent != null)
             builder.setContentIntent(pendingIntent)
@@ -167,9 +173,42 @@ object Common {
         return StringBuilder("/topics/new_order").toString()
     }
 
-    val REFUND_REQUEST_REF: String="RefundRequest"
-    const val NOTI_User ="Noti_user"
-    const val NOTI_NOTE ="Noti_note"
+    fun decodePoly(encoded: String): List<LatLng> {
+        val poly: MutableList<LatLng> = ArrayList<LatLng>()
+        var index = 0
+        var len = encoded.length
+        var lat = 0
+        var lng = 0
+        while (index < len) {
+            var b: Int
+            var shift = 0
+            var result = 0
+            do {
+                b = encoded[index++].toInt() - 63
+                result = result or (b and 0x1f shl shift)
+                shift += 5
+            } while (b >= 0x20)
+            val dlat = if (result and 1 != 0) (result shr 1).inv() else result shr 1
+            lat += dlat
+            shift = 0
+            result = 0
+            do {
+                b = encoded[index++].toInt() - 63
+                result = result or (b and 0x1f shl shift)
+                shift += 5
+            } while (b > 0x20)
+            val dlng = if (result and 1 != 0) (result shr 1).inv() else result shr 1
+            lng += dlng
+            val p = LatLng(lat.toDouble() / 1E5, lng.toDouble() / 1E5)
+            poly.add(p)
+        }
+        return poly
+    }
+
+    var currentShippingOrder: ShippingOrderModel? = null
+    val REFUND_REQUEST_REF: String = "RefundRequest"
+    const val NOTI_User = "Noti_user"
+    const val NOTI_NOTE = "Noti_note"
     const val NOTI_TITLE = "title"
     const val NOTI_CONTENT = "content"
     var authorizeToken: String? = null
@@ -185,6 +224,7 @@ object Common {
     const val POPULAR_REF: String = "MostPopular"
     val USER_REFERENCE = "Users"
     var currentUser: UserModel? = null
+    val SHIPPING_ORDER_REF: String = "ShippingOrder"
 
     const val TOKEN_REF = "Tokens"
 }

@@ -2,6 +2,7 @@ package com.developement.app.ui.view_orders
 
 import android.app.AlertDialog
 import android.content.DialogInterface
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -26,7 +27,9 @@ import com.developement.app.Common.MySwipeHelper
 import com.developement.app.EventBus.MenuItemBack
 import com.developement.app.Model.OrderModel
 import com.developement.app.Model.RefundRequestModel
+import com.developement.app.Model.ShippingOrderModel
 import com.developement.app.R
+import com.developement.app.TrackingOrderActivity
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -218,8 +221,55 @@ class ViewOrderFragment : Fragment(), ILoadOrderCallbackListner {
 
                             }
 
-                        })
-                )
+                        }))
+
+                    //tracking button
+                            buffer.add(
+                            MyButton(context!!,
+                                "Track Order",
+                                30,
+                                0,
+                                Color.parseColor("#001970"),
+                                object : IMyButtonCallback {
+                                    override fun onClick(pos: Int) {
+                                        val orderModel = (recycler_order.adapter as MyOrderAdapter).getItemAtPosition(pos)
+                                        //fetch from firebase
+                                        FirebaseDatabase.getInstance()
+                                            .getReference(Common.SHIPPING_ORDER_REF)
+                                            .child(orderModel.orderNumber!!)
+                                            .addListenerForSingleValueEvent(object:ValueEventListener{
+                                                override fun onCancelled(p0: DatabaseError) {
+                                                    Toast.makeText(context!!, p0.message, Toast.LENGTH_SHORT).show()
+                                                }
+
+                                                override fun onDataChange(p0: DataSnapshot) {
+                                                        if (p0.exists())
+                                                        {
+                                                            Common.currentShippingOrder = p0.getValue(
+                                                                ShippingOrderModel::class.java)
+
+                                                            if(Common.currentShippingOrder!!.currentLat!! != -1.0 &&
+                                                                    Common.currentShippingOrder!!.currentLng!! != -1.0)
+                                                            {
+                                                                startActivity(Intent(context!!, TrackingOrderActivity::class.java))
+                                                            }
+                                                            else
+                                                            {
+                                                                startActivity(Intent(context!!, TrackingOrderActivity::class.java))
+                                                                Toast.makeText(context!!, "It will deliver soon, Please wait", Toast.LENGTH_LONG).show()
+                                                            }
+                                                        }
+                                                    else
+                                                        {
+                                                            startActivity(Intent(context!!, TrackingOrderActivity::class.java))
+                                                            Toast.makeText(context!!, "Your order still not ready to deliver. Please wait", Toast.LENGTH_LONG).show()
+                                                        }
+                                                }
+
+                                            })
+                                    }
+
+                                }))
             }
         }
 
