@@ -69,8 +69,6 @@ object Common {
         val txtSpannable = SpannableString(name)
         val boldSpan = StyleSpan(Typeface.BOLD)
 
-
-
         txtSpannable.setSpan(boldSpan, 0, name!!.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         builder.append(txtSpannable)
         txtUser!!.setText(builder, TextView.BufferType.SPANNABLE)

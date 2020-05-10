@@ -85,6 +85,8 @@ class HomeActivity : AppCompatActivity() {
 
         dialog = SpotsDialog.Builder().setContext(this).setCancelable(false).build()
 
+
+
         //check this
         cartDataSource = LocalClassDataSource(CartDatabase.getInstance(this).cartDAO())
 

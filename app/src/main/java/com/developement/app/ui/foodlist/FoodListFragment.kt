@@ -72,6 +72,7 @@ class FoodListFragment : Fragment() {
 
         (activity as AppCompatActivity).supportActionBar!!.title = Common.categorySelected!!.name
 
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

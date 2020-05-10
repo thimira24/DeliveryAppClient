@@ -183,7 +183,7 @@ class MyFoodListAdapter(
 
         var img_food_image: ImageView? = null
         var img_fav: ImageView? = null
-        var img_cart: Button? = null
+        var img_cart: ImageView? = null
         var rating_bar: RatingBar? = null
         var rating_lable: TextView? = null
         var rating_count: TextView? = null
@@ -201,7 +201,7 @@ class MyFoodListAdapter(
             txt_food_price = itemView.findViewById(R.id.txt_food_price) as TextView
             img_food_image = itemView.findViewById(R.id.img_food_image) as ImageView
             img_fav = itemView.findViewById(R.id.img_fav) as ImageView
-            img_cart = itemView.findViewById(R.id.img_quick_cart) as Button
+            img_cart = itemView.findViewById(R.id.img_quick_cart) as ImageView
             rating_bar = itemView.findViewById(R.id.rating_bar) as RatingBar
             rating_lable = itemView.findViewById(R.id.rating_bar_one) as TextView
             rating_count = itemView.findViewById(R.id.review_count) as TextView

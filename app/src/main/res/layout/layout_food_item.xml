@@ -19,7 +19,7 @@
             android:id="@+id/img_food_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="55dp"
+            android:layout_marginBottom="75dp"
             android:contentDescription="@string/todo5"
             android:scaleType="fitXY" />
 
@@ -27,8 +27,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:baselineAligned="false"
             android:background="#FFFFFF"
+            android:baselineAligned="false"
             android:orientation="horizontal"
             android:padding="0dp"
             android:weightSum="10">
@@ -36,6 +36,9 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
                 android:layout_weight="10"
                 android:gravity="center_vertical"
                 android:orientation="vertical">
@@ -44,9 +47,8 @@
                     android:id="@+id/txt_food_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+
                     android:fontFamily="@font/latoregular"
-                    android:paddingLeft="8dp"
                     android:text="@string/food_name3"
                     android:textColor="@color/dark_effect1"
                     android:textSize="14sp" />
@@ -60,45 +62,41 @@
                         android:id="@+id/rating_bar"
                         style="?attr/ratingBarStyleSmall"
                         android:layout_width="wrap_content"
-                        android:progressTint="@color/color_yellow"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:numStars="5" />
+                        android:numStars="5"
+                        android:progressTint="@color/color_yellow" />
 
                     <TextView
-                        android:visibility="gone"
+                        android:id="@+id/review_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="15dp"
+                        android:layout_marginLeft="6dp"
+                        android:fontFamily="@font/latoregular"
+                        android:text="12"
+                        android:textSize="12sp" />
+
+                    <TextView
                         android:id="@+id/rating_bar_one"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:fontFamily="@font/latoregular"
-                        android:paddingLeft="8dp"
                         android:text="(4.8)"
                         android:textColor="#CDDC39"
-                        android:textSize="11sp" />
+                        android:textSize="11sp"
+                        android:visibility="gone" />
+
 
                 </LinearLayout>
-
 
                 <TextView
                     android:id="@+id/txt_food_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/latoregular"
-                    android:paddingLeft="8dp"
                     android:text="@string/_00_00123"
                     android:textColor="@color/dark_effect1"
                     android:textSize="14sp" />
 
-                <Button
-                    android:id="@+id/img_quick_cart"
-                    android:layout_width="match_parent"
-                    android:layout_height="25dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="1"
-                    android:textColor="@color/color_white"
-                    android:background="@color/colorAccent1"
-                    android:fontFamily="@font/latoregular"
-                    android:text="Add to Cart" />
 
             </LinearLayout>
 
@@ -115,7 +113,6 @@
             android:tint="@color/colorAccent" />
 
         <TextView
-            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="20dp"
             android:layout_alignParentRight="true"
@@ -125,20 +122,23 @@
             android:paddingRight="35dp"
             android:text="Review(s)"
             android:textColor="@color/colorAccent1"
-            android:textSize="12sp" />
+            android:textSize="12sp"
+            android:visibility="gone" />
 
-        <TextView
-            android:id="@+id/review_count"
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"
+        <ImageView
+            android:id="@+id/img_quick_cart"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/latoregular"
-            android:paddingLeft="8dp"
-            android:paddingRight="38dp"
-            android:text="1"
-            android:textColor="@color/colorAccent"
-            android:textSize="12sp" />
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/button_design_for_cart"
+            android:paddingLeft="5dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:src="@drawable/ic_add_black_24dp"
+
+            />
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

@@ -12,7 +12,8 @@
         android:layout_marginTop="5dp"
         android:layout_marginRight="7dp"
         android:layout_marginBottom="3dp"
-        app:cardCornerRadius="10dp">
+        app:cardCornerRadius="10dp"
+        app:elevation="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -161,6 +162,21 @@
             </LinearLayout>
 
         </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="50dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:contentDescription="@string/todo13"
+                android:src="@drawable/slidemenu"
+                android:tint="@color/dark_sub_text" />
+
+        </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
 
