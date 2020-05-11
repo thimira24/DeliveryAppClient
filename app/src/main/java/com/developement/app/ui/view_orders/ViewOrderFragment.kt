@@ -247,7 +247,7 @@ class ViewOrderFragment : Fragment(), ILoadOrderCallbackListner {
                                                         {
                                                             Common.currentShippingOrder = p0.getValue(
                                                                 ShippingOrderModel::class.java)
-
+                                                            Common.currentShippingOrder!!.key = p0.key
                                                             if(Common.currentShippingOrder!!.currentLat!! != -1.0 &&
                                                                     Common.currentShippingOrder!!.currentLng!! != -1.0)
                                                             {
