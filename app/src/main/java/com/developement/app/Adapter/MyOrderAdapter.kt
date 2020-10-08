@@ -85,7 +85,7 @@ class MyOrderAdapter(
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
-        Glide.with(context!!).load(orderList[position].cartItemList!![0].foodImage).into(holder.img_order!!)
+        //Glide.with(context!!).load(orderList[position].cartItemList!![0].foodImage).into(holder.img_order!!)
         calender.timeInMillis = orderList[position].createDate
         val date = Date(orderList[position].createDate)
 

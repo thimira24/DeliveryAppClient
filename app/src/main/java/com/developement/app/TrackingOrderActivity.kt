@@ -15,6 +15,7 @@ import androidx.core.content.ContextCompat
 import com.developement.app.Common.Common
 import com.developement.app.Model.ShippingOrderModel
 import com.developement.app.Remote.IGoogleAPI
+import com.developement.app.Remote.ISingleShippingOrderCallbackListner
 import com.developement.app.Remote.RetrofitGoogleAPIClient
 
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -30,7 +31,8 @@ import org.json.JSONObject
 import retrofit2.create
 import java.lang.StringBuilder
 
-class TrackingOrderActivity : AppCompatActivity(), OnMapReadyCallback, ValueEventListener {
+class TrackingOrderActivity : AppCompatActivity(), OnMapReadyCallback, ValueEventListener,
+    ISingleShippingOrderCallbackListner {
 
     private lateinit var mMap: GoogleMap
 
@@ -42,6 +44,7 @@ class TrackingOrderActivity : AppCompatActivity(), OnMapReadyCallback, ValueEven
     private var redPolyline: Polyline? = null
     private var polylineList: List<LatLng> = ArrayList()
 
+    private var isISingleShippingOrderCallbackListner: ISingleShippingOrderCallbackListner?=null
     private lateinit var iGoogleAPI: IGoogleAPI
     private val compositeDisposable = CompositeDisposable()
 
@@ -63,13 +66,16 @@ class TrackingOrderActivity : AppCompatActivity(), OnMapReadyCallback, ValueEven
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tracking_order)
 
-        iGoogleAPI = RetrofitGoogleAPIClient.instance!!.create(IGoogleAPI::class.java)
-
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
-
+        initViews()
         subscribeShipperMove()
+    }
+
+    private fun initViews() {
+        isISingleShippingOrderCallbackListner = this
+        iGoogleAPI = RetrofitGoogleAPIClient.instance!!.create(IGoogleAPI::class.java)
     }
 
     private fun subscribeShipperMove() {
@@ -94,7 +100,33 @@ class TrackingOrderActivity : AppCompatActivity(), OnMapReadyCallback, ValueEven
         } catch (ex: Resources.NotFoundException) {
             Log.d("DeliveryApp", "Not found google map style")
         }
-        drawRoutes()
+        checkorderfromfirebase()
+    }
+
+    private fun checkorderfromfirebase() {
+        FirebaseDatabase.getInstance()
+            .getReference(Common.SHIPPING_ORDER_REF)
+            .child(Common.currentOrderSelected!!.orderNumber!!)
+            .addListenerForSingleValueEvent(object:ValueEventListener{
+                override fun onCancelled(p0: DatabaseError) {
+                    Toast.makeText(this@TrackingOrderActivity, p0.message, Toast.LENGTH_SHORT).show()
+                }
+
+                override fun onDataChange(p0: DataSnapshot) {
+                    if (p0.exists())
+                    {
+                        val shippingOrderModel = p0.getValue(ShippingOrderModel::class.java)
+                        shippingOrderModel!!.key = p0.key
+
+                        isISingleShippingOrderCallbackListner!!.onSingleShippingOrderSuccess(shippingOrderModel)
+                    }
+                    else
+                    {
+                        Toast.makeText(this@TrackingOrderActivity, "Order not found", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+            })
     }
 
     private fun drawRoutes() {
@@ -334,5 +366,102 @@ class TrackingOrderActivity : AppCompatActivity(), OnMapReadyCallback, ValueEven
                     ).show()
                 })
         )
+    }
+
+    override fun onSingleShippingOrderSuccess(shippingOrderModel: ShippingOrderModel) {
+
+        val locationOrder = LatLng(
+            shippingOrderModel!!.orderModel!!.lat,
+            shippingOrderModel!!.orderModel!!.lng
+        )
+        val locationShipper = LatLng(
+            shippingOrderModel!!.currentLat,
+            shippingOrderModel!!.currentLng
+        )
+
+        //addbox
+        mMap.addMarker(
+            MarkerOptions()
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.box))
+                .title(shippingOrderModel!!.orderModel!!.userName)
+                .snippet(shippingOrderModel!!.orderModel!!.shippingAddress)
+                .position(locationOrder))
+
+        //add shipper
+        if (shipperMarker == null)
+        {
+            val height = 80
+            val width = 80
+            val bitmapDrawable = ContextCompat.getDrawable(this@TrackingOrderActivity, R.drawable.car) as BitmapDrawable
+            val resized = Bitmap.createScaledBitmap(bitmapDrawable.bitmap, width, height, false)
+
+            shipperMarker = mMap.addMarker(
+                MarkerOptions()
+                    .icon(BitmapDescriptorFactory.fromBitmap(resized))
+                    .title(shippingOrderModel!!.shipperName)
+                    .snippet(shippingOrderModel!!.shipperPhone)
+                    .position(locationShipper)
+            )
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(locationShipper, 18.0f))
+        }
+        else
+        {
+            shipperMarker!!.position = locationShipper
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(locationShipper, 18.0f))
+        }
+
+        //draw routes
+        val to = StringBuilder().append(shippingOrderModel!!.orderModel!!.lat)
+            .append(",")
+            .append(shippingOrderModel!!.orderModel!!.lng)
+            .toString()
+
+        val from = StringBuilder().append(shippingOrderModel!!.currentLat)
+            .append(",")
+            .append(shippingOrderModel!!.currentLng)
+            .toString()
+
+        compositeDisposable.add(
+            iGoogleAPI!!.getDirections(
+                "driving",
+                "less_driving",
+                from, to,
+                getString(R.string.google_maps_key))!!
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ s ->
+                    try {
+                        val jsonObject = JSONObject(s)
+                        val jsonArray = jsonObject.getJSONArray("routes")
+                        for (i in 0 until jsonArray.length()) {
+
+                            val route = jsonArray.getJSONObject(i)
+                            val poly = route.getJSONObject("overview_polyline")
+                            val polyline = poly.getString("points")
+                            polylineList = Common.decodePoly(polyline)
+                        }
+
+                        polylineOptions = PolylineOptions()
+                        polylineOptions!!.color(Color.GREEN)
+                        polylineOptions!!.width(12.0f)
+                        polylineOptions!!.startCap(SquareCap())
+                        polylineOptions!!.endCap(SquareCap())
+                        polylineOptions!!.jointType(JointType.ROUND)
+                        polylineOptions!!.addAll(polylineList)
+                        redPolyline = mMap.addPolyline(polylineOptions)
+
+
+                    } catch (e: Exception) {
+                        Log.d("Debug", e.message)
+                    }
+                }, { throwable ->
+                    Toast.makeText(
+                        this@TrackingOrderActivity,
+                        "" + throwable.message,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                })
+        )
+
     }
 }

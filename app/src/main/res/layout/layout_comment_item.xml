@@ -35,7 +35,7 @@
             android:id="@+id/txt_comment_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/latoregular"
+            android:fontFamily="@font/product_sans_regular"
             android:text="@string/name123"
             android:textColor="@color/dark_effect1"
             android:textSize="18sp" />
@@ -44,7 +44,7 @@
             android:id="@+id/txt_comment_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/latoregular"
+            android:fontFamily="@font/product_sans_regular"
             android:text="@string/date12"
             android:textColor="#333333"
             android:textSize="14sp" />
@@ -63,8 +63,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+            android:justificationMode="inter_word"
             android:background="@drawable/button_design0"
-            android:fontFamily="@font/latoregular"
+            android:fontFamily="@font/product_sans_regular"
             android:paddingLeft="3dp"
             android:paddingRight="8dp"
             android:paddingBottom="2dp"

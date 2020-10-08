@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="2dp"
-        android:fontFamily="@font/latoregular"
+        android:fontFamily="@font/product_sans_regular"
         android:text="Checkout"
         android:textColor="@color/dark_background"
         android:textSize="24sp"
@@ -35,7 +35,7 @@
         android:id="@+id/edt_edit_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/latoregular"
+        android:fontFamily="@font/product_sans_regular"
         android:text="Edit Address"
         android:textAlignment="textEnd"
         android:textColor="@color/bt_text_blue"
@@ -52,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:autofillHints=""
-            android:fontFamily="@font/latoregular"
+            android:fontFamily="@font/product_sans_regular"
             android:hint="@string/adddress"
             android:inputType="textPostalAddress"
             android:padding="10dp"
@@ -82,7 +82,7 @@
             android:id="@+id/edt_txt_comment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/latoregular"
+            android:fontFamily="@font/product_sans_regular"
             android:hint="@string/write_a_note"
             android:inputType="textPostalAddress"
             android:padding="10dp"
@@ -94,7 +94,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:fontFamily="@font/latoregular"
+        android:fontFamily="@font/product_sans_regular"
         android:text="@string/select_delivery_method"
         android:textColor="@color/dark_effect"
         android:textSize="18sp" />
@@ -110,7 +110,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:fontFamily="@font/latoregular"
+            android:fontFamily="@font/product_sans_regular"
             android:text="@string/home_address"
             android:textSize="16sp" />
 
@@ -118,7 +118,7 @@
             android:id="@+id/rdi_other_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/latoregular"
+            android:fontFamily="@font/product_sans_regular"
             android:text="@string/work_place_address"
             android:textSize="16sp" />
 
@@ -126,7 +126,7 @@
             android:id="@+id/rdi_ship_this_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/latoregular"
+            android:fontFamily="@font/product_sans_regular"
             android:text="@string/current_location"
             android:textSize="16sp" />
 
@@ -136,7 +136,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:fontFamily="@font/latoregular"
+        android:fontFamily="@font/product_sans_regular"
         android:text="@string/select_payment_method"
         android:textColor="@color/dark_effect"
         android:textSize="18sp" />
@@ -152,7 +152,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:fontFamily="@font/latoregular"
+            android:fontFamily="@font/product_sans_regular"
             android:text="@string/cash_on_delivery"
             android:textSize="16sp" />
 
@@ -160,7 +160,7 @@
             android:id="@+id/rdi_braintree"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/latoregular"
+            android:fontFamily="@font/product_sans_regular"
             android:text="@string/visa_debit_card_paypal"
             android:textSize="16sp"
              />
@@ -173,8 +173,9 @@
         android:layout_height="40dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
+        android:backgroundTint="#000000"
         android:background="@drawable/button_design7"
-        android:fontFamily="@font/latoregular"
+        android:fontFamily="@font/product_sans_regular"
         android:text="Pay"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"

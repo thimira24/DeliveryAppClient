@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="0dp"
-            android:fontFamily="@font/latoregular"
+            android:fontFamily="@font/product_sans_regular"
             android:text="Create Account"
             android:textColor="@color/dark_background"
             android:textSize="24sp"
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
             android:layout_marginBottom="15dp"
-            android:fontFamily="@font/latoregular"
+            android:fontFamily="@font/product_sans_regular"
             android:text="Successfully Verified your number +94717701797"
             android:textColor="#4CAF50"
             android:textSize="12sp"
@@ -52,7 +52,7 @@
             android:layout_marginBottom="2dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:fontFamily="@font/latoregular"
+            android:fontFamily="@font/product_sans_regular"
             android:text="Search here to set your Home address"/>
 
         <RelativeLayout
@@ -82,7 +82,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:autofillHints=""
-                android:fontFamily="@font/latoregular"
+                android:fontFamily="@font/product_sans_regular"
                 android:hint="@string/name_reg"
                 android:inputType="text"
                 android:textColor="#2E2D2D"
@@ -99,7 +99,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:autofillHints=""
-                android:fontFamily="@font/latoregular"
+                android:fontFamily="@font/product_sans_regular"
                 android:hint="@string/emailreg"
                 android:inputType="textEmailAddress"
                 android:textColor="#2E2D2D"
@@ -108,6 +108,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/phone_input_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:visibility="gone">
@@ -137,7 +138,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:autofillHints=""
-                android:fontFamily="@font/latoregular"
+                android:fontFamily="@font/product_sans_regular"
                 android:hint="@string/addressreg"
                 android:inputType="textPostalAddress"
                 android:textColor="#2E2D2D"
@@ -154,7 +155,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:autofillHints=""
-                android:fontFamily="@font/latoregular"
+                android:fontFamily="@font/product_sans_regular"
                 android:hint="@string/addressreg1"
                 android:inputType="textPostalAddress"
                 android:textColor="#2E2D2D"
@@ -193,7 +194,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:autofillHints=""
-                android:fontFamily="@font/latoregular"
+                android:fontFamily="@font/product_sans_regular"
                 android:hint="@string/nicreg"
                 android:inputType="text"
                 android:textColor="#2E2D2D"
@@ -209,7 +210,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="50dp"
             android:background="@drawable/button_design7"
-            android:fontFamily="@font/latoregular"
+            android:fontFamily="@font/product_sans_regular"
             android:text="Register"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"

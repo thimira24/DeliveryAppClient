@@ -24,6 +24,8 @@ import com.developement.app.Callback.ILoadOrderCallbackListner
 import com.developement.app.Callback.IMyButtonCallback
 import com.developement.app.Common.Common
 import com.developement.app.Common.MySwipeHelper
+import com.developement.app.Database.*
+import com.developement.app.EventBus.CounterCartEvent
 import com.developement.app.EventBus.MenuItemBack
 import com.developement.app.Model.OrderModel
 import com.developement.app.Model.RefundRequestModel
@@ -35,6 +37,11 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import dmax.dialog.SpotsDialog
+import io.reactivex.SingleObserver
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.disposables.Disposable
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.layout_order_item.*
 import kotlinx.android.synthetic.main.layout_refund.*
 import org.greenrobot.eventbus.EventBus
@@ -49,6 +56,9 @@ class ViewOrderFragment : Fragment(), ILoadOrderCallbackListner {
     internal lateinit var dialog: AlertDialog
     internal lateinit var recycler_order: RecyclerView
     internal lateinit var listener: ILoadOrderCallbackListner
+
+    lateinit var cartDataSource:CartDataSource
+    var compositeDisposable = CompositeDisposable()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -97,6 +107,8 @@ class ViewOrderFragment : Fragment(), ILoadOrderCallbackListner {
     }
 
     private fun initViews(root: View?) {
+
+        cartDataSource = LocalClassDataSource(CartDatabase.getInstance(context!!).cartDAO())
         listener = this
         dialog = SpotsDialog.Builder().setContext(context!!).setCancelable(false).build()
 
@@ -110,6 +122,7 @@ class ViewOrderFragment : Fragment(), ILoadOrderCallbackListner {
                 viewHolder: RecyclerView.ViewHolder,
                 buffer: MutableList<MyButton>
             ) {
+                // cancel order
                 buffer.add(
                     MyButton(context!!,
                         "Cancel Order",
@@ -223,15 +236,15 @@ class ViewOrderFragment : Fragment(), ILoadOrderCallbackListner {
 
                         }))
 
-                    //tracking button
-                            buffer.add(
-                            MyButton(context!!,
-                                "Track Order",
-                                30,
-                                0,
-                                Color.parseColor("#001970"),
-                                object : IMyButtonCallback {
-                                    override fun onClick(pos: Int) {
+                //tracking button
+                buffer.add(
+                     MyButton(context!!,
+                         "Track Order",
+                         30,
+                         0,
+                          Color.parseColor("#001970"),
+                          object : IMyButtonCallback {
+                          override fun onClick(pos: Int) {
                                         val orderModel = (recycler_order.adapter as MyOrderAdapter).getItemAtPosition(pos)
                                         //fetch from firebase
                                         FirebaseDatabase.getInstance()
@@ -255,21 +268,71 @@ class ViewOrderFragment : Fragment(), ILoadOrderCallbackListner {
                                                             }
                                                             else
                                                             {
-                                                                startActivity(Intent(context!!, TrackingOrderActivity::class.java))
+                                                               // startActivity(Intent(context!!, TrackingOrderActivity::class.java))
                                                                 Toast.makeText(context!!, "It will deliver soon, Please wait", Toast.LENGTH_LONG).show()
                                                             }
                                                         }
                                                     else
                                                         {
-                                                            startActivity(Intent(context!!, TrackingOrderActivity::class.java))
+                                                           // startActivity(Intent(context!!, TrackingOrderActivity::class.java))
                                                             Toast.makeText(context!!, "Your order still not ready to deliver. Please wait", Toast.LENGTH_LONG).show()
                                                         }
                                                 }
 
                                             })
                                     }
-
                                 }))
+
+                // Replace order
+                //tracking button
+                buffer.add(
+                    MyButton(context!!,
+                        "Re Order",
+                        30,
+                        0,
+                        Color.parseColor("#5d4037"),
+                        object : IMyButtonCallback {
+                            override fun onClick(pos: Int) {
+                                val orderModel = (recycler_order.adapter as MyOrderAdapter).getItemAtPosition(pos)
+
+                                dialog.show()
+
+                                cartDataSource.cleanCart(Common.currentUser!!.uid!!)
+                                    .subscribeOn(Schedulers.io())
+                                    .observeOn(AndroidSchedulers.mainThread())
+                                    .subscribe(object:SingleObserver<Int>{
+                                        override fun onSuccess(t: Int) {
+                                            val cartItems = orderModel.cartItemList!!.toTypedArray()
+                                            compositeDisposable.add(
+                                                cartDataSource.insertOrReplaceAll(*cartItems)
+                                                    .subscribeOn(Schedulers.io())
+                                                    .observeOn(AndroidSchedulers.mainThread())
+                                                    .subscribe({
+                                                        dialog.dismiss()
+                                                        EventBus.getDefault().postSticky(CounterCartEvent(true))
+                                                        Toast.makeText(context!!, "Added", Toast.LENGTH_SHORT).show()
+
+                                                    },{
+                                                        t:Throwable? ->
+                                                        dialog.dismiss()
+                                                        Toast.makeText(context!!, "Added", Toast.LENGTH_SHORT).show()
+                                                    })
+                                            )
+                                        }
+
+                                        override fun onSubscribe(d: Disposable) {
+
+                                        }
+
+                                        override fun onError(e: Throwable) {
+                                            dialog.dismiss()
+                                            Toast.makeText(context!!, e.message!!, Toast.LENGTH_SHORT).show()
+                                        }
+
+                                    })
+
+                            }
+                        }))
             }
         }
 
@@ -294,6 +357,7 @@ class ViewOrderFragment : Fragment(), ILoadOrderCallbackListner {
 
     override fun onDestroy() {
         EventBus.getDefault().postSticky(MenuItemBack())
+        compositeDisposable.clear()
         super.onDestroy()
     }
 

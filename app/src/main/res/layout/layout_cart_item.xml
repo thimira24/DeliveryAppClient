@@ -3,7 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginTop="2dp"
+    android:layout_marginBottom="2dp"
     android:orientation="vertical"
     app:cardCornerRadius="8dp">
 
@@ -26,6 +29,7 @@
 
                 <ImageView
                     android:id="@+id/img_cart"
+                    android:backgroundTint="#FFFFFF"
                     android:background="@color/color_white"
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
@@ -47,7 +51,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:padding="2dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -61,7 +65,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
-                    android:fontFamily="@font/latoregular"
+                    android:fontFamily="@font/product_sans_regular"
                     android:text="@string/food_namecart"
                     android:textColor="@color/dark_effect1"
                     android:textSize="16sp"
@@ -77,7 +81,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginEnd="1dp"
-                        android:fontFamily="@font/latoregular"
+                        android:fontFamily="@font/product_sans_regular"
                         android:text="@string/rs123"
                         android:textColor="@color/dark_effect"
                         android:textSize="15sp" />
@@ -88,7 +92,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="2dp"
                         android:layout_marginEnd="1dp"
-                        android:fontFamily="@font/latoregular"
+                        android:fontFamily="@font/product_sans_regular"
                         android:text="@string/carpricevalue"
                         android:textColor="@color/dark_effect"
                         android:textSize="15sp" />
@@ -98,7 +102,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="0dp"
                         android:layout_marginEnd="1dp"
-                        android:fontFamily="@font/latoregular"
+                        android:fontFamily="@font/product_sans_regular"
                         android:text="@string/klju"
                         android:textColor="@color/dark_effect"
                         android:textSize="15sp" />
@@ -110,12 +114,12 @@
             <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
                 android:id="@+id/number_button"
                 android:layout_width="150dp"
-                android:layout_height="35dp"
+                android:layout_height="30dp"
                 android:layout_gravity="right"
                 android:layout_marginLeft="8dp"
-                android:layout_marginTop="0dp"
                 android:layout_marginRight="8dp"
-                app:backGroundColor="#F8F4F4"
+                android:layout_marginBottom="2dp"
+                app:backGroundColor="#FFFFFF"
                 app:finalNumber="20"
                 app:initialNumber="1"
                 app:textColor="@color/dark_effect1" />

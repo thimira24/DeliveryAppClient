@@ -36,7 +36,7 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         app:backgroundTint="@color/color_white"
-        app:badgeBackgroundColor="@color/colorAccent"
+        app:badgeBackgroundColor="@color/color_notify"
         app:srcCompat="@drawable/slide_ic_cart" />
 
 

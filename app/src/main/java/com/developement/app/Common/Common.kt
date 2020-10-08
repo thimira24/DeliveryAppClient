@@ -224,6 +224,8 @@ object Common {
         return (-1).toFloat()
     }
 
+
+    var currentOrderSelected: OrderModel? = null
     var currentShippingOrder: ShippingOrderModel? = null
     val REFUND_REQUEST_REF: String = "RefundRequest"
     const val NOTI_User = "Noti_user"

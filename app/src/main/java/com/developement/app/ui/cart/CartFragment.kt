@@ -475,7 +475,7 @@ class CartFragment : Fragment(), ILoadTimeFromCallback {
                                 )
 
                                 clearcart()
-                                txt_empty_cart!!.setText("Now you can see the order status in OrderModel History page!")
+                                txt_empty_cart!!.setText("Now you can see your order status in Order History page!")
 
                             }
 

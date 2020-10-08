@@ -24,7 +24,7 @@
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:fontFamily="@font/latoregular"
+        android:fontFamily="@font/product_sans_regular"
         android:text="Rate this product"
         android:textColor="@color/dark_effect1"
         android:textSize="20dp" />
@@ -33,7 +33,7 @@
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:fontFamily="@font/latoregular"
+        android:fontFamily="@font/product_sans_regular"
         android:text="We need your feedback!"
         android:textSize="12dp" />
 
@@ -51,7 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_marginTop="10dp"
-        android:fontFamily="@font/latoregular"
+        android:fontFamily="@font/product_sans_regular"
         android:text="Write a review"
         android:textSize="12dp" />
 
@@ -62,7 +62,7 @@
         android:layout_marginTop="5dp"
         android:autofillHints=""
         android:background="@drawable/button_design4"
-        android:fontFamily="@font/latoregular"
+        android:fontFamily="@font/product_sans_regular"
         android:gravity="top|left"
         android:hint="@string/tell_others_what_you_think"
         android:inputType="textMultiLine"
@@ -83,7 +83,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
         android:background="@drawable/button_design11"
-        android:fontFamily="@font/latoregular"
+        android:fontFamily="@font/product_sans_regular"
         android:text="Post"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"

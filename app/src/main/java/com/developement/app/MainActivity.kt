@@ -23,6 +23,7 @@ import com.google.android.libraries.places.api.model.Place
 import com.google.android.libraries.places.api.net.PlacesClient
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener
+import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
@@ -41,7 +42,8 @@ import java.util.*
 import kotlin.collections.HashMap
 
 
-class MainActivity : AppCompatActivity() {
+class
+MainActivity : AppCompatActivity() {
 
     private var placeSelected: Place? = null
     private var places_fragment: AutocompleteSupportFragment? = null
@@ -92,6 +94,11 @@ class MainActivity : AppCompatActivity() {
         placesClient = Places.createClient(this)
 
         providers = Arrays.asList<AuthUI.IdpConfig>(AuthUI.IdpConfig.PhoneBuilder().build())
+        // here I got one problem, i want to fix later on
+//        ,
+//        AuthUI.IdpConfig.EmailBuilder().build()
+
+
         userRef = FirebaseDatabase.getInstance().getReference(Common.USER_REFERENCE)
         firebaseAuth = FirebaseAuth.getInstance()
         dialog = SpotsDialog.Builder().setContext(this).setCancelable(false).build()
@@ -201,12 +208,10 @@ class MainActivity : AppCompatActivity() {
 
 
         val builder = androidx.appcompat.app.AlertDialog.Builder(this)
-        // builder.setTitle("Create Account")
-        // builder.setMessage("It will take less than a minute")
-
         val itemView = LayoutInflater.from(this@MainActivity)
             .inflate(R.layout.layout_register, null)
 
+        val phone_input_layout = itemView.findViewById<TextInputLayout>(R.id.phone_input_layout);
         val edt_name = itemView.findViewById<EditText>(R.id.edt_name)
         val edt_phone = itemView.findViewById<EditText>(R.id.edt_phone)
         val edt_hometown = itemView.findViewById<EditText>(R.id.edt_hometown)
@@ -224,7 +229,6 @@ class MainActivity : AppCompatActivity() {
         btn_signup.setOnClickListener {
 
             if (placeSelected != null) {
-
 
                 if (TextUtils.isDigitsOnly(edt_name.text.toString())) {
                     Toast.makeText(this@MainActivity, "Enter your name", Toast.LENGTH_SHORT).show()
@@ -334,6 +338,12 @@ class MainActivity : AppCompatActivity() {
         })
 
         // set mobile number
+        if (user.phoneNumber == null || TextUtils.isEmpty(user.phoneNumber)){
+            phone_input_layout.hint = "Email"
+            edt_phone.setText(user.email)
+            edt_name.setText(user.displayName)
+        }
+        else
         edt_phone.setText(user!!.phoneNumber)
         builder.setView(itemView)
 
@@ -373,13 +383,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun phoneLogin() {
 
+        startActivityForResult(AuthUI.getInstance().createSignInIntentBuilder()
 
-        startActivityForResult(
-            AuthUI.getInstance().createSignInIntentBuilder().setAvailableProviders(
-                providers!!
-            ).build(), APP_REQUEST_CODE
+            .setAvailableProviders(providers!!).build(), APP_REQUEST_CODE
+//            .setTheme(R.style.LoginTheme)
+//            .setLogo(R.drawable.logo)
         )
-
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

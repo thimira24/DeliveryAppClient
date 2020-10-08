@@ -365,7 +365,7 @@ class HomeActivity : AppCompatActivity() {
     @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
     fun onHideFabEvent(event: HideFABCart) {
         if (event.isHide) {
-            fab.hide()
+            fab.show()
 
         } else
             fab.show()

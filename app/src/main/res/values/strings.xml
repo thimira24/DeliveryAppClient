@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Shofee</string>
+    <string name="app_name">User App</string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -59,7 +59,7 @@
     <string name="continue_shopping">Continue Shopping</string>
     <string name="total">Total Amount</string>
     <string name="_000_00">000.00</string>
-    <string name="confirm_order">Checkout</string>
+    <string name="confirm_order">Buy now</string>
     <string name="todo8">TODO</string>
     <string name="todo">TODO</string>
     <string name="todo20">TODO</string>
