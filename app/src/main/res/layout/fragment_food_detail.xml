@@ -2,8 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:background="#FFFFFF"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
 
     <LinearLayout
 
@@ -19,37 +19,37 @@
             android:backgroundTint="#FFFFFF" />
 
         <LinearLayout
-            android:layout_marginBottom="130dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginBottom="130dp"
             android:orientation="vertical"
-            android:paddingRight="16dp"
+            android:paddingLeft="16dp"
             android:paddingTop="16dp"
-            android:paddingLeft="16dp">
+            android:paddingRight="16dp">
 
             <LinearLayout
-                android:layout_marginBottom="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
                 android:orientation="horizontal">
 
                 <RatingBar
                     android:id="@+id/rating_Bar"
                     style="?android:attr/ratingBarStyleSmall"
-                    android:progressTint="@color/color_yellow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:isIndicator="true"
-                    android:numStars="5" />
+                    android:numStars="5"
+                    android:progressTint="@color/color_yellow" />
 
                 <TextView
-                    android:textSize="12dp"
                     android:id="@+id/count_comment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="6dp"
                     android:gravity="center"
-                    android:text="1 review" />
+                    android:text="1 review"
+                    android:textSize="12dp" />
 
             </LinearLayout>
 
@@ -77,13 +77,13 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:paddingBottom="5dp"
                     android:id="@+id/food_descryption"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
-                    android:justificationMode="inter_word"
                     android:fontFamily="@font/product_sans_regular"
+                    android:justificationMode="inter_word"
+                    android:paddingBottom="5dp"
                     android:text="@string/descs"
                     android:textColor="#444444"
                     android:textStyle="normal" />
@@ -96,76 +96,87 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_alignParentBottom="true"
-        android:background="@color/color_white"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="100dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/product_sans_regular"
-            android:text="Price"
-            android:textColor="@color/dark_effect1"
-            android:textSize="16dp"
-            android:textStyle="bold" />
+        <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
+            android:id="@+id/number_button"
+            android:layout_gravity="center"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
+            android:backgroundTint="#00000000"
+            app:backGroundColor="#00000000"
+            app:finalNumber="20"
+            app:initialNumber="1"
+            app:textColor="@color/color_black"
+            app:textSize="8dp" />
 
-        <TextView
-            android:id="@+id/food_price"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/product_sans_regular"
-            android:paddingLeft="6dp"
-            android:text="456.00 "
-            android:textStyle="bold"
-            android:textColor="@color/dark_effect1"
-            android:textSize="16dp" />
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:background="@color/color_black"
+            android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/product_sans_regular"
+                android:text="Rs "
+                android:textColor="@color/dark_sub_primary"
+                android:textSize="24dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/food_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/product_sans_regular"
+                android:paddingLeft="6dp"
+                android:text="456.00 "
+                android:textColor="@color/dark_sub_primary"
+                android:textSize="24dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/product_sans_regular"
+                android:paddingLeft="2dp"
+                android:text=" /="
+                android:textStyle="bold"
+                android:textColor="@color/dark_sub_primary"
+                android:textSize="24dp" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/add_to_cart"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorAccent"
             android:fontFamily="@font/product_sans_regular"
-            android:paddingLeft="2dp"
-            android:text="(LKR)"
-            android:textColor="@color/dark_effect1"
-            android:textSize="16dp" />
+            android:text="Add to cart"
+            android:textAllCaps="false"
+            android:textColor="@color/color_white"
+            android:textSize="24dp" />
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/add_to_cart"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:fontFamily="@font/product_sans_regular"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginBottom="5dp"
-        android:background="@drawable/button_design9"
-        android:text="Add to cart"
-        android:textAllCaps="false"
-        android:textColor="@color/color_white"
-        android:textSize="18dp" />
 
-    <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
-        android:id="@+id/number_button"
-        android:layout_width="160dp"
-        android:layout_height="40dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="60dp"
-        android:backgroundTint="#00000000"
-        app:backGroundColor="#00000000"
-        app:finalNumber="20"
-        app:initialNumber="1"
-        app:textColor="@color/color_black"
-        app:textSize="6dp" />
+
+
 
     <View
         android:layout_width="match_parent"

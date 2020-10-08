@@ -1,40 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <androidx.core.widget.NestedScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_popular"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/dashboard" />
+
+                <com.asksira.loopingviewpager.LoopingViewPager
+                    android:id="@+id/viewpager"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    app:autoScroll="true"
+                    app:isInfinite="true"
+                    app:scrollInterval="6000"
+                    app:viewpagerAspectRatio="1.344" />
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="350dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:paddingLeft="16dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="6dp"
+            android:text="Flash Deals"
+            android:textColor="@color/dark_effect"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:elevation="1.0dp"
+            android:src="@drawable/banner3" />
 
 
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:background="@drawable/dashboard"
-                android:id="@+id/recycler_popular"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
 
-            <com.asksira.loopingviewpager.LoopingViewPager
-                android:id="@+id/viewpager"
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                app:autoScroll="true"
-                app:isInfinite="true"
-                app:scrollInterval="6000"
-                app:viewpagerAspectRatio="1.344" />
+    </LinearLayout>
 
 
-
-        </LinearLayout>
-
-    </androidx.core.widget.NestedScrollView>
-
-</LinearLayout>
+</RelativeLayout>
